@@ -4,7 +4,13 @@
 //
 //  Created by 段文拯 on 2019/3/31.
 //  Copyright © 2019 段文拯. All rights reserved.
-//
+// MARK: - 设置他tabbar文字颜色的三种方式
+/*
+ 1.vc.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.foregroundColor:
+ UIColor.orange], for: .selected)
+ 2.tabBar.tintColor = UIColor.orange
+ 3.UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.orange], for: .selected)
+ */
 
 import UIKit
 
@@ -21,7 +27,6 @@ class DWZMainViewController: UITabBarController {
 // MARK: - 页面搭建
 extension DWZMainViewController {
     func setupChildControllers() {
-        
         let classArray = [
             ["clsName":"DWZHomeViewController","title":"首页","imageName":"home"],
             ["clsName":"DWZMessageViewController","title":"消息","imageName":"message_center"],
