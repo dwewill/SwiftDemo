@@ -12,19 +12,40 @@ class DWZMainViewController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupChildControllers()
+    }
 
-        // Do any additional setup after loading the view.
+}
+
+
+// MARK: - 页面搭建
+extension DWZMainViewController {
+    func setupChildControllers() {
+        
+        let classArray = [
+            ["clsName":"DWZHomeViewController","title":"首页","imageName":"aaa"],
+            ["clsName":"DWZMessageViewController","title":"消息","imageName":"aaa"],
+            ["clsName":"DWZDiscoverViewController","title":"发现","imageName":"aaa"],
+            ["clsName":"DWZProfileViewController","title":"我的","imageName":"aaa"],
+        ]
+        var mControllers = [UIViewController]()
+        for dic in classArray {
+            mControllers.append(createChildController(dic))
+        }
+        viewControllers = mControllers
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func createChildController(_ dict: [String:String]) -> UIViewController {
+        guard let clsName = dict["clsName"],
+            let title = dict["title"],
+            let imageName = dict["imageName"],
+            let cls = NSClassFromString(Bundle.main.namesspace+"."+clsName) as? UIViewController.Type
+            else {
+                return UIViewController()
+        }
+        let vc = cls.init()
+        vc.title = title
+        let nav = DWZNavigationController(rootViewController:vc)
+        return nav
     }
-    */
-
 }

@@ -28,6 +28,7 @@
 		554514D32250FF3500C0F113 /* NSString+CZHash.m in Sources */ = {isa = PBXBuildFile; fileRef = 554514C42250FF3500C0F113 /* NSString+CZHash.m */; };
 		554514D42250FF3500C0F113 /* NSAttributedString+CZAdditon.m in Sources */ = {isa = PBXBuildFile; fileRef = 554514C72250FF3500C0F113 /* NSAttributedString+CZAdditon.m */; };
 		554514D52250FF3500C0F113 /* NSArray+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 554514C82250FF3500C0F113 /* NSArray+Log.m */; };
+		554514D92251046400C0F113 /* Bundle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554514D82251046400C0F113 /* Bundle+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +69,7 @@
 		554514C82250FF3500C0F113 /* NSArray+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Log.m"; sourceTree = "<group>"; };
 		554514C92250FF3500C0F113 /* NSString+CZPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+CZPath.h"; sourceTree = "<group>"; };
 		554514D62250FFB200C0F113 /* SwiftDemo-bridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SwiftDemo-bridge.h"; sourceTree = "<group>"; };
+		554514D82251046400C0F113 /* Bundle+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +132,7 @@
 		5545149A2250BF3D00C0F113 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				554514D72251041C00C0F113 /* Extensions */,
 				554514B02250FF3400C0F113 /* Additions */,
 			);
 			path = Tools;
@@ -228,6 +231,14 @@
 			path = Additions;
 			sourceTree = "<group>";
 		};
+		554514D72251041C00C0F113 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				554514D82251046400C0F113 /* Bundle+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -299,6 +310,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				554514AD2250C11F00C0F113 /* DWZDiscoverViewController.swift in Sources */,
+				554514D92251046400C0F113 /* Bundle+Extension.swift in Sources */,
 				554514CE2250FF3500C0F113 /* NSString+CZBase64.m in Sources */,
 				554514792250A89C00C0F113 /* AppDelegate.swift in Sources */,
 				554514D12250FF3500C0F113 /* NSObject+CZRuntime.m in Sources */,
