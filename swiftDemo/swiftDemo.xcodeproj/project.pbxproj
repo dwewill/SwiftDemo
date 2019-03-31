@@ -8,19 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		554514792250A89C00C0F113 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554514782250A89C00C0F113 /* AppDelegate.swift */; };
-		5545147B2250A89C00C0F113 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5545147A2250A89C00C0F113 /* ViewController.swift */; };
-		5545147E2250A89C00C0F113 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5545147C2250A89C00C0F113 /* Main.storyboard */; };
 		554514802250A89D00C0F113 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5545147F2250A89D00C0F113 /* Assets.xcassets */; };
-		554514832250A89D00C0F113 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 554514812250A89D00C0F113 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		554514752250A89C00C0F113 /* swiftDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = swiftDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		554514782250A89C00C0F113 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		5545147A2250A89C00C0F113 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		5545147D2250A89C00C0F113 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5545147F2250A89D00C0F113 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		554514822250A89D00C0F113 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		554514842250A89D00C0F113 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -55,10 +49,7 @@
 			isa = PBXGroup;
 			children = (
 				554514782250A89C00C0F113 /* AppDelegate.swift */,
-				5545147A2250A89C00C0F113 /* ViewController.swift */,
-				5545147C2250A89C00C0F113 /* Main.storyboard */,
 				5545147F2250A89D00C0F113 /* Assets.xcassets */,
-				554514812250A89D00C0F113 /* LaunchScreen.storyboard */,
 				554514842250A89D00C0F113 /* Info.plist */,
 			);
 			path = swiftDemo;
@@ -90,6 +81,7 @@
 		5545146D2250A89C00C0F113 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = DWZ;
 				LastSwiftUpdateCheck = 1010;
 				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = "段文拯";
@@ -122,9 +114,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				554514832250A89D00C0F113 /* LaunchScreen.storyboard in Resources */,
 				554514802250A89D00C0F113 /* Assets.xcassets in Resources */,
-				5545147E2250A89C00C0F113 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,31 +125,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5545147B2250A89C00C0F113 /* ViewController.swift in Sources */,
 				554514792250A89C00C0F113 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		5545147C2250A89C00C0F113 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				5545147D2250A89C00C0F113 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		554514812250A89D00C0F113 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				554514822250A89D00C0F113 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		554514852250A89D00C0F113 /* Debug */ = {
@@ -282,9 +252,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R67NM4WC4D;
 				INFOPLIST_FILE = swiftDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -300,9 +272,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R67NM4WC4D;
 				INFOPLIST_FILE = swiftDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
