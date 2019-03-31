@@ -23,10 +23,10 @@ extension DWZMainViewController {
     func setupChildControllers() {
         
         let classArray = [
-            ["clsName":"DWZHomeViewController","title":"首页","imageName":"aaa"],
-            ["clsName":"DWZMessageViewController","title":"消息","imageName":"aaa"],
-            ["clsName":"DWZDiscoverViewController","title":"发现","imageName":"aaa"],
-            ["clsName":"DWZProfileViewController","title":"我的","imageName":"aaa"],
+            ["clsName":"DWZHomeViewController","title":"首页","imageName":"home"],
+            ["clsName":"DWZMessageViewController","title":"消息","imageName":"message_center"],
+            ["clsName":"DWZDiscoverViewController","title":"发现","imageName":"discover"],
+            ["clsName":"DWZProfileViewController","title":"我的","imageName":"profile"],
         ]
         var mControllers = [UIViewController]()
         for dic in classArray {
@@ -45,6 +45,10 @@ extension DWZMainViewController {
         }
         let vc = cls.init()
         vc.title = title
+        vc.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.foregroundColor:
+            UIColor.orange], for: .selected)
+        vc.tabBarItem.image = UIImage(named: "tabbar_"+imageName)
+        vc.tabBarItem.selectedImage = UIImage(named: "tabbar_"+imageName+"_selected")?.withRenderingMode(.alwaysOriginal)
         let nav = DWZNavigationController(rootViewController:vc)
         return nav
     }
