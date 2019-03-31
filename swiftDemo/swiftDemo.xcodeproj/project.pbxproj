@@ -9,6 +9,13 @@
 /* Begin PBXBuildFile section */
 		554514792250A89C00C0F113 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554514782250A89C00C0F113 /* AppDelegate.swift */; };
 		554514802250A89D00C0F113 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5545147F2250A89D00C0F113 /* Assets.xcassets */; };
+		554514A32250C04700C0F113 /* DWZMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554514A22250C04700C0F113 /* DWZMainViewController.swift */; };
+		554514A52250C08500C0F113 /* DWZNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554514A42250C08500C0F113 /* DWZNavigationController.swift */; };
+		554514A72250C0B000C0F113 /* DWZBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554514A62250C0B000C0F113 /* DWZBaseViewController.swift */; };
+		554514A92250C0F600C0F113 /* DWZHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554514A82250C0F600C0F113 /* DWZHomeViewController.swift */; };
+		554514AB2250C10800C0F113 /* DWZMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554514AA2250C10800C0F113 /* DWZMessageViewController.swift */; };
+		554514AD2250C11F00C0F113 /* DWZDiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554514AC2250C11F00C0F113 /* DWZDiscoverViewController.swift */; };
+		554514AF2250C12F00C0F113 /* DWZProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554514AE2250C12F00C0F113 /* DWZProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -16,6 +23,13 @@
 		554514782250A89C00C0F113 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5545147F2250A89D00C0F113 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		554514842250A89D00C0F113 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		554514A22250C04700C0F113 /* DWZMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DWZMainViewController.swift; sourceTree = "<group>"; };
+		554514A42250C08500C0F113 /* DWZNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DWZNavigationController.swift; sourceTree = "<group>"; };
+		554514A62250C0B000C0F113 /* DWZBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DWZBaseViewController.swift; sourceTree = "<group>"; };
+		554514A82250C0F600C0F113 /* DWZHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DWZHomeViewController.swift; sourceTree = "<group>"; };
+		554514AA2250C10800C0F113 /* DWZMessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DWZMessageViewController.swift; sourceTree = "<group>"; };
+		554514AC2250C11F00C0F113 /* DWZDiscoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DWZDiscoverViewController.swift; sourceTree = "<group>"; };
+		554514AE2250C12F00C0F113 /* DWZProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DWZProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,11 +62,98 @@
 		554514772250A89C00C0F113 /* swiftDemo */ = {
 			isa = PBXGroup;
 			children = (
+				554514982250BF3D00C0F113 /* Classes */,
 				554514782250A89C00C0F113 /* AppDelegate.swift */,
 				5545147F2250A89D00C0F113 /* Assets.xcassets */,
 				554514842250A89D00C0F113 /* Info.plist */,
 			);
 			path = swiftDemo;
+			sourceTree = "<group>";
+		};
+		554514982250BF3D00C0F113 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				5545149B2250BF3D00C0F113 /* Model */,
+				5545149C2250BF3D00C0F113 /* View */,
+				554514992250BF3D00C0F113 /* ViewModel */,
+				5545149A2250BF3D00C0F113 /* Tools */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		554514992250BF3D00C0F113 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		5545149A2250BF3D00C0F113 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		5545149B2250BF3D00C0F113 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		5545149C2250BF3D00C0F113 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				554514A12250BF3D00C0F113 /* Main */,
+				5545149D2250BF3D00C0F113 /* Home */,
+				5545149F2250BF3D00C0F113 /* Message */,
+				5545149E2250BF3D00C0F113 /* Discover */,
+				554514A02250BF3D00C0F113 /* Profile */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5545149D2250BF3D00C0F113 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				554514A82250C0F600C0F113 /* DWZHomeViewController.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		5545149E2250BF3D00C0F113 /* Discover */ = {
+			isa = PBXGroup;
+			children = (
+				554514AC2250C11F00C0F113 /* DWZDiscoverViewController.swift */,
+			);
+			path = Discover;
+			sourceTree = "<group>";
+		};
+		5545149F2250BF3D00C0F113 /* Message */ = {
+			isa = PBXGroup;
+			children = (
+				554514AA2250C10800C0F113 /* DWZMessageViewController.swift */,
+			);
+			path = Message;
+			sourceTree = "<group>";
+		};
+		554514A02250BF3D00C0F113 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				554514AE2250C12F00C0F113 /* DWZProfileViewController.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		554514A12250BF3D00C0F113 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				554514A22250C04700C0F113 /* DWZMainViewController.swift */,
+				554514A42250C08500C0F113 /* DWZNavigationController.swift */,
+				554514A62250C0B000C0F113 /* DWZBaseViewController.swift */,
+			);
+			path = Main;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,7 +226,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				554514AD2250C11F00C0F113 /* DWZDiscoverViewController.swift in Sources */,
 				554514792250A89C00C0F113 /* AppDelegate.swift in Sources */,
+				554514A72250C0B000C0F113 /* DWZBaseViewController.swift in Sources */,
+				554514A52250C08500C0F113 /* DWZNavigationController.swift in Sources */,
+				554514A92250C0F600C0F113 /* DWZHomeViewController.swift in Sources */,
+				554514AB2250C10800C0F113 /* DWZMessageViewController.swift in Sources */,
+				554514AF2250C12F00C0F113 /* DWZProfileViewController.swift in Sources */,
+				554514A32250C04700C0F113 /* DWZMainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
