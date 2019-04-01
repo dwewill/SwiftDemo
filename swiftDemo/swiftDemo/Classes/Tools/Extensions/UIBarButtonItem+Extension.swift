@@ -18,7 +18,7 @@ extension UIBarButtonItem {
     ///   - action: action
     ///   - selector: selector
     convenience init(title: String, fontSize:CGFloat = 16, action: AnyObject?, selector: Selector) {
-        let btn: UIButton = UIButton.cz_textButton("好友", fontSize: 16, normalColor: UIColor.darkGray, highlightedColor: UIColor.orange)
+        let btn: UIButton = UIButton.cz_textButton(title, fontSize: 16, normalColor: UIColor.darkGray, highlightedColor: UIColor.orange)
         btn.addTarget(action, action: selector, for: .touchUpInside)
         self.init(customView: btn)
     }
