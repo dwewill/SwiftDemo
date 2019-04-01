@@ -22,16 +22,17 @@ class DWZMainViewController: UITabBarController {
         setupChildControllers()
         setupComposeButton()
     }
+    
+    // 发布按钮的点击
+    @objc fileprivate func composeButtonClick() {
+        print("composeButtonClick")
+        present(DWZBaseViewController(), animated: true, completion: nil)
+    }
 }
 
 
 // MARK: - 页面搭建
 extension DWZMainViewController {
-    @objc fileprivate func composeButtonClick() {
-        print("composeButtonClick")
-        present(DWZBaseViewController(), animated: true, completion: nil)
-    }
-    
     fileprivate func setupComposeButton() {
         tabBar.addSubview(compostButton!)
         let compostButtonWidth = tabBar.bounds.size.width / CGFloat(viewControllers?.count ?? 1) - 1

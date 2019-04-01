@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5519C0B62251B4A90003B265 /* DWZTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5519C0B52251B4A90003B265 /* DWZTestViewController.swift */; };
 		554514792250A89C00C0F113 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554514782250A89C00C0F113 /* AppDelegate.swift */; };
 		554514802250A89D00C0F113 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5545147F2250A89D00C0F113 /* Assets.xcassets */; };
 		554514A32250C04700C0F113 /* DWZMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554514A22250C04700C0F113 /* DWZMainViewController.swift */; };
@@ -32,6 +33,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5519C0B52251B4A90003B265 /* DWZTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DWZTestViewController.swift; sourceTree = "<group>"; };
 		554514752250A89C00C0F113 /* swiftDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = swiftDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		554514782250A89C00C0F113 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5545147F2250A89D00C0F113 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -83,6 +85,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5519C0B42251B46F0003B265 /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				5519C0B52251B4A90003B265 /* DWZTestViewController.swift */,
+			);
+			path = Test;
+			sourceTree = "<group>";
+		};
 		5545146C2250A89C00C0F113 = {
 			isa = PBXGroup;
 			children = (
@@ -192,6 +202,7 @@
 		554514A12250BF3D00C0F113 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				5519C0B42251B46F0003B265 /* Test */,
 				554514A22250C04700C0F113 /* DWZMainViewController.swift */,
 				554514A42250C08500C0F113 /* DWZNavigationController.swift */,
 				554514A62250C0B000C0F113 /* DWZBaseViewController.swift */,
@@ -315,6 +326,7 @@
 				554514792250A89C00C0F113 /* AppDelegate.swift in Sources */,
 				554514D12250FF3500C0F113 /* NSObject+CZRuntime.m in Sources */,
 				554514D42250FF3500C0F113 /* NSAttributedString+CZAdditon.m in Sources */,
+				5519C0B62251B4A90003B265 /* DWZTestViewController.swift in Sources */,
 				554514D52250FF3500C0F113 /* NSArray+Log.m in Sources */,
 				554514CC2250FF3500C0F113 /* UIScreen+CZAddition.m in Sources */,
 				554514A72250C0B000C0F113 /* DWZBaseViewController.swift in Sources */,
