@@ -12,19 +12,20 @@ class DWZTestViewController: DWZBaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        title = "第 \(navigationController?.viewControllers.count ?? 0) 个"
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @objc fileprivate func showNext() {
+        print(#function)
+        let vc = DWZTestViewController()
+        navigationController?.pushViewController(vc, animated: true)
     }
-    */
 
+}
+
+extension DWZTestViewController {
+    override func setupUI() {
+        super.setupUI()
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "下一个", style: .plain, target: self, action: #selector(showNext))
+    }
 }

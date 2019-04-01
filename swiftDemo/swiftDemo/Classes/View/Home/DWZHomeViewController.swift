@@ -17,6 +17,7 @@ class DWZHomeViewController: DWZBaseViewController {
     @objc fileprivate func showFriends() {
         print(#function)
         let vc = DWZTestViewController()
+        // 该方法也可以隐藏底部tabbar但是要从每个从根控制器跳转都要设置
 //        vc.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(vc, animated: true)
     }
