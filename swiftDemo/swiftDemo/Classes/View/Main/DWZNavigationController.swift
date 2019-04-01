@@ -25,7 +25,7 @@ class DWZNavigationController: UINavigationController {
                 if children.count == 1 {
                     backTitle = children.first?.title ?? "返回"
                 }
-                vc.navBarItem.leftBarButtonItem = UIBarButtonItem(title: backTitle, action: self, selector: #selector(goBack))
+                vc.navBarItem.leftBarButtonItem = UIBarButtonItem(title: backTitle, action: self, selector: #selector(goBack), isBack: true)
             }
             
         }

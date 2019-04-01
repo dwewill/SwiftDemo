@@ -31,5 +31,7 @@ extension DWZBaseViewController {
         view.addSubview(navBar)
         navBar.items = [navBarItem]
         navBar.tintColor = UIColor.cz_color(withHex: 0xF6F6F6)
+        navBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor:
+            UIColor.darkGray]
     }
 }
