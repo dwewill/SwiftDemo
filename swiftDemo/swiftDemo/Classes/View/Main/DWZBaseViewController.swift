@@ -29,6 +29,7 @@ extension DWZBaseViewController {
     @objc func setupUI() {
         view.backgroundColor = UIColor.cz_random()
         view.addSubview(navBar)
-//        navBar.items = [navBarItem]
+        navBar.items = [navBarItem]
+        navBar.tintColor = UIColor.cz_color(withHex: 0xF6F6F6)
     }
 }

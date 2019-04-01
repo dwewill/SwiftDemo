@@ -28,6 +28,6 @@ extension DWZHomeViewController {
         super.setupUI()
 //        let btn: UIButton = UIButton.cz_textButton("好友", fontSize: 16, normalColor: UIColor.darkGray, highlightedColor: UIColor.orange)
 //        btn.addTarget(self, action: #selector(showFriends), for: .touchUpInside)
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "好友", action: self, selector: #selector(showFriends))
+        navBarItem.leftBarButtonItem = UIBarButtonItem(title: "好友", action: self, selector: #selector(showFriends))
     }
 }
