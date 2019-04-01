@@ -17,7 +17,7 @@ class DWZHomeViewController: DWZBaseViewController {
     @objc fileprivate func showFriends() {
         print(#function)
         let vc = DWZTestViewController()
-        vc.hidesBottomBarWhenPushed = true
+//        vc.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(vc, animated: true)
     }
 }

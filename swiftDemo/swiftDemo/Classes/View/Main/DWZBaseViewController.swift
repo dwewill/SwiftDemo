@@ -9,12 +9,10 @@
 import UIKit
 
 class DWZBaseViewController: UIViewController {
-
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
     }
-    
 }
 
 extension DWZBaseViewController {
