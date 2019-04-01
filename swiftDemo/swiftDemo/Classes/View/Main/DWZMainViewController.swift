@@ -16,20 +16,34 @@ import UIKit
 
 class DWZMainViewController: UITabBarController {
 
+    lazy var compostButton = UIButton.cz_imageButton("tabbar_compose_icon_add", backgroundImageName: "tabbar_compose_button")
     override func viewDidLoad() {
         super.viewDidLoad()
         setupChildControllers()
+        setupComposeButton()
     }
-
 }
 
 
 // MARK: - 页面搭建
 extension DWZMainViewController {
-    func setupChildControllers() {
+    @objc fileprivate func composeButtonClick() {
+        print("composeButtonClick")
+        present(DWZBaseViewController(), animated: true, completion: nil)
+    }
+    
+    fileprivate func setupComposeButton() {
+        tabBar.addSubview(compostButton!)
+        let compostButtonWidth = tabBar.bounds.size.width / CGFloat(viewControllers?.count ?? 1) - 1
+        compostButton?.frame = tabBar.bounds.insetBy(dx: compostButtonWidth*2, dy: 0)
+        compostButton?.addTarget(self, action: #selector(composeButtonClick), for: .touchUpInside)
+    }
+    
+    fileprivate func setupChildControllers() {
         let classArray = [
             ["clsName":"DWZHomeViewController","title":"首页","imageName":"home"],
             ["clsName":"DWZMessageViewController","title":"消息","imageName":"message_center"],
+            ["clsName":"UIViewController"],
             ["clsName":"DWZDiscoverViewController","title":"发现","imageName":"discover"],
             ["clsName":"DWZProfileViewController","title":"我的","imageName":"profile"],
         ]
@@ -40,7 +54,7 @@ extension DWZMainViewController {
         viewControllers = mControllers
     }
     
-    func createChildController(_ dict: [String:String]) -> UIViewController {
+    fileprivate func createChildController(_ dict: [String:String]) -> UIViewController {
         guard let clsName = dict["clsName"],
             let title = dict["title"],
             let imageName = dict["imageName"],
