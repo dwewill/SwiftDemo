@@ -7,9 +7,12 @@
 //
 
 import UIKit
+private let baseCellId = "baseCellId"
 
 class DWZHomeViewController: DWZBaseViewController {
 
+    lazy var dataArray: [String] = [String]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -21,11 +24,34 @@ class DWZHomeViewController: DWZBaseViewController {
 //        vc.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(vc, animated: true)
     }
+    
+    override func loadData() {
+        for i in 0..<10 {
+            dataArray.append("\(i)")
+        }
+    }
 }
 
+
+// MARK: - 页面搭建
 extension DWZHomeViewController {
     override func setupUI() {
         super.setupUI()
         navBarItem.leftBarButtonItem = UIBarButtonItem(title: "好友", action: self, selector: #selector(showFriends))
+        tableView?.register(UITableViewCell.self, forCellReuseIdentifier: baseCellId)
+    }
+}
+
+
+// MARK: - TableView dataSource && delegate
+extension DWZHomeViewController {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return dataArray.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: baseCellId, for: indexPath)
+        cell.textLabel?.text = dataArray[indexPath.row]
+        return cell
     }
 }

@@ -25,12 +25,17 @@ class DWZBaseViewController: UIViewController {
         super.viewDidLoad()
         navigationController?.navigationBar.isHidden = true
         setupUI()
+        loadData()
     }
     
     override var title: String? {
         didSet {
             navBarItem.title = title
         }
+    }
+    
+    func loadData() {
+    
     }
 }
 
@@ -44,7 +49,7 @@ extension DWZBaseViewController {
     }
     
     fileprivate func setupTableView() {
-        tableView = UITableView(frame: view.bounds, style: .plain)
+        tableView = UITableView(frame: CGRect(x: 0, y: 64, width: screenWidth, height: screenHeight-64-49), style: .plain)
         view.insertSubview(tableView!, belowSubview: navBar)
         tableView?.delegate = self
         tableView?.dataSource = self;
@@ -56,7 +61,7 @@ extension DWZBaseViewController {
         navBar.tintColor = UIColor.cz_color(withHex: 0xF6F6F6)
         navBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor:
             UIColor.darkGray]
-
+        navBar.backgroundColor = UIColor.cz_color(withHex: 0xF6F6F6)
     }
 }
 
