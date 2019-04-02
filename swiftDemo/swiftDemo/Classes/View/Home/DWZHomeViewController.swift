@@ -28,8 +28,13 @@ class DWZHomeViewController: DWZBaseViewController {
     override func loadData() {
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()+2.0) {
             for i in 0..<20 {
-                self.dataArray.append("\(i)")
+                if self.isPullUp {
+                    self.dataArray.append("上拉\(i)")
+                }else {
+                    self.dataArray.insert("\(i)", at: 0)
+                }
             }
+            self.isPullUp = false
             self.refreshControl?.endRefreshing()
             self.tableView?.reloadData()
         }

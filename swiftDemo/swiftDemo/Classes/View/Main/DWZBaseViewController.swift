@@ -21,7 +21,8 @@ class DWZBaseViewController: UIViewController {
     lazy var navBarItem = UINavigationItem()
     var tableView: UITableView?
     var refreshControl : UIRefreshControl?
-    
+    // 上拉刷新标识
+    var isPullUp = false
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.isHidden = true
@@ -36,7 +37,7 @@ class DWZBaseViewController: UIViewController {
     }
     
     @objc func loadData() {
-    
+        refreshControl?.endRefreshing()
     }
 }
 
@@ -89,5 +90,17 @@ extension DWZBaseViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         return UITableViewCell()
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        let row = indexPath.row
+        let section = tableView.numberOfSections-1
+        if row < 0 || section < 0  {
+            return
+        }
+        if tableView.numberOfRows(inSection: section) == row+1 && !isPullUp {
+            isPullUp = true
+            loadData()
+        }
     }
 }
