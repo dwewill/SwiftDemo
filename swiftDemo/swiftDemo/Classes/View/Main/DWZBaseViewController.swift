@@ -19,6 +19,7 @@ let scale = screen.scale
 class DWZBaseViewController: UIViewController {
     lazy var navBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: screenWidth, height: 64))
     lazy var navBarItem = UINavigationItem()
+    var tableView: UITableView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,10 +37,21 @@ class DWZBaseViewController: UIViewController {
 extension DWZBaseViewController {
     @objc func setupUI() {
         view.backgroundColor = UIColor.cz_random()
+        setupNavigationBar()
+        setupTableView()
+    }
+    
+    fileprivate func setupTableView() {
+        tableView = UITableView(frame: view.bounds, style: .plain)
+        view.insertSubview(tableView!, belowSubview: navBar)
+    }
+    
+    fileprivate func setupNavigationBar() {
         view.addSubview(navBar)
         navBar.items = [navBarItem]
         navBar.tintColor = UIColor.cz_color(withHex: 0xF6F6F6)
         navBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor:
             UIColor.darkGray]
+
     }
 }
