@@ -19,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.backgroundColor = UIColor.white
         window?.rootViewController = DWZMainViewController()
         window?.makeKeyAndVisible()
+        loadAppInfo()
         return true
     }
 
@@ -45,5 +46,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
 
+}
+
+extension AppDelegate {
+    private func loadAppInfo() {
+        DispatchQueue.main.async {
+            let path = Bundle.main.path(forResource: "main", ofType: "json")
+            let data = NSData(contentsOfFile: path!)
+            // 数据存入沙盒
+            let docDir = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, .userDomainMask, true)[0]
+            let jsonPath = docDir.appendingFormat("main.json")
+            let res = data?.write(toFile: jsonPath, atomically: true)
+            guard let result = res else {
+                print("没有获取到写入结果")
+                return
+            }
+            result ? print("写入成功") : print("写入失败")
+        }
+    }
 }
 

@@ -39,9 +39,14 @@ extension DWZMainViewController {
     }
     
     fileprivate func setupChildControllers() {
-        guard let path = Bundle.main.path(forResource: "main", ofType: "json"),
-              let data = try? NSData(contentsOfFile: path, options: []),
-            let classArray = try? JSONSerialization.jsonObject(with: data as Data, options: []) as? [[String:Any]]
+        let docDir = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, .userDomainMask, true)[0]
+        let jsonPath = docDir.appendingFormat("main.json")
+        var data = try? NSData(contentsOfFile: jsonPath, options: [])
+        if data == nil {
+            let path = Bundle.main.path(forResource: "main", ofType: "json")
+            data = try? NSData(contentsOfFile: path!, options: [])
+        }
+        guard let classArray = try? JSONSerialization.jsonObject(with: data! as Data, options: []) as? [[String:Any]]
         else {
             return
         }
