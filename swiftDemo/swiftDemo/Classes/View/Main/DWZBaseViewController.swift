@@ -53,8 +53,7 @@ extension DWZBaseViewController {
     }
     
     fileprivate func setupVisiterView() {
-        let visiterView = UIView(frame: view.bounds)
-        visiterView.backgroundColor = UIColor.cz_random()
+        let visiterView = DWZVisitorView(frame: view.bounds)
         view.insertSubview(visiterView, belowSubview: navBar)
     }
     
