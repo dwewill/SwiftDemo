@@ -23,6 +23,8 @@ class DWZBaseViewController: UIViewController {
     var refreshControl : UIRefreshControl?
     // 上拉刷新标识
     var isPullUp = false
+    // 用户登录标识
+    var isLogon = false
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.isHidden = true
@@ -45,9 +47,15 @@ class DWZBaseViewController: UIViewController {
 // MARK: - 搭建页面
 extension DWZBaseViewController {
     @objc func setupUI() {
-        view.backgroundColor = UIColor.cz_random()
+        view.backgroundColor = UIColor.white
         setupNavigationBar()
-        setupTableView()
+        isLogon ? setupTableView() : setupVisiterView()
+    }
+    
+    fileprivate func setupVisiterView() {
+        let visiterView = UIView(frame: view.bounds)
+        visiterView.backgroundColor = UIColor.cz_random()
+        view.insertSubview(visiterView, belowSubview: navBar)
     }
     
     fileprivate func setupTableView() {
