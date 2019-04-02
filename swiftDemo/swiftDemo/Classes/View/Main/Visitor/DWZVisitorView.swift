@@ -16,11 +16,13 @@ class DWZVisitorView: UIView {
                   let title = visiterInfo?["title"] else {
                 return
             }
+            titleLabel.text = title
             if imageName == "" {
                 return
             }
-            houseView.image = UIImage(named: imageName)
-            titleLabel.text = title
+            iconView.image = UIImage(named: imageName)
+            houseView.isHidden = true
+            maskIconView.isHidden = true
         }
     }
     // 转轮视图
