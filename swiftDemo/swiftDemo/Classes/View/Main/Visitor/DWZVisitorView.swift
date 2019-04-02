@@ -9,6 +9,20 @@
 import UIKit
 
 class DWZVisitorView: UIView {
+    // 访客视图字典数组（imageName和title）
+    var visiterInfo: [String: String]? {
+        didSet {
+            guard let imageName = visiterInfo?["imageName"],
+                  let title = visiterInfo?["title"] else {
+                return
+            }
+            if imageName == "" {
+                return
+            }
+            houseView.image = UIImage(named: imageName)
+            titleLabel.text = title
+        }
+    }
     // 转轮视图
     private lazy var iconView: UIImageView = UIImageView(image: UIImage(named: "visitordiscover_feed_image_smallicon"))
     // 遮罩视图
@@ -37,7 +51,7 @@ class DWZVisitorView: UIView {
 // MARK: - 页面搭建
 extension DWZVisitorView {
     fileprivate func setupUI() {
-        backgroundColor = UIColor.white
+        backgroundColor = UIColor.cz_color(withHex: 0xEDEDED)
         addSubview(iconView)
         addSubview(maskIconView)
         addSubview(houseView)
@@ -74,7 +88,7 @@ extension DWZVisitorView {
         
         // 遮罩视图(VFL语法)
         let viewDic = ["maskIconView":maskIconView,"registerButton":registerButton]
-        let metricsInfo = ["spacing":-20]
+        let metricsInfo = ["spacing":20]
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-0-[maskIconView]-0-|", options: [], metrics: nil, views: viewDic))
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-0-[maskIconView]-(spacing)-[registerButton]", options: [], metrics: metricsInfo, views: viewDic))
         

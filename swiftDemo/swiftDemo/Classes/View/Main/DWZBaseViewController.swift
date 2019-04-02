@@ -25,6 +25,8 @@ class DWZBaseViewController: UIViewController {
     var isPullUp = false
     // 用户登录标识
     var isLogon = false
+    // 游客视图数据
+    var visitorInfo: [String:String]?
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.isHidden = true
@@ -55,6 +57,7 @@ extension DWZBaseViewController {
     fileprivate func setupVisiterView() {
         let visiterView = DWZVisitorView(frame: view.bounds)
         view.insertSubview(visiterView, belowSubview: navBar)
+        visiterView.visiterInfo = visitorInfo
     }
     
     fileprivate func setupTableView() {

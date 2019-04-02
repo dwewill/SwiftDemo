@@ -40,11 +40,11 @@ extension DWZMainViewController {
     
     fileprivate func setupChildControllers() {
         let classArray = [
-            ["clsName":"DWZHomeViewController","title":"首页","imageName":"home"],
-            ["clsName":"DWZMessageViewController","title":"消息","imageName":"message_center"],
+            ["clsName":"DWZHomeViewController","title":"首页","imageName":"home","visitorInfo":["imageName":"","title":""]],
+            ["clsName":"DWZMessageViewController","title":"消息","imageName":"message_center","visitorInfo":["imageName":"","title":""]],
             ["clsName":"UIViewController"],
-            ["clsName":"DWZDiscoverViewController","title":"发现","imageName":"discover"],
-            ["clsName":"DWZProfileViewController","title":"我的","imageName":"profile"],
+            ["clsName":"DWZDiscoverViewController","title":"发现","imageName":"discover","visitorInfo":["imageName":"","title":""]],
+            ["clsName":"DWZProfileViewController","title":"我的","imageName":"profile","visitorInfo":["imageName":"","title":""]],
         ]
         var mControllers = [UIViewController]()
         for dic in classArray {
@@ -53,10 +53,10 @@ extension DWZMainViewController {
         viewControllers = mControllers
     }
     
-    fileprivate func createChildController(_ dict: [String:String]) -> UIViewController {
-        guard let clsName = dict["clsName"],
-            let title = dict["title"],
-            let imageName = dict["imageName"],
+    fileprivate func createChildController(_ dict: [String:Any]) -> UIViewController {
+        guard let clsName = dict["clsName"] as? String,
+            let title = dict["title"] as? String,
+            let imageName = dict["imageName"] as? String,
             let cls = NSClassFromString(Bundle.main.namesspace+"."+clsName) as? UIViewController.Type
             else {
                 return UIViewController()
