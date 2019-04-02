@@ -29,7 +29,7 @@ class DWZMainViewController: UITabBarController {
 }
 
 
-// MARK: - 页面搭建
+// MARK: - 页面搭建/Users/duanwenzheng/Desktop/Swift学习.docx
 extension DWZMainViewController {
     fileprivate func setupComposeButton() {
         tabBar.addSubview(compostButton!)
@@ -39,15 +39,15 @@ extension DWZMainViewController {
     }
     
     fileprivate func setupChildControllers() {
-        let classArray = [
-            ["clsName":"DWZHomeViewController","title":"首页","imageName":"home","visitorInfo":["imageName":"","title":"关注一些人，回这里看看有什么惊喜"]],
-            ["clsName":"DWZMessageViewController","title":"消息","imageName":"message_center","visitorInfo":["imageName":"visitordiscover_image_message","title":"登录后，别人评论你的微博、发给你的消息，都会在这里收到通知"]],
-            ["clsName":"UIViewController"],
-            ["clsName":"DWZDiscoverViewController","title":"发现","imageName":"discover","visitorInfo":["imageName":"visitordiscover_image_message","title":"登录后，最新、最热微博尽在掌握，不会再与时事潮流擦肩而过"]],
-            ["clsName":"DWZProfileViewController","title":"我的","imageName":"profile","visitorInfo":["imageName":"visitordiscover_image_profile","title":"登录后，你的微博、相册、个人资料会显示在这里，展示给别人"]],
-        ]
+        guard let path = Bundle.main.path(forResource: "main", ofType: "json"),
+              let data = try? NSData(contentsOfFile: path, options: []),
+            let classArray = try? JSONSerialization.jsonObject(with: data as Data, options: []) as? [[String:Any]]
+        else {
+            return
+        }
+        
         var mControllers = [UIViewController]()
-        for dic in classArray {
+        for dic in classArray ?? [] {
             mControllers.append(createChildController(dic))
         }
         viewControllers = mControllers

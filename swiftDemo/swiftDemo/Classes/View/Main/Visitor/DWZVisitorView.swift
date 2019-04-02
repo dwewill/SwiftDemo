@@ -18,6 +18,7 @@ class DWZVisitorView: UIView {
             }
             titleLabel.text = title
             if imageName == "" {
+                setupAnimation()
                 return
             }
             iconView.image = UIImage(named: imageName)
@@ -52,6 +53,18 @@ class DWZVisitorView: UIView {
 
 // MARK: - 页面搭建
 extension DWZVisitorView {
+    
+    /// 设置首页转轮动画
+    fileprivate func setupAnimation() {
+        let rotationAnimation = CABasicAnimation(keyPath: "transform.rotation")
+        rotationAnimation.repeatCount = Float(Int.max)
+        rotationAnimation.duration = 15
+        rotationAnimation.toValue = 2.0 * Double.pi
+        // 设置动画不停止（页面切换，home键），同加入的视图同生命周期
+        rotationAnimation.isRemovedOnCompletion = false
+        iconView.layer.add(rotationAnimation, forKey: nil)
+    }
+    
     fileprivate func setupUI() {
         backgroundColor = UIColor.cz_color(withHex: 0xEDEDED)
         addSubview(iconView)
