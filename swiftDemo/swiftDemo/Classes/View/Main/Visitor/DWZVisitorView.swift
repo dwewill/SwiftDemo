@@ -11,8 +11,10 @@ import UIKit
 class DWZVisitorView: UIView {
     // 转轮视图
     private lazy var iconView: UIImageView = UIImageView(image: UIImage(named: "visitordiscover_feed_image_smallicon"))
+    // 遮罩视图
+    private lazy var maskIconView: UIImageView = UIImageView(image: UIImage(named: "visitordiscover_feed_mask_smallicon"))
     // 小房子视图
-    private lazy var houseView: UIImageView = UIImageView(image: UIImage(named: "visitordiscover_feed_image_house"))
+    private lazy var houseView: UIImageView = UIImageView(image: UIImage(named: "visitordiscover_feed_image_house")) 
     // 说明文字
     private lazy var titleLabel: UILabel = UILabel.cz_label(withText: "对于一个iOS 11之前的项目，想要适配该特性", fontSize: 14, color: .darkGray)
     // 注册按钮
@@ -37,6 +39,7 @@ extension DWZVisitorView {
     fileprivate func setupUI() {
         backgroundColor = UIColor.white
         addSubview(iconView)
+        addSubview(maskIconView)
         addSubview(houseView)
         addSubview(titleLabel)
         addSubview(registerButton)
@@ -68,5 +71,12 @@ extension DWZVisitorView {
         addConstraint(NSLayoutConstraint(item: loginButton, attribute: .top, relatedBy: .equal, toItem: titleLabel, attribute: .bottom, multiplier: 1.0, constant: 20))
         addConstraint(NSLayoutConstraint(item: loginButton, attribute: .right, relatedBy: .equal, toItem: self, attribute: .right, multiplier: 1.0, constant: -60))
         addConstraint(NSLayoutConstraint(item: loginButton, attribute: .width, relatedBy: .equal, toItem: registerButton, attribute: .width, multiplier: 1.0, constant: 0))
+        
+        // 遮罩视图(VFL语法)
+        let viewDic = ["maskIconView":maskIconView,"registerButton":registerButton]
+        let metricsInfo = ["spacing":-20]
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-0-[maskIconView]-0-|", options: [], metrics: nil, views: viewDic))
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-0-[maskIconView]-(spacing)-[registerButton]", options: [], metrics: metricsInfo, views: viewDic))
+        
     }
 }
