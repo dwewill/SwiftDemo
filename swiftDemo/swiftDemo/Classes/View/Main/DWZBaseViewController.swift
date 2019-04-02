@@ -34,6 +34,8 @@ class DWZBaseViewController: UIViewController {
     }
 }
 
+
+// MARK: - 搭建页面
 extension DWZBaseViewController {
     @objc func setupUI() {
         view.backgroundColor = UIColor.cz_random()
@@ -44,6 +46,8 @@ extension DWZBaseViewController {
     fileprivate func setupTableView() {
         tableView = UITableView(frame: view.bounds, style: .plain)
         view.insertSubview(tableView!, belowSubview: navBar)
+        tableView?.delegate = self
+        tableView?.dataSource = self;
     }
     
     fileprivate func setupNavigationBar() {
@@ -53,5 +57,21 @@ extension DWZBaseViewController {
         navBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor:
             UIColor.darkGray]
 
+    }
+}
+
+
+// MARK: - UITableViewDelegate, UITableViewDataSource
+extension DWZBaseViewController: UITableViewDelegate, UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return UITableViewCell()
     }
 }
