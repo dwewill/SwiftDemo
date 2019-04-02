@@ -44,8 +44,8 @@ class DWZHomeViewController: DWZBaseViewController {
 
 // MARK: - 页面搭建
 extension DWZHomeViewController {
-    override func setupUI() {
-        super.setupUI()
+    override func setupTableView() {
+        super.setupTableView()
         navBarItem.leftBarButtonItem = UIBarButtonItem(title: "好友", action: self, selector: #selector(showFriends))
         tableView?.register(UITableViewCell.self, forCellReuseIdentifier: baseCellId)
     }

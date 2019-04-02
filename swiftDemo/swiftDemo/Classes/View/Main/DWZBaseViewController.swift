@@ -24,7 +24,7 @@ class DWZBaseViewController: UIViewController {
     // 上拉刷新标识
     var isPullUp = false
     // 用户登录标识
-    var isLogon = false
+    var isLogon = true
     // 游客视图数据
     var visitorInfo: [String:String]?
     override func viewDidLoad() {
@@ -46,9 +46,20 @@ class DWZBaseViewController: UIViewController {
 }
 
 
+// MARK: - 访客视图按钮事件监听
+extension DWZBaseViewController {
+    @objc private func login() {
+        print(#function)
+    }
+    
+    @objc private func register() {
+        print(#function)
+    }
+}
+
 // MARK: - 搭建页面
 extension DWZBaseViewController {
-    @objc func setupUI() {
+    @objc fileprivate func setupUI() {
         view.backgroundColor = UIColor.white
         setupNavigationBar()
         isLogon ? setupTableView() : setupVisiterView()
@@ -58,9 +69,15 @@ extension DWZBaseViewController {
         let visiterView = DWZVisitorView(frame: view.bounds)
         view.insertSubview(visiterView, belowSubview: navBar)
         visiterView.visiterInfo = visitorInfo
+        visiterView.loginButton.addTarget(self, action: #selector(login), for: .touchUpInside)
+        visiterView.registerButton.addTarget(self, action: #selector(register), for: .touchUpInside)
+        navBarItem.leftBarButtonItem = UIBarButtonItem(title: "注册", style: .plain, target: self, action: #selector(register))
+        navBarItem.rightBarButtonItem = UIBarButtonItem(title: "登录", style: .plain, target: self, action: #selector(login))
+        navBarItem.leftBarButtonItem?.setTitleTextAttributes([NSAttributedString.Key.foregroundColor : UIColor.darkGray], for: .normal)
+        navBarItem.rightBarButtonItem?.setTitleTextAttributes([NSAttributedString.Key.foregroundColor : UIColor.darkGray], for: .normal)
     }
     
-    fileprivate func setupTableView() {
+    @objc func setupTableView() {
         tableView = UITableView(frame: view.bounds, style: .plain)
         view.insertSubview(tableView!, belowSubview: navBar)
         tableView?.delegate = self

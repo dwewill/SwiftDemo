@@ -24,8 +24,8 @@ class DWZTestViewController: DWZBaseViewController {
 }
 
 extension DWZTestViewController {
-    override func setupUI() {
-        super.setupUI()
+    override func setupTableView() {
+        super.setupTableView()
         navBarItem.rightBarButtonItem = UIBarButtonItem(title: "下一个", action: self, selector: #selector(showNext))
     }
 }

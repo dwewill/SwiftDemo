@@ -9,6 +9,11 @@
 import UIKit
 
 class DWZVisitorView: UIView {
+    // 注册按钮
+    lazy var registerButton: UIButton = UIButton.cz_textButton("注册", fontSize: 16, normalColor: .orange, highlightedColor: .black, backgroundImageName: "common_button_white_disable")
+    // 登录按钮
+    lazy var loginButton: UIButton = UIButton.cz_textButton("登录", fontSize: 16, normalColor: .darkGray, highlightedColor: .black, backgroundImageName: "common_button_white_disable")
+
     // 访客视图字典数组（imageName和title）
     var visiterInfo: [String: String]? {
         didSet {
@@ -34,10 +39,6 @@ class DWZVisitorView: UIView {
     private lazy var houseView: UIImageView = UIImageView(image: UIImage(named: "visitordiscover_feed_image_house")) 
     // 说明文字
     private lazy var titleLabel: UILabel = UILabel.cz_label(withText: "关注一些人，回这里看看有什么惊喜", fontSize: 14, color: .darkGray)
-    // 注册按钮
-    private lazy var registerButton: UIButton = UIButton.cz_textButton("注册", fontSize: 16, normalColor: .orange, highlightedColor: .black, backgroundImageName: "common_button_white_disable")
-    // 登录按钮
-    private lazy var loginButton: UIButton = UIButton.cz_textButton("登录", fontSize: 16, normalColor: .darkGray, highlightedColor: .black, backgroundImageName: "common_button_white_disable")
     
     override init(frame: CGRect) {
         super.init(frame: frame)
