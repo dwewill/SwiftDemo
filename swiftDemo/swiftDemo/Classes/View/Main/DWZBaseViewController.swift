@@ -8,8 +8,8 @@
 
 import UIKit
 let screen = UIScreen.main
-let screenWidth = screen.bounds.size.width
-let screenHeight = screen.bounds.size.height
+let screenWidth = screen.bounds.width
+let screenHeight = screen.bounds.height
 let scale = screen.scale
 // FIXME: - iPhone X/XS/XR/XSMAX 适配
 //@available(iOS 11.0, *)
@@ -49,10 +49,18 @@ extension DWZBaseViewController {
     }
     
     fileprivate func setupTableView() {
-        tableView = UITableView(frame: CGRect(x: 0, y: 64, width: screenWidth, height: screenHeight-64-49), style: .plain)
+        tableView = UITableView(frame: view.bounds, style: .plain)
         view.insertSubview(tableView!, belowSubview: navBar)
         tableView?.delegate = self
-        tableView?.dataSource = self;
+        tableView?.dataSource = self
+        extendedLayoutIncludesOpaqueBars = true
+        if #available(iOS 11.0, *) {
+            tableView?.contentInsetAdjustmentBehavior = .never
+        } else {
+            automaticallyAdjustsScrollViewInsets = false
+        }
+        tableView?.contentInset = UIEdgeInsets(top: 64, left: 0, bottom: 49, right: 0)
+        tableView?.scrollIndicatorInsets = tableView?.contentInset ?? UIEdgeInsets.zero
     }
     
     fileprivate func setupNavigationBar() {
