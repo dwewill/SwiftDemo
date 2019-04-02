@@ -24,7 +24,7 @@ class DWZBaseViewController: UIViewController {
     // 上拉刷新标识
     var isPullUp = false
     // 用户登录标识
-    var isLogon = true
+    var isLogon = false
     // 游客视图数据
     var visitorInfo: [String:String]?
     override func viewDidLoad() {
@@ -73,8 +73,6 @@ extension DWZBaseViewController {
         visiterView.registerButton.addTarget(self, action: #selector(register), for: .touchUpInside)
         navBarItem.leftBarButtonItem = UIBarButtonItem(title: "注册", style: .plain, target: self, action: #selector(register))
         navBarItem.rightBarButtonItem = UIBarButtonItem(title: "登录", style: .plain, target: self, action: #selector(login))
-        navBarItem.leftBarButtonItem?.setTitleTextAttributes([NSAttributedString.Key.foregroundColor : UIColor.darkGray], for: .normal)
-        navBarItem.rightBarButtonItem?.setTitleTextAttributes([NSAttributedString.Key.foregroundColor : UIColor.darkGray], for: .normal)
     }
     
     @objc func setupTableView() {
@@ -97,10 +95,13 @@ extension DWZBaseViewController {
     fileprivate func setupNavigationBar() {
         view.addSubview(navBar)
         navBar.items = [navBarItem]
-        navBar.tintColor = UIColor.cz_color(withHex: 0xF6F6F6)
+        // 设置导航条的整个背景颜色
+        navBar.barTintColor = UIColor.cz_color(withHex: 0xF6F6F6)
+        // 设置title字体颜色
         navBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor:
             UIColor.darkGray]
-        navBar.backgroundColor = UIColor.cz_color(withHex: 0xF6F6F6)
+        // 设置系统按钮文字渲染颜色
+        navBar.tintColor = .orange
     }
 }
 
