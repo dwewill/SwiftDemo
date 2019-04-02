@@ -30,7 +30,7 @@ class DWZVisitorView: UIView {
     // 小房子视图
     private lazy var houseView: UIImageView = UIImageView(image: UIImage(named: "visitordiscover_feed_image_house")) 
     // 说明文字
-    private lazy var titleLabel: UILabel = UILabel.cz_label(withText: "对于一个iOS 11之前的项目，想要适配该特性", fontSize: 14, color: .darkGray)
+    private lazy var titleLabel: UILabel = UILabel.cz_label(withText: "关注一些人，回这里看看有什么惊喜", fontSize: 14, color: .darkGray)
     // 注册按钮
     private lazy var registerButton: UIButton = UIButton.cz_textButton("注册", fontSize: 16, normalColor: .orange, highlightedColor: .black, backgroundImageName: "common_button_white_disable")
     // 登录按钮
@@ -63,7 +63,7 @@ extension DWZVisitorView {
         for view in self.subviews {
             view.translatesAutoresizingMaskIntoConstraints = false
         }
-        
+        titleLabel.textAlignment = .center
         // 转轮
         addConstraint(NSLayoutConstraint(item: iconView, attribute: .centerX, relatedBy: .equal, toItem: self, attribute: .centerX, multiplier: 1.0, constant: 0))
         addConstraint(NSLayoutConstraint(item: iconView, attribute: .centerY, relatedBy: .equal, toItem: self, attribute: .centerY, multiplier: 1.0, constant: -60))
@@ -75,6 +75,7 @@ extension DWZVisitorView {
         // 文字视图
         addConstraint(NSLayoutConstraint(item: titleLabel, attribute: .centerX, relatedBy: .equal, toItem: iconView, attribute: .centerX, multiplier: 1.0, constant: 0))
         addConstraint(NSLayoutConstraint(item: titleLabel, attribute: .top, relatedBy: .equal, toItem: iconView, attribute: .bottom, multiplier: 1.0, constant: 20))
+        addConstraint(NSLayoutConstraint(item: titleLabel, attribute: .width, relatedBy: .equal, toItem: self, attribute: .width, multiplier: 1.0, constant: -80))
         
         // 注册按钮
         addConstraint(NSLayoutConstraint(item: registerButton, attribute: .top, relatedBy: .equal, toItem: titleLabel, attribute: .bottom, multiplier: 1.0, constant: 20))

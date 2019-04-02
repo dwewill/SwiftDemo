@@ -40,11 +40,11 @@ extension DWZMainViewController {
     
     fileprivate func setupChildControllers() {
         let classArray = [
-            ["clsName":"DWZHomeViewController","title":"首页","imageName":"home","visitorInfo":["imageName":"","title":""]],
-            ["clsName":"DWZMessageViewController","title":"消息","imageName":"message_center","visitorInfo":["imageName":"","title":""]],
+            ["clsName":"DWZHomeViewController","title":"首页","imageName":"home","visitorInfo":["imageName":"","title":"关注一些人，回这里看看有什么惊喜"]],
+            ["clsName":"DWZMessageViewController","title":"消息","imageName":"message_center","visitorInfo":["imageName":"visitordiscover_image_message","title":"登录后，别人评论你的微博、发给你的消息，都会在这里收到通知"]],
             ["clsName":"UIViewController"],
-            ["clsName":"DWZDiscoverViewController","title":"发现","imageName":"discover","visitorInfo":["imageName":"","title":""]],
-            ["clsName":"DWZProfileViewController","title":"我的","imageName":"profile","visitorInfo":["imageName":"","title":""]],
+            ["clsName":"DWZDiscoverViewController","title":"发现","imageName":"discover","visitorInfo":["imageName":"visitordiscover_image_message","title":"登录后，最新、最热微博尽在掌握，不会再与时事潮流擦肩而过"]],
+            ["clsName":"DWZProfileViewController","title":"我的","imageName":"profile","visitorInfo":["imageName":"visitordiscover_image_profile","title":"登录后，你的微博、相册、个人资料会显示在这里，展示给别人"]],
         ]
         var mControllers = [UIViewController]()
         for dic in classArray {
@@ -57,12 +57,14 @@ extension DWZMainViewController {
         guard let clsName = dict["clsName"] as? String,
             let title = dict["title"] as? String,
             let imageName = dict["imageName"] as? String,
-            let cls = NSClassFromString(Bundle.main.namesspace+"."+clsName) as? UIViewController.Type
+            let cls = NSClassFromString(Bundle.main.namesspace+"."+clsName) as? DWZBaseViewController.Type,
+        let visitorInfo = dict["visitorInfo"] as? [String:String]
             else {
                 return UIViewController()
         }
         let vc = cls.init()
         vc.title = title
+        vc.visitorInfo = visitorInfo
         vc.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.foregroundColor:
             UIColor.orange], for: .selected)
         vc.tabBarItem.image = UIImage(named: "tabbar_"+imageName)
