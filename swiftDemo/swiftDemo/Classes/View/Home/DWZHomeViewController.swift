@@ -26,8 +26,12 @@ class DWZHomeViewController: DWZBaseViewController {
     }
     
     override func loadData() {
-        for i in 0..<10 {
-            dataArray.append("\(i)")
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()+2.0) {
+            
+            for i in 0..<20 {
+                self.dataArray.append("\(i)")
+            }
+            self.tableView?.reloadData()
         }
     }
 }

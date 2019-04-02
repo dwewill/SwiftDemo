@@ -20,6 +20,7 @@ class DWZBaseViewController: UIViewController {
     lazy var navBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: screenWidth, height: 64))
     lazy var navBarItem = UINavigationItem()
     var tableView: UITableView?
+    var refreshControl : UIRefreshControl?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +35,7 @@ class DWZBaseViewController: UIViewController {
         }
     }
     
-    func loadData() {
+    @objc func loadData() {
     
     }
 }
@@ -59,8 +60,10 @@ extension DWZBaseViewController {
         } else {
             automaticallyAdjustsScrollViewInsets = false
         }
-        tableView?.contentInset = UIEdgeInsets(top: 64, left: 0, bottom: 49, right: 0)
-        tableView?.scrollIndicatorInsets = tableView?.contentInset ?? UIEdgeInsets.zero
+        tableView?.contentInset = UIEdgeInsets(top: navBar.bounds.height, left: 0, bottom: tabBarController?.tabBar.bounds.height ?? 0, right: 0)
+        refreshControl = UIRefreshControl()
+        tableView?.addSubview(refreshControl!)
+        refreshControl?.addTarget(self, action: #selector(loadData), for: .valueChanged)
     }
     
     fileprivate func setupNavigationBar() {
