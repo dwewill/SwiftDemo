@@ -16,6 +16,11 @@ class DWZMainViewController: UITabBarController {
         setupComposeButton()
     }
     
+    // 设置竖屏
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .portrait
+    }
+    
     // 发布按钮的点击
     @objc fileprivate func composeButtonClick() {
         print("composeButtonClick")
