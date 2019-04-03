@@ -15,11 +15,13 @@ class DWZStatusListViewModel {
     
     
     /// 加载微博列表
-    ///
+    /// - Parameter isPullUp: 是否下拉
     /// - Parameter completiton: 是否成功回调
-    func loadStatus(completiton:@escaping (_ isSuccess: Bool)->()) {
-        let since_id = statusList.first?.id ?? 0
-        DWZNetworkManager.shared.statusList(since_id: since_id, max_id: 0) { (list, isSuccess) in
+    func loadStatus(isPullUp: Bool, completiton:@escaping (_ isSuccess: Bool)->()) {
+        
+        let since_id = isPullUp ? 0 : statusList.first?.id ?? 0
+        let max_id = !isPullUp ? 0 : statusList.last?.id ?? 0
+        DWZNetworkManager.shared.statusList(since_id: since_id, max_id: max_id) { (list, isSuccess) in
             // 利用YYModel 字典转模型
             var array = [DWZStatus]()
             for dic in list ?? [] {
@@ -32,7 +34,12 @@ class DWZStatusListViewModel {
                 model.id = id
                 array.append(model)
             }
-            self.statusList = array + self.statusList
+            if isPullUp {
+                self.statusList += array
+            }else {
+                self.statusList = array + self.statusList
+            }
+            
             completiton(isSuccess)
         }
     }

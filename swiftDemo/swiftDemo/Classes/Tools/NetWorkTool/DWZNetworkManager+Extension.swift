@@ -18,7 +18,7 @@ extension DWZNetworkManager {
     ///   - completion: 完成回调
     func statusList(since_id: Int64 = 0,max_id: Int64 = 0,completion:@escaping (( _ list:[[String:Any]]?, _ isSuccess: Bool)->())) {
         let url = "https://api.weibo.com/2/statuses/home_timeline.json"
-        let parameters = ["since_id":"\(since_id)", "max_id": "\(max_id)"]
+        let parameters = ["since_id":"\(since_id)", "max_id": "\(max_id > 0 ? max_id-1 : 0)"]
         accessTokenRequest(URLString: url, parameters: parameters) { (json,isSuccess) in
             let result = (json as? [String:Any])?["statuses"] as? [[String:Any]]
             completion(result,isSuccess)
