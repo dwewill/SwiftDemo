@@ -26,6 +26,20 @@ class DWZHomeViewController: DWZBaseViewController {
     }
     
     override func loadData() {
+        let url = "https://api.weibo.com/2/statuses/home_timeline.json"
+        let params = ["access_token":"2.00uz9raGXmm97C4708775a30TOtTjD"]
+//        DWZNetworkManager.shared.get(url, parameters: params, progress: nil, success: { (_, response) in
+//            print("请求成功")
+//            print(response)
+//        }) { (_, error) in
+//            print("请求失败")
+//            print(error)
+//        }
+        DWZNetworkManager.shared.request(URLString: url, parameters: params) { (json,isSuccess) in
+            if isSuccess {
+                print(json)
+            }
+        }
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()+2.0) {
             for i in 0..<20 {
                 if self.isPullUp {

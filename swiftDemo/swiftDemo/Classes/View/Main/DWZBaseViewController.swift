@@ -31,7 +31,6 @@ class DWZBaseViewController: UIViewController {
         super.viewDidLoad()
         navigationController?.navigationBar.isHidden = true
         setupUI()
-        loadData()
     }
     
     override var title: String? {
@@ -90,6 +89,7 @@ extension DWZBaseViewController {
         refreshControl = UIRefreshControl()
         tableView?.addSubview(refreshControl!)
         refreshControl?.addTarget(self, action: #selector(loadData), for: .valueChanged)
+        loadData()
     }
     
     fileprivate func setupNavigationBar() {
