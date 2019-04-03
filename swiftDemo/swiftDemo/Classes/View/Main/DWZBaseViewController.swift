@@ -126,6 +126,7 @@ extension DWZBaseViewController: UITableViewDelegate, UITableViewDataSource {
         if row < 0 || section < 0  {
             return
         }
+        // 如果是最后一行，同时没有上拉刷新
         if tableView.numberOfRows(inSection: section) == row+1 && !isPullUp {
             isPullUp = true
             loadData()
