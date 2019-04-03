@@ -18,6 +18,7 @@ class DWZMainViewController: UITabBarController {
         setupChildControllers()
         setupComposeButton()
         setupTimer()
+        delegate = self
     }
     
     // 设置竖屏
@@ -36,6 +37,12 @@ class DWZMainViewController: UITabBarController {
     }
 }
 
+// MARK: - UITabBarControllerDelegate
+extension DWZMainViewController: UITabBarControllerDelegate {
+    func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
+        return !viewController.isMember(of: UIViewController.self)
+    }
+}
 
 // MARK: - 时钟相关方法
 extension DWZMainViewController {
@@ -59,7 +66,7 @@ extension DWZMainViewController {
 extension DWZMainViewController {
     fileprivate func setupComposeButton() {
         tabBar.addSubview(compostButton!)
-        let compostButtonWidth = tabBar.bounds.size.width / CGFloat(viewControllers?.count ?? 1) - 1
+        let compostButtonWidth = tabBar.bounds.size.width / CGFloat(children.count)
         compostButton?.frame = tabBar.bounds.insetBy(dx: compostButtonWidth*2, dy: 0)
         compostButton?.addTarget(self, action: #selector(composeButtonClick), for: .touchUpInside)
     }
