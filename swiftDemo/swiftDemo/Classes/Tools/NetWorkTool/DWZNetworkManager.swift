@@ -22,6 +22,7 @@ class DWZNetworkManager: AFHTTPSessionManager {
     
     // token
     var accessToken: String? = "2.00uz9raGXmm97C4708775a30TOtTjD"
+    var uid: String? = ""
     
     func accessTokenRequest(method: DWZHTTPMethod = .GET, URLString: String, parameters: [String: String]?, completion:@escaping (_ json:Any?, _ isSuccess: Bool)->()) {
         guard let token = accessToken else {

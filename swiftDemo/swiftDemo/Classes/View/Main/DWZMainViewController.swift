@@ -8,12 +8,16 @@
 import UIKit
 
 class DWZMainViewController: UITabBarController {
-
+    // 发布按钮
     lazy var compostButton = UIButton.cz_imageButton("tabbar_compose_icon_add", backgroundImageName: "tabbar_compose_button")
+    // 时钟计时器
+    var timer: Timer?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupChildControllers()
         setupComposeButton()
+        setupTimer()
     }
     
     // 设置竖屏
@@ -26,10 +30,32 @@ class DWZMainViewController: UITabBarController {
         print("composeButtonClick")
         present(DWZBaseViewController(), animated: true, completion: nil)
     }
+    
+    deinit {
+        timer?.invalidate()
+    }
 }
 
 
-// MARK: - 页面搭建/Users/duanwenzheng/Desktop/Swift学习.docx
+// MARK: - 时钟相关方法
+extension DWZMainViewController {
+    private func setupTimer() {
+        timer = Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(timerRepeatFunction), userInfo: nil, repeats: true)
+    }
+    
+    @objc private func timerRepeatFunction() {
+        DWZNetworkManager.shared.unreadCount { (count) in
+            print("未读消息数\(count)")
+//            let homeNav = self.viewControllers?.first as? DWZNavigationController
+//            let homeVC = homeNav?.viewControllers.first
+//            homeVC?.tabBarItem.badgeValue = count > 0 ? "\(count)" : nil
+            count > 0 ? self.tabBar.items?[0].badgeValue = "\(count)" : ()
+            UIApplication.shared.applicationIconBadgeNumber = count
+        }
+    }
+}
+
+// MARK: - 页面搭建
 extension DWZMainViewController {
     fileprivate func setupComposeButton() {
         tabBar.addSubview(compostButton!)

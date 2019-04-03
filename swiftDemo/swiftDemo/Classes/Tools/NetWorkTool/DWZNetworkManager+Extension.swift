@@ -24,4 +24,18 @@ extension DWZNetworkManager {
             completion(result,isSuccess)
         }
     }
+    
+    func unreadCount(completion:@escaping (_ count:Int)->()) {
+        guard let uid = uid else {
+            print("没有获取到uid")
+            return
+        }
+        let url = "https://rm.api.weibo.com/2/remind/unread_count.json"
+        let parameters = ["uid": uid]
+        accessTokenRequest(URLString: url, parameters: parameters) { (json,isSuccess) in
+            let dic = json as? [String:Any]
+            let count = dic?["status"] as? Int ?? 0
+            completion(count)
+        }
+    }
 }

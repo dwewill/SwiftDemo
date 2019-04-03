@@ -15,6 +15,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        // iOS8以后设置app角标要先注册设置
+        let settings = UIUserNotificationSettings(types: [.badge,.sound,.alert], categories: nil)
+        UIApplication.shared.registerUserNotificationSettings(settings)
         window = UIWindow()
         window?.backgroundColor = UIColor.white
         window?.rootViewController = DWZMainViewController()
