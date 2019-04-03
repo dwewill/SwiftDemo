@@ -40,6 +40,17 @@ class DWZMainViewController: UITabBarController {
 // MARK: - UITabBarControllerDelegate
 extension DWZMainViewController: UITabBarControllerDelegate {
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
+//        let idx = (children as? NSArray)?.index(of: viewController)
+        let idx = (children as? NSArray)?.index(of: viewController)
+        if selectedIndex == 0 && idx == 0 {
+            print("这个地方要重新请求数据")
+            let nav = children.first as? DWZNavigationController
+            let homeVC = nav?.viewControllers.first as? DWZHomeViewController
+            homeVC?.tableView?.setContentOffset(CGPoint(x: 0, y: -64), animated: true)
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()+1) {
+                homeVC?.loadData()
+            }
+        }
         return !viewController.isMember(of: UIViewController.self)
     }
 }
