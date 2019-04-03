@@ -17,7 +17,25 @@ enum DWZHTTPMethod {
 
 /// 网络管理工具
 class DWZNetworkManager: AFHTTPSessionManager {
+    // 网络工具单例
     static let shared = DWZNetworkManager()
+    
+    // token
+    var accessToken: String? = "2.00uz9raGXmm97C4708775a30TOtTjD"
+    
+    func accessTokenRequest(method: DWZHTTPMethod = .GET, URLString: String, parameters: [String: String]?, completion:@escaping (_ json:Any?, _ isSuccess: Bool)->()) {
+        guard let token = accessToken else {
+            print("没有token，请登录获取")
+            completion(nil,false)
+            return
+        }
+        var parameters = parameters
+        if parameters == nil {
+            parameters = [String:String]()
+        }
+        parameters!["access_token"] = token
+        request(URLString: URLString, parameters: parameters!, completion: completion)
+    }
     
     /// 封装AFN的 GET/POST 请求
     ///
