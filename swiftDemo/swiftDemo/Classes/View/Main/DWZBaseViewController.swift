@@ -24,7 +24,7 @@ class DWZBaseViewController: UIViewController {
     // 上拉刷新标识
     var isPullUp = false
     // 用户登录标识
-    var isLogon = false
+    var isLogon = true
     // 游客视图数据
     var visitorInfo: [String:String]?
     override func viewDidLoad() {
