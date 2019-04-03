@@ -30,6 +30,15 @@ class DWZHomeViewController: DWZBaseViewController {
             guard let list = list else {
                 return
             }
+            var statusModelArray = [DWZStatus]()
+            for dic in list {
+                guard let model = DWZStatus.yy_model(with: dic) else {
+                    print("\(dic) 不能生成微博模型")
+                    continue
+                }
+                statusModelArray.append(model)
+            }
+            print(statusModelArray)
             print(list)
         }
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()+2.0) {
