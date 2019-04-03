@@ -9,7 +9,7 @@
 import Foundation
 
 
-/// 微博模型数组ViewModel
+/// 微博视图模型
 class DWZStatusListViewModel {
     lazy var statusList = [DWZStatus]()
     
@@ -20,11 +20,16 @@ class DWZStatusListViewModel {
     func loadStatus(completiton:@escaping (_ isSuccess: Bool)->()) {
         DWZNetworkManager.shared.statusList { (list, isSuccess) in
             // 利用YYModel 字典转模型
-            guard let modelArray = NSArray.yy_modelArray(with: DWZStatus.self, json: list ?? []) as? [DWZStatus] else {
-                completiton(isSuccess)
-                return
+            for dic in list ?? [] {
+                guard let id = dic["id"] as? Int64,let text = dic["text"] as? String else {
+                    print("id 或者 text 为空")
+                    continue
+                }
+                let model = DWZStatus()
+                model.text = text
+                model.id = id
+                self.statusList.append(model)
             }
-            self.statusList += modelArray
             completiton(isSuccess)
         }
     }

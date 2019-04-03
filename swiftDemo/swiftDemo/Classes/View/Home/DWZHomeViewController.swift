@@ -11,7 +11,7 @@ private let baseCellId = "baseCellId"
 
 class DWZHomeViewController: DWZBaseViewController {
 
-    lazy var dataArray: [String] = [String]()
+    private lazy var listViewModel = DWZStatusListViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,29 +26,7 @@ class DWZHomeViewController: DWZBaseViewController {
     }
     
     override func loadData() {
-        DWZNetworkManager.shared.statusList { (list, isSuccess) in
-            guard let list = list else {
-                return
-            }
-            var statusModelArray = [DWZStatus]()
-            for dic in list {
-                guard let model = DWZStatus.yy_model(with: dic) else {
-                    print("\(dic) 不能生成微博模型")
-                    continue
-                }
-                statusModelArray.append(model)
-            }
-            print(statusModelArray)
-            print(list)
-        }
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()+2.0) {
-            for i in 0..<20 {
-                if self.isPullUp {
-                    self.dataArray.append("上拉\(i)")
-                }else {
-                    self.dataArray.insert("\(i)", at: 0)
-                }
-            }
+        listViewModel.loadStatus { (isSuccess) in
             self.isPullUp = false
             self.refreshControl?.endRefreshing()
             self.tableView?.reloadData()
@@ -70,12 +48,12 @@ extension DWZHomeViewController {
 // MARK: - TableView dataSource && delegate
 extension DWZHomeViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataArray.count
+        return listViewModel.statusList.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: baseCellId, for: indexPath)
-        cell.textLabel?.text = dataArray[indexPath.row]
+        cell.textLabel?.text = listViewModel.statusList[indexPath.row].text ?? "\(indexPath.row)"
         return cell
     }
 }

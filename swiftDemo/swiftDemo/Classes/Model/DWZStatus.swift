@@ -14,7 +14,7 @@ class DWZStatus: NSObject {
     // 微博id
     var id: Int64 = 0
     // 微博内容
-    var text: NSString?
+    var text: String?
     
     override var description: String {
         return yy_modelDescription()
