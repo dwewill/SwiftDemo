@@ -26,11 +26,12 @@ class DWZHomeViewController: DWZBaseViewController {
     }
     
     override func loadData() {
-        listViewModel.loadStatus { (isSuccess) in
-            self.isPullUp = false
-            self.refreshControl?.endRefreshing()
-            self.tableView?.reloadData()
-        }
+//        listViewModel.loadStatus { (isSuccess) in
+//            self.isPullUp = false
+//            self.refreshControl?.endRefreshing()
+//            self.tableView?.reloadData()
+//        }
+//        listViewModel.
     }
 }
 

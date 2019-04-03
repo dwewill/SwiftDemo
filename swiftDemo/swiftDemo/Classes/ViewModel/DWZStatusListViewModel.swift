@@ -18,8 +18,10 @@ class DWZStatusListViewModel {
     ///
     /// - Parameter completiton: 是否成功回调
     func loadStatus(completiton:@escaping (_ isSuccess: Bool)->()) {
-        DWZNetworkManager.shared.statusList { (list, isSuccess) in
+        let since_id = statusList.first?.id ?? 0
+        DWZNetworkManager.shared.statusList(since_id: since_id, max_id: 0) { (list, isSuccess) in
             // 利用YYModel 字典转模型
+            var array = [DWZStatus]()
             for dic in list ?? [] {
                 guard let id = dic["id"] as? Int64,let text = dic["text"] as? String else {
                     print("id 或者 text 为空")
@@ -28,8 +30,9 @@ class DWZStatusListViewModel {
                 let model = DWZStatus()
                 model.text = text
                 model.id = id
-                self.statusList.append(model)
+                array.append(model)
             }
+            self.statusList = array + self.statusList
             completiton(isSuccess)
         }
     }
