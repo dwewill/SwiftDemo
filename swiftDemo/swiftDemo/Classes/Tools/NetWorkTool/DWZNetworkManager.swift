@@ -26,6 +26,7 @@ class DWZNetworkManager: AFHTTPSessionManager {
     func accessTokenRequest(method: DWZHTTPMethod = .GET, URLString: String, parameters: [String: String]?, completion:@escaping (_ json:Any?, _ isSuccess: Bool)->()) {
         guard let token = accessToken else {
             print("没有token，请登录获取")
+            // FIXME: - 处理token过期
             completion(nil,false)
             return
         }
@@ -49,6 +50,10 @@ class DWZNetworkManager: AFHTTPSessionManager {
             completion(json,true)
         }
         let failure = { (dataTask: URLSessionDataTask?, error: Error)->() in
+            if (dataTask?.response as? HTTPURLResponse)?.statusCode == 403 {
+                // FIXME: - 处理token过期
+                print("token过期")
+            }
             print("请求错误--\(error)")
             completion(nil,false)
         }
