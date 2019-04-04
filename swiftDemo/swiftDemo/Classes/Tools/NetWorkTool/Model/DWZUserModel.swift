@@ -10,7 +10,7 @@ import UIKit
 
 class DWZUserModel: NSObject {
     // token
-    var access_token: String?
+    var access_token: String? = "2.00uz9raGXmm97C4708775a30TOtTjD"
     // 授权用户的UID
     var uid: String?
     // access_token的生命周期，单位是秒数。

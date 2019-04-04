@@ -73,7 +73,7 @@ extension DWZOAuthViewController: UIWebViewDelegate {
                             print("授权码请求\(isSuccess),取不到access_token")
                             return
                     }
-                    DWZNetworkManager.shared.accessToken = access_token as? String
+                    DWZNetworkManager.shared.DWZUser.access_token = access_token as? String
                 }
                 close()
             }else if request.url?.query?.contains("code") == false{

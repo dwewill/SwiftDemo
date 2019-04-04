@@ -26,14 +26,13 @@ class DWZNetworkManager: AFHTTPSessionManager {
     }()
     
     // token
-    var accessToken: String?
-    var uid: String? = ""
+    lazy var DWZUser = DWZUserModel()
     var userLogon:Bool {
-        return accessToken != nil
+        return DWZUser.access_token != nil
     }
     
     func accessTokenRequest(method: DWZHTTPMethod = .GET, URLString: String, parameters: [String: String]?, completion:@escaping (_ json:Any?, _ isSuccess: Bool)->()) {
-        guard let token = accessToken else {
+        guard let token = DWZUser.access_token else {
             print("没有token，请登录获取")
             // FIXME: - 处理token过期
             completion(nil,false)

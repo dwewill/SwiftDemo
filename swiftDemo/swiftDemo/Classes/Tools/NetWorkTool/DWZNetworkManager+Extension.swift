@@ -26,7 +26,7 @@ extension DWZNetworkManager {
     }
     
     func unreadCount(completion:@escaping (_ count:Int)->()) {
-        guard let uid = uid else {
+        guard let uid = DWZUser.uid else {
             print("没有获取到uid")
             return
         }
