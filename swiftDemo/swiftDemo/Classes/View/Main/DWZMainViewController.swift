@@ -40,8 +40,7 @@ class DWZMainViewController: UITabBarController {
 // MARK: - UITabBarControllerDelegate
 extension DWZMainViewController: UITabBarControllerDelegate {
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
-//        let idx = (children as? NSArray)?.index(of: viewController)
-        let idx = (children as? NSArray)?.index(of: viewController)
+        let idx = (children as NSArray).index(of: viewController)
         if selectedIndex == 0 && idx == 0 {
             print("这个地方要重新请求数据")
             let nav = children.first as? DWZNavigationController
@@ -58,10 +57,13 @@ extension DWZMainViewController: UITabBarControllerDelegate {
 // MARK: - 时钟相关方法
 extension DWZMainViewController {
     private func setupTimer() {
-        timer = Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(timerRepeatFunction), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 60.0, target: self, selector: #selector(timerRepeatFunction), userInfo: nil, repeats: true)
     }
     
     @objc private func timerRepeatFunction() {
+        if !DWZNetworkManager.shared.userLogon {
+            return
+        }
         DWZNetworkManager.shared.unreadCount { (count) in
             print("未读消息数\(count)")
 //            let homeNav = self.viewControllers?.first as? DWZNavigationController

@@ -31,6 +31,7 @@ class DWZBaseViewController: UIViewController {
         super.viewDidLoad()
         navigationController?.navigationBar.isHidden = true
         setupUI()
+        DWZNetworkManager.shared.userLogon ? loadData() : ()
     }
     
     override var title: String? {
@@ -61,7 +62,7 @@ extension DWZBaseViewController {
     @objc fileprivate func setupUI() {
         view.backgroundColor = UIColor.white
         setupNavigationBar()
-        isLogon ? setupTableView() : setupVisiterView()
+        DWZNetworkManager.shared.userLogon ? setupTableView() : setupVisiterView()
     }
     
     fileprivate func setupVisiterView() {
@@ -89,7 +90,6 @@ extension DWZBaseViewController {
         refreshControl = UIRefreshControl()
         tableView?.addSubview(refreshControl!)
         refreshControl?.addTarget(self, action: #selector(loadData), for: .valueChanged)
-        loadData()
     }
     
     fileprivate func setupNavigationBar() {
