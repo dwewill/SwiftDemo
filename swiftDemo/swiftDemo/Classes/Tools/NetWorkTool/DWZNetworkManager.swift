@@ -18,10 +18,14 @@ enum DWZHTTPMethod {
 /// 网络管理工具
 class DWZNetworkManager: AFHTTPSessionManager {
     // 网络工具单例
-    static let shared = DWZNetworkManager()
+    static let shared:DWZNetworkManager = {
+        let instance = DWZNetworkManager()
+        instance.responseSerializer.acceptableContentTypes?.insert("text/plain")
+        return instance
+    }()
     
     // token
-    var accessToken: String? 
+    var accessToken: String?
     var uid: String? = ""
     var userLogon:Bool {
         return accessToken != nil
