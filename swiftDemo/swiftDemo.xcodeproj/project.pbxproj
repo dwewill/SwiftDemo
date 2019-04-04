@@ -13,6 +13,7 @@
 		5519C0B82251CEDF0003B265 /* UIBarButtonItem+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5519C0B72251CEDF0003B265 /* UIBarButtonItem+Extension.swift */; };
 		551FA91322559465007AA28F /* DWZCommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551FA91222559465007AA28F /* DWZCommon.swift */; };
 		551FA916225599B2007AA28F /* DWZOAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551FA915225599B2007AA28F /* DWZOAuthViewController.swift */; };
+		551FA9192255EF12007AA28F /* DWZUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551FA9182255EF12007AA28F /* DWZUserModel.swift */; };
 		554514792250A89C00C0F113 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554514782250A89C00C0F113 /* AppDelegate.swift */; };
 		554514802250A89D00C0F113 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5545147F2250A89D00C0F113 /* Assets.xcassets */; };
 		554514A32250C04700C0F113 /* DWZMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554514A22250C04700C0F113 /* DWZMainViewController.swift */; };
@@ -49,6 +50,7 @@
 		5519C0B72251CEDF0003B265 /* UIBarButtonItem+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Extension.swift"; sourceTree = "<group>"; };
 		551FA91222559465007AA28F /* DWZCommon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DWZCommon.swift; sourceTree = "<group>"; };
 		551FA915225599B2007AA28F /* DWZOAuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DWZOAuthViewController.swift; sourceTree = "<group>"; };
+		551FA9182255EF12007AA28F /* DWZUserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DWZUserModel.swift; sourceTree = "<group>"; };
 		554514752250A89C00C0F113 /* swiftDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = swiftDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		554514782250A89C00C0F113 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5545147F2250A89D00C0F113 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -138,6 +140,14 @@
 				551FA915225599B2007AA28F /* DWZOAuthViewController.swift */,
 			);
 			path = OAuth;
+			sourceTree = "<group>";
+		};
+		551FA9172255EEE9007AA28F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				551FA9182255EF12007AA28F /* DWZUserModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		5545146C2250A89C00C0F113 = {
@@ -310,6 +320,7 @@
 		55C4FD8522545A7800691B25 /* NetWorkTool */ = {
 			isa = PBXGroup;
 			children = (
+				551FA9172255EEE9007AA28F /* Model */,
 				55C4FD8622545B2A00691B25 /* DWZNetworkManager.swift */,
 				55C4FD882254734500691B25 /* DWZNetworkManager+Extension.swift */,
 			);
@@ -452,6 +463,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5519C0B82251CEDF0003B265 /* UIBarButtonItem+Extension.swift in Sources */,
+				551FA9192255EF12007AA28F /* DWZUserModel.swift in Sources */,
 				554514AD2250C11F00C0F113 /* DWZDiscoverViewController.swift in Sources */,
 				554514D92251046400C0F113 /* Bundle+Extension.swift in Sources */,
 				554514CE2250FF3500C0F113 /* NSString+CZBase64.m in Sources */,

@@ -20,6 +20,7 @@ class DWZNetworkManager: AFHTTPSessionManager {
     // 网络工具单例
     static let shared:DWZNetworkManager = {
         let instance = DWZNetworkManager()
+        // 设置响应序列化支持的数据格式
         instance.responseSerializer.acceptableContentTypes?.insert("text/plain")
         return instance
     }()
