@@ -21,7 +21,11 @@ class DWZOAuthViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+//        view.addSubview(webView)
+//        webView.frame = CGRect(x: 0, y: 64, width: screenWidth, height: screenHeight-64)
+//        webView.backgroundColor = UIColor.white
+//        title = "登录新浪微博"
+//        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "返回", fontSize: 14, action: self, selector: #selector(close), isBack: true)
     }
     
 
