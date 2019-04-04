@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class DWZOAuthViewController: UIViewController {
 
@@ -14,7 +15,8 @@ class DWZOAuthViewController: UIViewController {
     
     override func loadView() {
         view = webView
-        view.backgroundColor = UIColor.white
+        webView.backgroundColor = UIColor.white
+        webView.scrollView.isScrollEnabled = false
         title = "登录新浪微博"
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "返回", fontSize: 14, action: self, selector: #selector(close), isBack: true)
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "自动填充", action: self, selector: #selector(autoFill))
@@ -37,6 +39,7 @@ class DWZOAuthViewController: UIViewController {
 
 extension DWZOAuthViewController {
     @objc private func close() {
+        SVProgressHUD.dismiss()
         dismiss(animated: true, completion: nil)
     }
     
@@ -64,6 +67,7 @@ extension DWZOAuthViewController: UIWebViewDelegate {
             if request.url?.query?.contains("code") == true {
                 let codeString = String(request.url?.absoluteString.split(separator: "=").last ?? "")
                 print("授权码 -- \(codeString)")
+                close()
             }else if request.url?.query?.contains("code") == false{
                 close()
             }
@@ -71,5 +75,13 @@ extension DWZOAuthViewController: UIWebViewDelegate {
         }
         print("正常跳转 -- \(request.url?.absoluteString ?? "")")
         return true
+    }
+    
+    func webViewDidStartLoad(_ webView: UIWebView) {
+        SVProgressHUD.show()
+    }
+    
+    func webViewDidFinishLoad(_ webView: UIWebView) {
+        SVProgressHUD.dismiss()
     }
 }
