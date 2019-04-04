@@ -46,6 +46,8 @@ class DWZMainViewController: UITabBarController {
 extension DWZMainViewController {
     @objc private func userLogin(notification: Notification) {
         print(#function)
+        let nav = UINavigationController(rootViewController: DWZOAuthViewController())
+        present(nav, animated: true, completion: nil)
     }
     
     @objc private func userRegister(notification: Notification) {
