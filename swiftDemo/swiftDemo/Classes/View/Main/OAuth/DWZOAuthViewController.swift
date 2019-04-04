@@ -49,11 +49,27 @@ extension DWZOAuthViewController {
 
 // MARK: - UIWebViewDelegate
 extension DWZOAuthViewController: UIWebViewDelegate {
+    
+    /// web将要加载
+    ///
+    /// - Parameters:
+    ///   - webView: webView
+    ///   - request: 请求
+    ///   - navigationType: 导航栏类型
+    /// - Returns: 是否加载
     func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebView.NavigationType) -> Bool {
-        if let res = request.url?.absoluteString.hasPrefix("http\\:www.baidu.com"), res == true {
-            print("授权成功 -- \(request.url?.absoluteString ?? "")")
+        // 判断是否URL中包含百度的URL
+        if let res = request.url?.absoluteString.hasPrefix(DWZRedirectURI), res == true {
+            // 判断是否授权成功
+            if request.url?.query?.contains("code") == true {
+                let codeString = String(request.url?.absoluteString.split(separator: "=").last ?? "")
+                print("授权码 -- \(codeString)")
+            }else if request.url?.query?.contains("code") == false{
+                close()
+            }
             return false
         }
+        print("正常跳转 -- \(request.url?.absoluteString ?? "")")
         return true
     }
 }
