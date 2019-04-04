@@ -21,11 +21,13 @@ class DWZOAuthViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        view.addSubview(webView)
-//        webView.frame = CGRect(x: 0, y: 64, width: screenWidth, height: screenHeight-64)
-//        webView.backgroundColor = UIColor.white
-//        title = "登录新浪微博"
-//        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "返回", fontSize: 14, action: self, selector: #selector(close), isBack: true)
+        
+        let urlString = "https://api.weibo.com/oauth2/authorize?client_id=\(DWZAppKey)&redirect_uri=\(DWZRedirectURI)"
+        guard let url = URL(string: urlString) else {
+            return
+        }
+        let request = URLRequest(url: url)
+        webView.loadRequest(request)
     }
     
 
