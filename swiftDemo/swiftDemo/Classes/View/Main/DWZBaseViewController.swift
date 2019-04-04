@@ -50,10 +50,12 @@ class DWZBaseViewController: UIViewController {
 extension DWZBaseViewController {
     @objc private func login() {
         print(#function)
+        NotificationCenter.default.post(name: NSNotification.Name.init(DWZUserShouldLoginNotification), object: nil)
     }
     
     @objc private func register() {
         print(#function)
+        NotificationCenter.default.post(name: NSNotification.Name.init(DWZUserShouldRegisterNotification), object: nil)
     }
 }
 

@@ -21,7 +21,7 @@ class DWZNetworkManager: AFHTTPSessionManager {
     static let shared = DWZNetworkManager()
     
     // token
-    var accessToken: String? = "2.00uz9raGXmm97C4708775a30TOtTjD"
+    var accessToken: String? 
     var uid: String? = ""
     var userLogon:Bool {
         return accessToken != nil
@@ -32,6 +32,7 @@ class DWZNetworkManager: AFHTTPSessionManager {
             print("没有token，请登录获取")
             // FIXME: - 处理token过期
             completion(nil,false)
+            NotificationCenter.default.post(name: NSNotification.Name.init(DWZUserShouldLoginNotification), object: nil)
             return
         }
         var parameters = parameters
@@ -57,6 +58,7 @@ class DWZNetworkManager: AFHTTPSessionManager {
             if (dataTask?.response as? HTTPURLResponse)?.statusCode == 403 {
                 // FIXME: - 处理token过期
                 print("token过期")
+                NotificationCenter.default.post(name: NSNotification.Name.init(DWZUserShouldLoginNotification), object: nil)
             }
             print("请求错误--\(error)")
             completion(nil,false)

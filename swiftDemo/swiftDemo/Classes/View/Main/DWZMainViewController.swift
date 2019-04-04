@@ -19,6 +19,9 @@ class DWZMainViewController: UITabBarController {
         setupComposeButton()
         setupTimer()
         delegate = self
+        // 添加通知监听
+        NotificationCenter.default.addObserver(self, selector: #selector(userLogin), name: NSNotification.Name(rawValue: DWZUserShouldLoginNotification), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(userRegister), name: NSNotification.Name(rawValue: DWZUserShouldRegisterNotification), object: nil)
     }
     
     // 设置竖屏
@@ -34,6 +37,19 @@ class DWZMainViewController: UITabBarController {
     
     deinit {
         timer?.invalidate()
+        NotificationCenter.default.removeObserver(self)
+    }
+}
+
+
+// MARK: - 处理登录，注册通知
+extension DWZMainViewController {
+    @objc private func userLogin(notification: Notification) {
+        print(#function)
+    }
+    
+    @objc private func userRegister(notification: Notification) {
+        print(#function)
     }
 }
 

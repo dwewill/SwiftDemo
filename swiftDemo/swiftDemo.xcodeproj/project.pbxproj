@@ -11,6 +11,7 @@
 		5516BE8B2253500400570789 /* DWZVisitorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5516BE8A2253500400570789 /* DWZVisitorView.swift */; };
 		5519C0B62251B4A90003B265 /* DWZTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5519C0B52251B4A90003B265 /* DWZTestViewController.swift */; };
 		5519C0B82251CEDF0003B265 /* UIBarButtonItem+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5519C0B72251CEDF0003B265 /* UIBarButtonItem+Extension.swift */; };
+		551FA91322559465007AA28F /* DWZCommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551FA91222559465007AA28F /* DWZCommon.swift */; };
 		554514792250A89C00C0F113 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554514782250A89C00C0F113 /* AppDelegate.swift */; };
 		554514802250A89D00C0F113 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5545147F2250A89D00C0F113 /* Assets.xcassets */; };
 		554514A32250C04700C0F113 /* DWZMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554514A22250C04700C0F113 /* DWZMainViewController.swift */; };
@@ -45,6 +46,7 @@
 		5516BE8A2253500400570789 /* DWZVisitorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DWZVisitorView.swift; sourceTree = "<group>"; };
 		5519C0B52251B4A90003B265 /* DWZTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DWZTestViewController.swift; sourceTree = "<group>"; };
 		5519C0B72251CEDF0003B265 /* UIBarButtonItem+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Extension.swift"; sourceTree = "<group>"; };
+		551FA91222559465007AA28F /* DWZCommon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DWZCommon.swift; sourceTree = "<group>"; };
 		554514752250A89C00C0F113 /* swiftDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = swiftDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		554514782250A89C00C0F113 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5545147F2250A89D00C0F113 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 				55C4FD8522545A7800691B25 /* NetWorkTool */,
 				554514D72251041C00C0F113 /* Extensions */,
 				554514B02250FF3400C0F113 /* Additions */,
+				551FA91222559465007AA28F /* DWZCommon.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -447,6 +450,7 @@
 				554514D42250FF3500C0F113 /* NSAttributedString+CZAdditon.m in Sources */,
 				5516BE8B2253500400570789 /* DWZVisitorView.swift in Sources */,
 				5519C0B62251B4A90003B265 /* DWZTestViewController.swift in Sources */,
+				551FA91322559465007AA28F /* DWZCommon.swift in Sources */,
 				554514D52250FF3500C0F113 /* NSArray+Log.m in Sources */,
 				554514CC2250FF3500C0F113 /* UIScreen+CZAddition.m in Sources */,
 				554514A72250C0B000C0F113 /* DWZBaseViewController.swift in Sources */,
