@@ -8,6 +8,10 @@
 
 import Foundation
 
+let DWZAppKey = "2223311105"
+let DWZAPPSecret = "3019ed4f3726572ae8df3d013aae68dd"
+let DWZRedictURI = "http://www.baidu.com"
+
 // 用户需要登录通知
 let DWZUserShouldLoginNotification = "DWZUserShouldLoginNotification"
 
