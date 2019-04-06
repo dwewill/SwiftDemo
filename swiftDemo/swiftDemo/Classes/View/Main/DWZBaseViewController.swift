@@ -32,6 +32,8 @@ class DWZBaseViewController: UIViewController {
         navigationController?.navigationBar.isHidden = true
         setupUI()
         DWZNetworkManager.shared.userLogon ? loadData() : ()
+        // 注册通知
+        NotificationCenter.default.addObserver(self, selector: #selector(userLoginSuccess), name: NSNotification.Name(rawValue: DWZUserLoginSuccessNotification), object: nil)
     }
     
     override var title: String? {
@@ -43,11 +45,23 @@ class DWZBaseViewController: UIViewController {
     @objc func loadData() {
         refreshControl?.endRefreshing()
     }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
 }
 
 
 // MARK: - 访客视图按钮事件监听
 extension DWZBaseViewController {
+    @objc private func userLoginSuccess(notification: Notification) {
+        print(#function)
+        view = nil
+        // MARK: - 通知是可以重复注册，会调用多次
+        NotificationCenter.default.removeObserver(self)
+    }
+
+    
     @objc private func login() {
         print(#function)
         NotificationCenter.default.post(name: NSNotification.Name.init(DWZUserShouldLoginNotification), object: nil)

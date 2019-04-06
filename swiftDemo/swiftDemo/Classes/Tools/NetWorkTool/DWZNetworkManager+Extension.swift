@@ -39,6 +39,12 @@ extension DWZNetworkManager {
         }
     }
     
+    
+    /// 获取Access_token
+    ///
+    /// - Parameters:
+    ///   - authCode: 授权码
+    ///   - completion: 结果回调
     func requestAccessToken(authCode: String, completion:@escaping (( _ response:[String:Any]?, _ isSuccess: Bool)->())) {
         let url = "https://api.weibo.com/oauth2/access_token"
         let params = ["client_id":DWZAppKey,

@@ -17,3 +17,6 @@ let DWZUserShouldLoginNotification = "DWZUserShouldLoginNotification"
 
 // 用户需要注册通知
 let DWZUserShouldRegisterNotification = "DWZUserShouldRegisterNotification"
+
+// 用户登录成功通知
+let DWZUserLoginSuccessNotification = "DWZUserLoginSuccessNotification"
