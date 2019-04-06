@@ -69,8 +69,8 @@ extension DWZOAuthViewController: UIWebViewDelegate {
                 print("授权码 -- \(codeString)")
                 DWZNetworkManager.shared.requestAccessToken(authCode: codeString) { (json, isSuccess) in
                     print("isSuccess:\(isSuccess)  json:\(json ?? [:])")
+                    self.close()
                 }
-                close()
             }else if request.url?.query?.contains("code") == false{
                 close()
             }

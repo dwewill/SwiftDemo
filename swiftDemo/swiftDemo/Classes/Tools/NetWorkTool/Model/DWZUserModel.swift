@@ -38,11 +38,20 @@ class DWZUserModel: NSObject {
                 return
         }
         self.yy_modelSet(with: account)
+//        expiresDate = Date(timeIntervalSinceNow: -3600*24)
+        // 过期
+        if expiresDate?.compare(Date()) != .orderedDescending {
+            access_token = nil
+            uid = nil
+            expires_in = 0
+            expiresDate = nil
+            _ = try? FileManager.default.removeItem(atPath: filePath)
+        }
     }
     
     /// 存入本地文件
     func saveUserInfo() {
-        // FIXME: - 用yy_modelToJSONObject失败，原因是swift4之后不主动桥接到oc，需要主动设置运行时可获取
+        // MARK: - 用yy_modelToJSONObject失败，原因是swift4之后不主动桥接到oc，需要主动设置运行时可获取
         var dic = (self.yy_modelToJSONObject() as? [String: AnyObject]) ?? [:]
         dic.removeValue(forKey: "expires_in")
         guard let data = try? JSONSerialization.data(withJSONObject: dic, options: []),
