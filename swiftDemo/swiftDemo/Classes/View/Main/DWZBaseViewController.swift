@@ -56,6 +56,9 @@ class DWZBaseViewController: UIViewController {
 extension DWZBaseViewController {
     @objc private func userLoginSuccess(notification: Notification) {
         print(#function)
+        navBarItem.leftBarButtonItem = nil
+        navBarItem.rightBarButtonItem = nil
+        // 会调用loadView -> viewDidLoad
         view = nil
         // MARK: - 通知是可以重复注册，会调用多次
         NotificationCenter.default.removeObserver(self)
@@ -103,6 +106,7 @@ extension DWZBaseViewController {
             automaticallyAdjustsScrollViewInsets = false
         }
         tableView?.contentInset = UIEdgeInsets(top: navBar.bounds.height, left: 0, bottom: tabBarController?.tabBar.bounds.height ?? 0, right: 0)
+        tableView?.scrollIndicatorInsets = tableView?.contentInset ?? UIEdgeInsets.zero
         refreshControl = UIRefreshControl()
         tableView?.addSubview(refreshControl!)
         refreshControl?.addTarget(self, action: #selector(loadData), for: .valueChanged)
