@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         if #available(iOS 10.0, *) {
             UNUserNotificationCenter.current().requestAuthorization(options: [.badge,.sound,.alert,.carPlay]) { (result, error) in
-                print("授权结果\(result)")
+                print("通知授权结果\(result)")
             }
         } else {
             // iOS8以后设置app角标要先注册设置

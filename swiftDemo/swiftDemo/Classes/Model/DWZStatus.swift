@@ -12,9 +12,9 @@ import YYModel
 /// 微博数据模型
 class DWZStatus: NSObject {
     // 微博id
-    var id: Int64 = 0
+    @objc var id: Int64 = 0
     // 微博内容
-    var text: String?
+    @objc var text: String?
     
     override var description: String {
         return yy_modelDescription()

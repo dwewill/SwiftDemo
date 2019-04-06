@@ -33,13 +33,8 @@ class DWZStatusListViewModel {
             // 利用YYModel 字典转模型
             var array = [DWZStatus]()
             for dic in list ?? [] {
-                guard let id = dic["id"] as? Int64,let text = dic["text"] as? String else {
-                    print("id 或者 text 为空")
-                    continue
-                }
                 let model = DWZStatus()
-                model.text = text
-                model.id = id
+                model.yy_modelSet(with: dic)
                 array.append(model)
             }
             print("刷新 \(array.count)条数据")

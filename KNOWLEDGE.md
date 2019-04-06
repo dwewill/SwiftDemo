@@ -19,4 +19,13 @@ do {
     } catch {
         error 异常
         print(error)
-}
+}M
+s
+//MARK: - Swift 4.0的变化
+用字典转模型的时候，模型前要加上@objc 或者类前加上@ObjcMebers
+原因：
+@objcMembers 在Swift 4中继承 NSObject 的 swift class 不再默认全部 bridge 到 OC，如果我们想要使用的话我们就需要在class前面加上@objcMembers 这么一个关键字。
+引用: 在 swift 3 中除了手动添加 @objc 声明函数支持 OC 调用还有另外一种方式：继承 NSObject。
+class 继承了 NSObject 后，编译器就会默认给这个类中的所有函数都标记为 @objc ，支持 OC 调用。
+苹果在Swift 4 中苹果修改了自动添加 @objc 的逻辑： 一个继承 NSObject 的 swift 类不再默认给所有函数添加 @objc。
+只在实现 OC 接口和重写 OC 方法时才自动给函数添加 @objc 标识

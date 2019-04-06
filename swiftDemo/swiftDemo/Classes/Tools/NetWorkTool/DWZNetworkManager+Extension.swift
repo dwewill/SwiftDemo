@@ -47,19 +47,9 @@ extension DWZNetworkManager {
                       "code":authCode,
                       "redirect_uri":DWZRedirectURI]
         request(method: .POST, URLString: url, parameters: params) { (json, isSuccess) in
-            guard let json = json as? [String:Any],
-                let access_token = json["access_token"],
-                let expires_in = json["expires_in"],
-                let uid = json["uid"] else {
-                    print("授权码请求\(isSuccess),取不到access_token")
-                    completion(nil,isSuccess)
-                    return
-            }
-
-            self.DWZUser.access_token = access_token as? String
-            self.DWZUser.uid = uid as? String
-            self.DWZUser.expires_in = expires_in as! TimeInterval
-            completion(json,isSuccess)
+            self.DWZUser.yy_modelSet(with: json as? [String: Any] ?? [:])
+            self.DWZUser.saveUserInfo()
+            completion(json as? [String: Any],isSuccess)
         }
     }
 }

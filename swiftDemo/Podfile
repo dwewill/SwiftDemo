@@ -11,5 +11,6 @@ target 'swiftDemo' do
   pod "SVProgressHUD"
   pod "pop"
   pod "SnapKit"
+  pod 'SwiftyJSON'
 
 end
