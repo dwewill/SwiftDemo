@@ -24,6 +24,12 @@ class DWZUserModel: NSObject {
     //过期日期
     @objc var expiresDate: Date?
     
+    //用户昵称
+    @objc var screen_name: String?
+    
+    //用户头像地址（大图），180×180像素
+    @objc var avatar_large: String?
+    
     override var description: String {
         return yy_modelDescription()
     }
@@ -37,7 +43,7 @@ class DWZUserModel: NSObject {
                 print("读取：data格式不正确为空或者filePath拼接错误")
                 return
         }
-        self.yy_modelSet(with: account)
+//        self.yy_modelSet(with: account)
 //        expiresDate = Date(timeIntervalSinceNow: -3600*24)
         // 过期
         if expiresDate?.compare(Date()) != .orderedDescending {

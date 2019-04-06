@@ -39,13 +39,24 @@ extension DWZNetworkManager {
         }
     }
     
+    func loadUserInfo(completion:@escaping (( _ response:[String:Any]?)->())) {
+        let url = "https://api.weibo.com/2/users/show.json"
+        guard let uid = DWZUser.uid else {
+            print("没有获取到uid")
+            return
+        }
+        let params = ["uid": uid]
+        accessTokenRequest(URLString: url, parameters: params) { (json, isSuccess) in
+            completion(json as? [String: Any])
+        }
+    }
     
     /// 获取Access_token
     ///
     /// - Parameters:
     ///   - authCode: 授权码
     ///   - completion: 结果回调
-    func requestAccessToken(authCode: String, completion:@escaping (( _ response:[String:Any]?, _ isSuccess: Bool)->())) {
+    func requestAccessToken(authCode: String, completion:@escaping (( _ isSuccess: Bool)->())) {
         let url = "https://api.weibo.com/oauth2/access_token"
         let params = ["client_id":DWZAppKey,
                       "client_secret":DWZAPPSecret,
@@ -54,8 +65,11 @@ extension DWZNetworkManager {
                       "redirect_uri":DWZRedirectURI]
         request(method: .POST, URLString: url, parameters: params) { (json, isSuccess) in
             self.DWZUser.yy_modelSet(with: json as? [String: Any] ?? [:])
-            self.DWZUser.saveUserInfo()
-            completion(json as? [String: Any],isSuccess)
+            self.loadUserInfo(completion: { (dict) in
+                self.DWZUser.yy_modelSet(with: dict ?? [:])
+                self.DWZUser.saveUserInfo()
+                completion(isSuccess)
+            })
         }
     }
 }

@@ -67,8 +67,8 @@ extension DWZOAuthViewController: UIWebViewDelegate {
             if request.url?.query?.contains("code") == true {
                 let codeString = String(request.url?.absoluteString.split(separator: "=").last ?? "")
                 print("授权码 -- \(codeString)")
-                DWZNetworkManager.shared.requestAccessToken(authCode: codeString) { (json, isSuccess) in
-                    print("isSuccess:\(isSuccess)  json:\(json ?? [:])")
+                DWZNetworkManager.shared.requestAccessToken(authCode: codeString) { (isSuccess) in
+                    print("isSuccess:\(isSuccess))")
                     if isSuccess {
                         NotificationCenter.default.post(name: NSNotification.Name(DWZUserLoginSuccessNotification), object: nil)
                     }else {

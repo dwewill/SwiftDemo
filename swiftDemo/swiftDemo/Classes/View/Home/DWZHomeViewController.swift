@@ -44,6 +44,20 @@ extension DWZHomeViewController {
         super.setupTableView()
         navBarItem.leftBarButtonItem = UIBarButtonItem(title: "好友", action: self, selector: #selector(showFriends))
         tableView?.register(UITableViewCell.self, forCellReuseIdentifier: baseCellId)
+        setupNavigationTitle()
+    }
+    
+    private func setupNavigationTitle() {
+        let screen_name = DWZNetworkManager.shared.DWZUser.screen_name ?? "首页"
+        let btn = UIButton.cz_textButton(screen_name, fontSize: 18, normalColor: .darkGray, highlightedColor: .black)
+        btn?.setImage(UIImage(named: "navigationbar_arrow_up"), for: .normal)
+        btn?.setImage(UIImage(named: "navigationbar_arrow_down"), for: .selected)
+        btn?.addTarget(self, action: #selector(navigationTitleClick(btn:)), for: .touchUpInside)
+        navBarItem.titleView = btn
+    }
+    
+    @objc private func navigationTitleClick(btn: UIButton) {
+        btn.isSelected = !btn.isSelected
     }
 }
 

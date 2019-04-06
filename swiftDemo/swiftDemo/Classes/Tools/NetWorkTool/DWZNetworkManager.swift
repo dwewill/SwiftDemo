@@ -34,7 +34,7 @@ class DWZNetworkManager: AFHTTPSessionManager {
     func accessTokenRequest(method: DWZHTTPMethod = .GET, URLString: String, parameters: [String: String]?, completion:@escaping (_ json:Any?, _ isSuccess: Bool)->()) {
         guard let token = DWZUser.access_token else {
             print("没有token，请登录获取")
-            // FIXME: - 处理token过期
+            // 处理token为nil
             completion(nil,false)
             NotificationCenter.default.post(name: NSNotification.Name.init(DWZUserShouldLoginNotification), object: nil)
             return
@@ -60,7 +60,7 @@ class DWZNetworkManager: AFHTTPSessionManager {
         }
         let failure = { (dataTask: URLSessionDataTask?, error: Error)->() in
             if (dataTask?.response as? HTTPURLResponse)?.statusCode == 403 {
-                // FIXME: - 处理token过期
+                // 处理token过期
                 print("token过期")
                 NotificationCenter.default.post(name: NSNotification.Name.init(DWZUserShouldLoginNotification), object: "access token time out")
             }
