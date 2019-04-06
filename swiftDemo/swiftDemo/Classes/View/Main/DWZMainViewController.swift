@@ -6,6 +6,7 @@
 //  Copyright © 2019 段文拯. All rights reserved.
 
 import UIKit
+import SVProgressHUD
 
 class DWZMainViewController: UITabBarController {
     // 发布按钮
@@ -46,8 +47,17 @@ class DWZMainViewController: UITabBarController {
 extension DWZMainViewController {
     @objc private func userLogin(notification: Notification) {
         print(#function)
-        let nav = UINavigationController(rootViewController: DWZOAuthViewController())
-        present(nav, animated: true, completion: nil)
+        var when = DispatchTime.now()
+        if notification.object != nil {
+            SVProgressHUD.setDefaultMaskType(.gradient)
+            SVProgressHUD.showInfo(withStatus: "")
+            when = DispatchTime.now() + 2
+        }
+        DispatchQueue.main.asyncAfter(deadline: when) {
+            SVProgressHUD.setDefaultMaskType(.clear)
+            let nav = UINavigationController(rootViewController: DWZOAuthViewController())
+            self.present(nav, animated: true, completion: nil)
+        }
     }
     
     @objc private func userRegister(notification: Notification) {

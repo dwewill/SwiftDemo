@@ -62,7 +62,7 @@ class DWZNetworkManager: AFHTTPSessionManager {
             if (dataTask?.response as? HTTPURLResponse)?.statusCode == 403 {
                 // FIXME: - 处理token过期
                 print("token过期")
-                NotificationCenter.default.post(name: NSNotification.Name.init(DWZUserShouldLoginNotification), object: nil)
+                NotificationCenter.default.post(name: NSNotification.Name.init(DWZUserShouldLoginNotification), object: "access token time out")
             }
             print("请求错误--\(error)")
             completion(nil,false)
