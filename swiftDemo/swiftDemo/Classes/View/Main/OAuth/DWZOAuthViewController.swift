@@ -71,6 +71,8 @@ extension DWZOAuthViewController: UIWebViewDelegate {
                     print("isSuccess:\(isSuccess)  json:\(json ?? [:])")
                     if isSuccess {
                         NotificationCenter.default.post(name: NSNotification.Name(DWZUserLoginSuccessNotification), object: nil)
+                    }else {
+                        SVProgressHUD.showInfo(withStatus: "网络请求失败")
                     }
                     self.close()
                 }

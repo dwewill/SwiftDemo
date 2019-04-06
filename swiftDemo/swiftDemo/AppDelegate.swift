@@ -8,6 +8,8 @@
 
 import UIKit
 import UserNotifications
+import SVProgressHUD
+import AFNetworking
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,15 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        if #available(iOS 10.0, *) {
-            UNUserNotificationCenter.current().requestAuthorization(options: [.badge,.sound,.alert,.carPlay]) { (result, error) in
-                print("通知授权结果\(result)")
-            }
-        } else {
-            // iOS8以后设置app角标要先注册设置
-            let settings = UIUserNotificationSettings(types: [.badge,.sound,.alert], categories: nil)
-            UIApplication.shared.registerUserNotificationSettings(settings)
-        }
+        setupAdditions()
         window = UIWindow()
         window?.backgroundColor = UIColor.white
         window?.rootViewController = DWZMainViewController()
@@ -58,6 +52,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+// APP的额外信息
+extension AppDelegate {
+    private func setupAdditions() {
+        // SVP的最小显示时间
+        SVProgressHUD.setMinimumDismissTimeInterval(2.0)
+        // AFN的指示器
+        AFNetworkActivityIndicatorManager.shared().isEnabled = true
+        // 通知的授权
+        if #available(iOS 10.0, *) {
+            UNUserNotificationCenter.current().requestAuthorization(options: [.badge,.sound,.alert,.carPlay]) { (result, error) in
+                print("通知授权结果\(result)")
+            }
+        } else {
+            // iOS8以后设置app角标要先注册设置
+            let settings = UIUserNotificationSettings(types: [.badge,.sound,.alert], categories: nil)
+            UIApplication.shared.registerUserNotificationSettings(settings)
+        }
+    }
+}
+
+// 加载APP的配置
 extension AppDelegate {
     private func loadAppInfo() {
         DispatchQueue.main.async {
