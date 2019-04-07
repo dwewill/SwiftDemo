@@ -46,17 +46,27 @@ class DWZMainViewController: UITabBarController {
 
 // MARK: - 新特性视图
 extension DWZMainViewController {
+    
+    /// 设置新特性页面
     private func setupNewFeatureView() {
         if !DWZNetworkManager.shared.userLogon {
             return
         }
-        let newFeatureView = isNewVersion ? DWZNewFeatureView() : DWZWelcomeView()
-        newFeatureView.frame = view.bounds
+        let newFeatureView = isNewVersion ? DWZNewFeatureView(frame: CGRect.zero) : DWZWelcomeView(frame: CGRect.zero)
         view.addSubview(newFeatureView)
     }
     
     private var isNewVersion: Bool {
-        return true
+        // 取当前版本号
+        let currentVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? ""
+        
+        // 取本地版本号
+        let path = ("version" as NSString).cz_appendDocumentDir() ?? ""
+        let localVersion = try? String(contentsOfFile: path, encoding: .utf8)
+        
+        //存入当前版本号
+        _ =  try? currentVersion.write(toFile: path, atomically: true, encoding: .utf8)
+        return currentVersion != localVersion
     }
 }
 
