@@ -7,10 +7,8 @@
 //
 
 import UIKit
- let isFirst = true
 
 class DWZTitleButton: UIButton {
-    private var isFirst = true
     init(text: String?) {
         super.init(frame: CGRect.zero)
         if text == nil {
@@ -33,18 +31,11 @@ class DWZTitleButton: UIButton {
     // 重新布局label和imageView
     override func layoutSubviews() {
         super.layoutSubviews()
-        if isFirst {
-//            isFirst = false
-        }else {
-            return
-        }
         guard let titleLabel = titleLabel,
         let imageView = imageView else {
             return
         }
-        print("titleLabel:\(titleLabel) -- imageView:\(imageView)")
         titleLabel.frame = titleLabel.frame.offsetBy(dx: -imageView.bounds.width, dy: 0)
         imageView.frame  = imageView.frame.offsetBy(dx: titleLabel.bounds.width, dy: 0)
-        print("titleLabel:\(titleLabel) -- imageView:\(imageView)")
     }
 }

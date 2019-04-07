@@ -136,6 +136,13 @@
 			path = Test;
 			sourceTree = "<group>";
 		};
+		551EF8452259EDCE00C9B9B4 /* NewFeature */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = NewFeature;
+			sourceTree = "<group>";
+		};
 		551FA9142255997F007AA28F /* OAuth */ = {
 			isa = PBXGroup;
 			children = (
@@ -268,6 +275,7 @@
 		554514A12250BF3D00C0F113 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				551EF8452259EDCE00C9B9B4 /* NewFeature */,
 				551FA9142255997F007AA28F /* OAuth */,
 				5516BE8922534FD100570789 /* Visitor */,
 				5519C0B42251B46F0003B265 /* Test */,
