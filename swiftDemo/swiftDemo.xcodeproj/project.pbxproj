@@ -11,6 +11,8 @@
 		5516BE8B2253500400570789 /* DWZVisitorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5516BE8A2253500400570789 /* DWZVisitorView.swift */; };
 		5519C0B62251B4A90003B265 /* DWZTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5519C0B52251B4A90003B265 /* DWZTestViewController.swift */; };
 		5519C0B82251CEDF0003B265 /* UIBarButtonItem+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5519C0B72251CEDF0003B265 /* UIBarButtonItem+Extension.swift */; };
+		551EF8472259EFE400C9B9B4 /* DWZWelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551EF8462259EFE400C9B9B4 /* DWZWelcomeView.swift */; };
+		551EF8492259EFFD00C9B9B4 /* DWZNewFeatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551EF8482259EFFD00C9B9B4 /* DWZNewFeatureView.swift */; };
 		551FA91322559465007AA28F /* DWZCommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551FA91222559465007AA28F /* DWZCommon.swift */; };
 		551FA916225599B2007AA28F /* DWZOAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551FA915225599B2007AA28F /* DWZOAuthViewController.swift */; };
 		551FA9192255EF12007AA28F /* DWZUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551FA9182255EF12007AA28F /* DWZUserModel.swift */; };
@@ -49,6 +51,8 @@
 		5516BE8A2253500400570789 /* DWZVisitorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DWZVisitorView.swift; sourceTree = "<group>"; };
 		5519C0B52251B4A90003B265 /* DWZTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DWZTestViewController.swift; sourceTree = "<group>"; };
 		5519C0B72251CEDF0003B265 /* UIBarButtonItem+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Extension.swift"; sourceTree = "<group>"; };
+		551EF8462259EFE400C9B9B4 /* DWZWelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DWZWelcomeView.swift; sourceTree = "<group>"; };
+		551EF8482259EFFD00C9B9B4 /* DWZNewFeatureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DWZNewFeatureView.swift; sourceTree = "<group>"; };
 		551FA91222559465007AA28F /* DWZCommon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DWZCommon.swift; sourceTree = "<group>"; };
 		551FA915225599B2007AA28F /* DWZOAuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DWZOAuthViewController.swift; sourceTree = "<group>"; };
 		551FA9182255EF12007AA28F /* DWZUserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DWZUserModel.swift; sourceTree = "<group>"; };
@@ -139,6 +143,8 @@
 		551EF8452259EDCE00C9B9B4 /* NewFeature */ = {
 			isa = PBXGroup;
 			children = (
+				551EF8462259EFE400C9B9B4 /* DWZWelcomeView.swift */,
+				551EF8482259EFFD00C9B9B4 /* DWZNewFeatureView.swift */,
 			);
 			path = NewFeature;
 			sourceTree = "<group>";
@@ -509,9 +515,11 @@
 				55C4FD8D2254958A00691B25 /* DWZStatusListViewModel.swift in Sources */,
 				554514A32250C04700C0F113 /* DWZMainViewController.swift in Sources */,
 				554514CD2250FF3500C0F113 /* UILabel+CZAddition.m in Sources */,
+				551EF8492259EFFD00C9B9B4 /* DWZNewFeatureView.swift in Sources */,
 				554514CF2250FF3500C0F113 /* NSString+CZPath.m in Sources */,
 				554514CA2250FF3500C0F113 /* UIColor+CZAddition.m in Sources */,
 				55C4FD8B22548F1D00691B25 /* DWZStatus.swift in Sources */,
+				551EF8472259EFE400C9B9B4 /* DWZWelcomeView.swift in Sources */,
 				55C4FD892254734500691B25 /* DWZNetworkManager+Extension.swift in Sources */,
 				551FA916225599B2007AA28F /* DWZOAuthViewController.swift in Sources */,
 				554514CB2250FF3500C0F113 /* UIView+CZAddition.m in Sources */,

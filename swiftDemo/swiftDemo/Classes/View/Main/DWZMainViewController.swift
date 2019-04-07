@@ -19,6 +19,7 @@ class DWZMainViewController: UITabBarController {
         setupChildControllers()
         setupComposeButton()
         setupTimer()
+        setupNewFeatureView()
         delegate = self
         // 添加通知监听
         NotificationCenter.default.addObserver(self, selector: #selector(userLogin), name: NSNotification.Name(rawValue: DWZUserShouldLoginNotification), object: nil)
@@ -42,6 +43,22 @@ class DWZMainViewController: UITabBarController {
     }
 }
 
+
+// MARK: - 新特性视图
+extension DWZMainViewController {
+    private func setupNewFeatureView() {
+        if !DWZNetworkManager.shared.userLogon {
+            return
+        }
+        let newFeatureView = isNewVersion ? DWZNewFeatureView() : DWZWelcomeView()
+        newFeatureView.frame = view.bounds
+        view.addSubview(newFeatureView)
+    }
+    
+    private var isNewVersion: Bool {
+        return true
+    }
+}
 
 // MARK: - 处理登录，注册通知
 extension DWZMainViewController {
