@@ -8,11 +8,13 @@
 
 import UIKit
 import SnapKit
+import SDWebImage
 
 class DWZWelcomeView: UIView {
 
     lazy var backgroundImageView = UIImageView(image: UIImage(named: "ad_background"))
     lazy var avatarImageView = UIImageView(image: UIImage(named: "avatar_default_big"))
+    lazy var textLabel = UILabel()
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupUI()
@@ -28,9 +30,14 @@ class DWZWelcomeView: UIView {
         avatarImageView.snp.updateConstraints { (make) in
             make.centerY.equalTo(self).offset(-120)
         }
-        UIView.animate(withDuration: 2.0, delay: 0, options: [], animations: {
+
+        UIView.animate(withDuration: 1.0, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0, options: [], animations: {
             self.layoutIfNeeded()
-        }, completion: nil);
+        }) { (_) in
+            UIView.animate(withDuration: 1.0, delay: 0, options: [], animations: {
+                self.textLabel.alpha = 1
+            }, completion: nil)
+        }
     }
 }
 
@@ -42,10 +49,10 @@ extension DWZWelcomeView {
         
         addSubview(backgroundImageView)
         addSubview(avatarImageView)
-        let textLabel = UILabel()
+        addSubview(textLabel)
         textLabel.text = "欢迎回来"
         textLabel.textAlignment = .center
-        addSubview(textLabel)
+        textLabel.alpha = 0
         
         self.frame = screen.bounds
         backgroundImageView.snp.makeConstraints { (make) in
@@ -61,5 +68,9 @@ extension DWZWelcomeView {
             make.top.equalTo(avatarImageView.snp_bottom).offset(20)
             make.height.equalTo(20)
         }
+        
+        avatarImageView.sd_setImage(with: URL(string: DWZNetworkManager.shared.DWZUser.avatar_large ?? ""), placeholderImage: UIImage(named: "avatar_default_big"), options: [], completed: nil)
+        avatarImageView.layer.cornerRadius = avatarImageView.bounds.width*0.5
+        avatarImageView.layer.masksToBounds = true
     }
 }
