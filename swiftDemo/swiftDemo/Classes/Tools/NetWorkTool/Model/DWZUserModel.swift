@@ -43,7 +43,7 @@ class DWZUserModel: NSObject {
                 print("读取：data格式不正确为空或者filePath拼接错误")
                 return
         }
-//        self.yy_modelSet(with: account)
+        self.yy_modelSet(with: account)
 //        expiresDate = Date(timeIntervalSinceNow: -3600*24)
         // 过期
         if expiresDate?.compare(Date()) != .orderedDescending {

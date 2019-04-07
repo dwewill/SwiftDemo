@@ -48,12 +48,21 @@ extension DWZHomeViewController {
     }
     
     private func setupNavigationTitle() {
-        let screen_name = DWZNetworkManager.shared.DWZUser.screen_name ?? "首页"
-        let btn = UIButton.cz_textButton(screen_name, fontSize: 18, normalColor: .darkGray, highlightedColor: .black)
-        btn?.setImage(UIImage(named: "navigationbar_arrow_up"), for: .normal)
-        btn?.setImage(UIImage(named: "navigationbar_arrow_down"), for: .selected)
-        btn?.addTarget(self, action: #selector(navigationTitleClick(btn:)), for: .touchUpInside)
+        let screen_name = DWZNetworkManager.shared.DWZUser.screen_name
+//        let btn = UIButton.cz_textButton(screen_name, fontSize: 18, normalColor: .darkGray, highlightedColor: .black)
+//        btn?.setImage(UIImage(named: "navigationbar_arrow_up"), for: .normal)
+//        btn?.setImage(UIImage(named: "navigationbar_arrow_down"), for: .selected)
+//        btn?.addTarget(self, action: #selector(navigationTitleClick(btn:)), for: .touchUpInside)
+        
+        let btn = DWZTitleButton(text: screen_name)
+        btn.addTarget(self, action: #selector(navigationTitleClick(btn:)), for: .touchUpInside)
         navBarItem.titleView = btn
+        DispatchQueue.main.async {
+            btn.isSelected = true
+        }
+        DispatchQueue.main.async {
+            btn.isSelected = false
+        }
     }
     
     @objc private func navigationTitleClick(btn: UIButton) {
