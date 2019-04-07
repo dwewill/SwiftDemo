@@ -11,6 +11,8 @@ import SnapKit
 
 class DWZWelcomeView: UIView {
 
+    lazy var backgroundImageView = UIImageView(image: UIImage(named: "ad_background"))
+    lazy var avatarImageView = UIImageView(image: UIImage(named: "avatar_default_big"))
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupUI()
@@ -20,18 +22,26 @@ class DWZWelcomeView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 
+    override func didMoveToWindow() {
+        super.didMoveToWindow()
+        layoutIfNeeded()
+        avatarImageView.snp.updateConstraints { (make) in
+            make.centerY.equalTo(self).offset(-120)
+        }
+        UIView.animate(withDuration: 2.0, delay: 0, options: [], animations: {
+            self.layoutIfNeeded()
+        }, completion: nil);
+    }
 }
 
+
+// MARK: - 页面搭建
 extension DWZWelcomeView {
     private func setupUI() {
         backgroundColor = .brown
         
-        let backgroundImageView = UIImageView(image: UIImage(named: "ad_background"))
         addSubview(backgroundImageView)
-        
-        let avatarImageView = UIImageView(image: UIImage(named: "avatar_default_big"))
         addSubview(avatarImageView)
-        
         let textLabel = UILabel()
         textLabel.text = "欢迎回来"
         textLabel.textAlignment = .center
