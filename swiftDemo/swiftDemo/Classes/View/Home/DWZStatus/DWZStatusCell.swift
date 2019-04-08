@@ -12,8 +12,7 @@ class DWZStatusCell: UITableViewCell {
     // 视图模型
     var statusViewModel: DWZStatusViewModel? {
         didSet {
-//            avatarImageView.sd_setImage(with: URL(string: statusViewModel?.status.user?.profile_image_url ?? ""), placeholderImage: nil, options: [], completed: nil)
-            avatarImageView.wz_setImage(urlString: statusViewModel?.status.user?.profile_image_url, placeholderImage: UIImage(named: "avatar_default_big"))
+            avatarImageView.wz_setImage(urlString: statusViewModel?.status.user?.profile_image_url, placeholderImage: UIImage(named: "avatar_default_big"), isAvatar: true)
             verifiedTypeImageView.image = statusViewModel?.verifyIcon
             leverImageView.image = statusViewModel?.memberIcon
             nameLabel.text = statusViewModel?.status.user?.screen_name
