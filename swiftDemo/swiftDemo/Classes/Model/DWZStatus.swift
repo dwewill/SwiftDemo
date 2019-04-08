@@ -17,6 +17,10 @@ class DWZStatus: NSObject {
     @objc var text: String?
     // 用户模型
     @objc var user: DWZUser?
+    // 创建时间
+    @objc var created_at: String?
+    // 微博来源
+    @objc var source: String?
     
     override var description: String {
         return yy_modelDescription()

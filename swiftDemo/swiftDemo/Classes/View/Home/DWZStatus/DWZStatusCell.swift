@@ -9,6 +9,21 @@
 import UIKit
 
 class DWZStatusCell: UITableViewCell {
+    // 视图模型
+    var statusViewModel: DWZStatusViewModel? {
+        didSet {
+//            avatarImageView.sd_setImage(with: URL(string: statusViewModel?.status.user?.profile_image_url ?? ""), placeholderImage: nil, options: [], completed: nil)
+            avatarImageView.wz_setImage(urlString: statusViewModel?.status.user?.profile_image_url, placeholderImage: UIImage(named: "avatar_default_big"))
+            verifiedTypeImageView.image = statusViewModel?.verifyIcon
+            leverImageView.image = statusViewModel?.memberIcon
+            nameLabel.text = statusViewModel?.status.user?.screen_name
+            timeLabel.text = statusViewModel?.status.created_at
+            sourceLabel.text = statusViewModel?.status.source
+            normalTextLabel.text = statusViewModel?.status.text
+        }
+    }
+
+    
     // 顶部灰色部分
     lazy var grayView = UIView()
     // 头像
@@ -25,16 +40,6 @@ class DWZStatusCell: UITableViewCell {
     lazy var sourceLabel = UILabel()
     // 正文
     lazy var normalTextLabel = UILabel()
-    //
-    var statusViewModel: DWZStatusViewModel? {
-        didSet {
-            avatarImageView.sd_setImage(with: URL(string: statusViewModel?.status.user?.profile_image_url ?? ""), placeholderImage: nil, options: [], completed: nil)
-            nameLabel.text = statusViewModel?.status.user?.screen_name
-            timeLabel.text = "刚刚"
-            sourceLabel.text = "来自微博 weibo.com"
-            normalTextLabel.text = statusViewModel?.status.text
-        }
-    }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -67,7 +72,7 @@ extension DWZStatusCell {
         nameLabel.textColor = UIColor.cz_color(withHex: 0xf33e00)
         nameLabel.font = UIFont.systemFont(ofSize: 13)
         
-        leverImageView.image = UIImage(named: "common_icon_membership_level6")
+        leverImageView.image = UIImage(named: "common_icon_membership")
         
         timeLabel.textColor = UIColor.cz_color(withHex: 0x828282)
         timeLabel.font = UIFont.systemFont(ofSize: 11)
