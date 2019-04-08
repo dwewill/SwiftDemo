@@ -67,6 +67,7 @@ extension DWZNewFeatureView {
             imageView.frame = CGRect(x: screenWidth*CGFloat(i-1), y: 0, width: screenWidth, height: screenHeight)
         }
         pageControl.numberOfPages = count
+        pageControl.isUserInteractionEnabled = false
         scrollView.contentSize = CGSize(width: screenWidth*CGFloat(count+1), height: screenHeight)
         scrollView.isPagingEnabled = true
         scrollView.bounces = false
