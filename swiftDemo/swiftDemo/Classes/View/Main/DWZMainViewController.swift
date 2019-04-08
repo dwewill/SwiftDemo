@@ -100,10 +100,13 @@ extension DWZMainViewController: UITabBarControllerDelegate {
             print("这个地方要重新请求数据")
             let nav = children.first as? DWZNavigationController
             let homeVC = nav?.viewControllers.first as? DWZHomeViewController
+            // FIXME: - navigationBar的高度是固定值
             homeVC?.tableView?.setContentOffset(CGPoint(x: 0, y: -64), animated: true)
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()+1) {
                 homeVC?.loadData()
             }
+            homeVC?.tabBarItem.badgeValue = nil
+            UIApplication.shared.applicationIconBadgeNumber = 0
         }
         return !viewController.isMember(of: UIViewController.self)
     }

@@ -43,16 +43,14 @@ extension DWZHomeViewController {
     override func setupTableView() {
         super.setupTableView()
         navBarItem.leftBarButtonItem = UIBarButtonItem(title: "好友", action: self, selector: #selector(showFriends))
-        tableView?.register(UITableViewCell.self, forCellReuseIdentifier: baseCellId)
+        tableView?.rowHeight = UITableView.automaticDimension
+        tableView?.estimatedRowHeight = 220
+        tableView?.register(DWZStatusCell.self, forCellReuseIdentifier: baseCellId)
         setupNavigationTitle()
     }
     
     private func setupNavigationTitle() {
         let screen_name = DWZNetworkManager.shared.DWZUser.screen_name
-//        let btn = UIButton.cz_textButton(screen_name, fontSize: 18, normalColor: .darkGray, highlightedColor: .black)
-//        btn?.setImage(UIImage(named: "navigationbar_arrow_up"), for: .normal)
-//        btn?.setImage(UIImage(named: "navigationbar_arrow_down"), for: .selected)
-//        btn?.addTarget(self, action: #selector(navigationTitleClick(btn:)), for: .touchUpInside)
         
         let btn = DWZTitleButton(text: screen_name)
         btn.addTarget(self, action: #selector(navigationTitleClick(btn:)), for: .touchUpInside)
@@ -78,8 +76,9 @@ extension DWZHomeViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: baseCellId, for: indexPath)
-        cell.textLabel?.text = listViewModel.statusList[indexPath.row].text ?? "\(indexPath.row)"
+        let cell = tableView.dequeueReusableCell(withIdentifier: baseCellId, for: indexPath) as! DWZStatusCell
+//        cell.textLabel?.text = listViewModel.statusList[indexPath.row].text ?? "\(indexPath.row)"
+        cell.statusViewModel = listViewModel.statusList[indexPath.row]
         return cell
     }
 }

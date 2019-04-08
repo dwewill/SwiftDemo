@@ -12,7 +12,7 @@ private let maxPullUpTryTimes = 3
 
 /// 微博视图模型
 class DWZStatusListViewModel {
-    lazy var statusList = [DWZStatus]()
+    lazy var statusList = [DWZStatusViewModel]()
     
     // 上拉没有新数据的次数(避免过多的空请求到服务器)
     private var pullUpErrorTime = 0
@@ -27,15 +27,15 @@ class DWZStatusListViewModel {
             return
         }
         
-        let since_id = isPullUp ? 0 : statusList.first?.id ?? 0
-        let max_id = !isPullUp ? 0 : statusList.last?.id ?? 0
+        let since_id = isPullUp ? 0 : statusList.first?.status.id ?? 0
+        let max_id = !isPullUp ? 0 : statusList.last?.status.id ?? 0
         DWZNetworkManager.shared.statusList(since_id: since_id, max_id: max_id) { (list, isSuccess) in
             // 利用YYModel 字典转模型
-            var array = [DWZStatus]()
+            var array = [DWZStatusViewModel]()
             for dic in list ?? [] {
                 let model = DWZStatus()
                 model.yy_modelSet(with: dic)
-                array.append(model)
+                array.append(DWZStatusViewModel(status: model))
             }
             print("刷新 \(array.count)条数据")
             if isPullUp {
