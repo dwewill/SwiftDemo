@@ -34,13 +34,14 @@ class DWZWelcomeView: UIView {
         UIView.animate(withDuration: 1.0, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0, options: [], animations: {
             self.layoutIfNeeded()
         }) { (_) in
-            UIView.animate(withDuration: 1.0, delay: 0, options: [], animations: {
-                self.textLabel.alpha = 1
-            }, completion: nil)
+            UIView.animate(withDuration: 1.0, animations: {
+                 self.textLabel.alpha = 1
+            }, completion: { (_) in
+                self.removeFromSuperview()
+            })
         }
     }
 }
-
 
 // MARK: - 页面搭建
 extension DWZWelcomeView {
