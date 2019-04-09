@@ -21,6 +21,12 @@ class DWZStatus: NSObject {
     @objc var created_at: String?
     // 微博来源
     @objc var source: String?
+    // 转发数
+    @objc var reposts_count = 0
+    // 评论数
+    @objc var comments_count = 0
+    // 点赞数
+    @objc var attitudes_count = 0
     
     override var description: String {
         return yy_modelDescription()

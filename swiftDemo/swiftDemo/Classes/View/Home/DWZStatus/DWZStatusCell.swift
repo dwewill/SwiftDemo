@@ -19,6 +19,7 @@ class DWZStatusCell: UITableViewCell {
             timeLabel.text = statusViewModel?.status.created_at
             sourceLabel.text = statusViewModel?.status.source
             normalTextLabel.text = statusViewModel?.status.text
+            statusToolBar.statusViewModel = statusViewModel
         }
     }
 
@@ -138,7 +139,7 @@ extension DWZStatusCell {
             make.right.equalTo(contentView)
             make.top.equalTo(normalTextLabel.snp_bottom).offset(11)
             make.height.equalTo(28)
-            make.bottom.equalTo(contentView)
+            make.bottom.equalTo(contentView).offset(-5)
         }
     }
 }

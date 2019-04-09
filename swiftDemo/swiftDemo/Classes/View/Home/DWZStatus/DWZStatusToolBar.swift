@@ -12,6 +12,13 @@ import UIKit
 /// 微博底下的转发/评论/点赞工具栏
 class DWZStatusToolBar: UIView {
 
+    var statusViewModel: DWZStatusViewModel? {
+        didSet {
+            transmitButton.setTitle(statusViewModel?.repostStr, for: .normal)
+            commentButton.setTitle(statusViewModel?.commentStr, for: .normal)
+            likeButton.setTitle(statusViewModel?.likeStr, for: .normal)
+        }
+    }
     // 转发按钮
     lazy var transmitButton = UIButton()
     // 评论按钮

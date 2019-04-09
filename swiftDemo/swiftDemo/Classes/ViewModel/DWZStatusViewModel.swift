@@ -19,15 +19,25 @@ class DWZStatusViewModel: CustomStringConvertible {
     // 认证图标
     var verifyIcon: UIImage?
     
+    // 转发数文字
+    var repostStr: String?
+    
+    // 评论数文字
+    var commentStr: String?
+    // 点赞数文字
+    var likeStr: String?
+    
     init(status: DWZStatus) {
         self.status = status
         
+        // 计算星标等级图片
         if let mbarank = status.user?.mbrank {
             if mbarank > 0 && mbarank < 7 {
                 memberIcon = UIImage(named: "common_icon_membership_level\(mbarank)")
             }
         }
         
+        // 计算认证类型图片
 //        if let verified_type = status.user?.verified_type {
 //            // 认证类型 -1：没有认证， 0 认证用户，2、3、5企业认证， 220：达人
 //            if verified_type == 0 {
@@ -50,10 +60,22 @@ class DWZStatusViewModel: CustomStringConvertible {
             break
         }
         
+        repostStr = textFromCount(count: status.reposts_count, defaultStr: "转发")
+        commentStr = textFromCount(count: status.comments_count, defaultStr: "评论")
+        likeStr = textFromCount(count: status.attitudes_count, defaultStr: "点赞")
     }
     
     var description: String {
         return status.yy_modelDescription()
     }
     
+    func textFromCount(count: Int ,defaultStr: String) -> String {
+        if count == 0 {
+            return defaultStr
+        }else if count < 10000 {
+            return "\(count)"
+        }else {
+            return "\(CGFloat(count)/10000)"
+        }
+    }
 }
