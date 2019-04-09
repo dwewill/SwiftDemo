@@ -81,6 +81,8 @@ extension DWZStatusToolBar {
         button.setTitle(text, for: .normal)
         button.setTitleColor(.darkGray, for: .normal)
         button.setImage(UIImage(named: imageString), for: .normal)
+        button.setBackgroundImage(UIImage(named: "timeline_card_middle_background"), for: .normal)
+        button.setBackgroundImage(UIImage(named: "timeline_card_middle_background_highlighted"), for: .highlighted)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 12)
         button.imageEdgeInsets = UIEdgeInsets(top: 0, left: -10, bottom: 0, right: 0)
         guard let seletedImageString = seletedImageString else {

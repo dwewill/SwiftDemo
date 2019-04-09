@@ -20,3 +20,9 @@ let DWZUserShouldRegisterNotification = "DWZUserShouldRegisterNotification"
 
 // 用户登录成功通知
 let DWZUserLoginSuccessNotification = "DWZUserLoginSuccessNotification"
+
+// 配图视图的外部间距
+let DWZStatusPictureOutterMargin:CGFloat = 12
+
+// 配图视图的内部间距
+let DWZStatusPictureInnerMargin:CGFloat = 3

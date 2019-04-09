@@ -85,7 +85,7 @@ extension DWZStatusCell {
         verifiedTypeImageView.image = UIImage(named: "avatar_vip")
         
         nameLabel.textColor = UIColor.cz_color(withHex: 0xf33e00)
-        nameLabel.font = UIFont.systemFont(ofSize: 13)
+        nameLabel.font = UIFont.systemFont(ofSize: 15)
         
         leverImageView.image = UIImage(named: "common_icon_membership")
         
@@ -96,8 +96,8 @@ extension DWZStatusCell {
         sourceLabel.font = UIFont.systemFont(ofSize: 11)
         
         normalTextLabel.numberOfLines = 0
-        normalTextLabel.textColor = UIColor.cz_color(withHex: 0x000000)
-        normalTextLabel.font = UIFont.systemFont(ofSize: 11)
+        normalTextLabel.textColor = .darkGray
+        normalTextLabel.font = UIFont.systemFont(ofSize: 15)
         
         grayView.snp.makeConstraints { (make) in
             make.top.left.right.equalTo(contentView)
@@ -106,7 +106,7 @@ extension DWZStatusCell {
         
         avatarImageView.snp.makeConstraints { (make) in
             make.top.equalTo(grayView.snp_bottom).offset(7)
-            make.left.equalTo(contentView).offset(11)
+            make.left.equalTo(contentView).offset(12)
             make.width.height.equalTo(34)
         }
         
@@ -131,19 +131,19 @@ extension DWZStatusCell {
         timeLabel.snp.makeConstraints { (make) in
             make.top.equalTo(nameLabel.snp_bottom).offset(4)
             make.left.equalTo(nameLabel)
-            make.height.equalTo(11)
+            make.height.equalTo(12)
         }
         
         sourceLabel.snp.makeConstraints { (make) in
             make.centerY.equalTo(timeLabel)
             make.left.equalTo(timeLabel.snp_right).offset(6)
-            make.height.equalTo(11)
+            make.height.equalTo(12)
         }
         
         normalTextLabel.snp.makeConstraints { (make) in
             make.left.equalTo(avatarImageView)
-            make.right.equalTo(contentView).offset(-11)
-            make.top.equalTo(avatarImageView.snp_bottom).offset(11)
+            make.right.equalTo(contentView).offset(-12)
+            make.top.equalTo(avatarImageView.snp_bottom).offset(12)
         }
         
         pictureView.snp.makeConstraints { (make) in
@@ -156,8 +156,8 @@ extension DWZStatusCell {
         statusToolBar.snp.makeConstraints { (make) in
             make.left.equalTo(contentView)
             make.right.equalTo(contentView)
-            make.top.equalTo(pictureView.snp_bottom).offset(11)
-            make.height.equalTo(28)
+            make.top.equalTo(pictureView.snp_bottom).offset(12)
+            make.height.equalTo(35)
             make.bottom.equalTo(contentView).offset(-5)
         }
     }

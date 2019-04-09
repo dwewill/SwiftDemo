@@ -68,12 +68,25 @@ class DWZStatusViewModel: CustomStringConvertible {
         likeStr = textFromCount(count: status.attitudes_count, defaultStr: "点赞")
         
         // pictureView的设置
-        let pictureHeight = (screenWidth - 2*12 - 2*3)/3
-        let count = status.pic_urls?.count ?? 0
-        let row =  count/3 + (count%3 > 0 ? 1 : 0)
-        var height = pictureHeight*CGFloat(row) + CGFloat(3*(count/3))
-        height > 0 ? height += 12 : ()
-        pictureViewSize = CGSize(width: screenWidth-2*12, height: height)
+//        let pictureHeight = (screenWidth - 2*12 - 2*3)/3
+//        let count = status.pic_urls?.count ?? 0
+//        let row =  count/3 + (count%3 > 0 ? 1 : 0)
+//        var height = pictureHeight*CGFloat(row) + CGFloat(3*(count/3))
+//        height > 0 ? height += 12 : ()
+//        pictureViewSize = CGSize(width: screenWidth-2*12, height: height)
+        
+        if status.pic_urls == nil || status.pic_urls?.count == 0 {
+            pictureViewSize = CGSize.zero
+            return
+        }
+        
+        let count = status.pic_urls!.count
+        var height:CGFloat = DWZStatusPictureOutterMargin
+        let row = (count-1)/3+1
+        let pictureHeight = (screenWidth - 2*DWZStatusPictureOutterMargin - 2*DWZStatusPictureInnerMargin)/3
+        height += CGFloat(row)*pictureHeight
+        height += CGFloat(row-1)*3
+        pictureViewSize = CGSize(width: screenWidth-DWZStatusPictureOutterMargin*2, height: height)
     }
     
     var description: String {

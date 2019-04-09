@@ -45,7 +45,7 @@ extension DWZPictureView {
     private func setupUI() {
         let pictureHeight = (screenWidth - 2*12 - 2*3)/3
         for i in 0..<9 {
-            let imageView = UIImageView(frame: CGRect(x: CGFloat(Int(i%3))*(pictureHeight+3), y: CGFloat(Int(i/3))*(pictureHeight+3)+12, width: pictureHeight, height: pictureHeight))
+            let imageView = UIImageView(frame: CGRect(x: CGFloat(Int(i%3))*(pictureHeight+DWZStatusPictureInnerMargin), y: CGFloat(Int(i/3))*(pictureHeight+DWZStatusPictureInnerMargin)+DWZStatusPictureOutterMargin, width: pictureHeight, height: pictureHeight))
             addSubview(imageView)
         }
     }
