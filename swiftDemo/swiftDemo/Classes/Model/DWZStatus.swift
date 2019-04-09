@@ -27,8 +27,16 @@ class DWZStatus: NSObject {
     @objc var comments_count = 0
     // 点赞数
     @objc var attitudes_count = 0
+    // 微博配图模型数组
+    @objc var pic_urls: [DWZStatusPicture]?
     
     override var description: String {
         return yy_modelDescription()
+    }
+    
+    // 容器类属性
+    // 类函数，用来告诉第三方，如果遇到数组类型的属性，告诉第三方数组中存放的是什么类
+    @objc class func modelContainerPropertyGenericClass() -> [String: Any] {
+        return ["pic_urls": DWZStatusPicture.self]
     }
 }

@@ -27,6 +27,8 @@ class DWZStatusViewModel: CustomStringConvertible {
     // 点赞数文字
     var likeStr: String?
     
+    var pictureViewSize: CGSize?
+    
     init(status: DWZStatus) {
         self.status = status
         
@@ -60,9 +62,18 @@ class DWZStatusViewModel: CustomStringConvertible {
             break
         }
         
+        // toolBar 设置
         repostStr = textFromCount(count: status.reposts_count, defaultStr: "转发")
         commentStr = textFromCount(count: status.comments_count, defaultStr: "评论")
         likeStr = textFromCount(count: status.attitudes_count, defaultStr: "点赞")
+        
+        // pictureView的设置
+        let pictureHeight = (screenWidth - 2*12 - 2*3)/3
+        let count = status.pic_urls?.count ?? 0
+        let row =  count/3 + (count%3 > 0 ? 1 : 0)
+        var height = pictureHeight*CGFloat(row) + CGFloat(3*(count/3))
+        height > 0 ? height += 12 : ()
+        pictureViewSize = CGSize(width: screenWidth-2*12, height: height)
     }
     
     var description: String {

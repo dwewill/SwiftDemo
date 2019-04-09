@@ -17,9 +17,18 @@ class DWZStatusCell: UITableViewCell {
             leverImageView.image = statusViewModel?.memberIcon
             nameLabel.text = statusViewModel?.status.user?.screen_name
             timeLabel.text = statusViewModel?.status.created_at
-            sourceLabel.text = statusViewModel?.status.source
+//            sourceLabel.text = statusViewModel?.status.source
+            sourceLabel.text = "\(statusViewModel?.status.pic_urls?.count ?? 0)"
             normalTextLabel.text = statusViewModel?.status.text
             statusToolBar.statusViewModel = statusViewModel
+            guard let pictureViewSize = statusViewModel?.pictureViewSize else {
+                return
+            }
+            pictureView.snp.updateConstraints { (make) in
+                make.width.equalTo(pictureViewSize.width)
+                make.height.equalTo(pictureViewSize.height)
+            }
+            pictureView.pic_urls = statusViewModel?.status.pic_urls
         }
     }
 
@@ -40,6 +49,8 @@ class DWZStatusCell: UITableViewCell {
     lazy var sourceLabel = UILabel()
     // 正文
     lazy var normalTextLabel = UILabel()
+    // 图片区
+    lazy var pictureView = DWZPictureView()
     // 工具栏
     lazy var statusToolBar = DWZStatusToolBar()
     
@@ -54,10 +65,10 @@ class DWZStatusCell: UITableViewCell {
     
 }
 
-
 // MARK: - 页面搭建
 extension DWZStatusCell {
     private func setupUI() {
+        selectionStyle = .none
         contentView.addSubview(grayView)
         contentView.addSubview(avatarImageView)
         contentView.addSubview(verifiedTypeImageView)
@@ -66,6 +77,7 @@ extension DWZStatusCell {
         contentView.addSubview(timeLabel)
         contentView.addSubview(sourceLabel)
         contentView.addSubview(normalTextLabel)
+        contentView.addSubview(pictureView)
         contentView.addSubview(statusToolBar)
         
         grayView.backgroundColor = UIColor.cz_color(withHex: 0xf2f2f2)
@@ -134,10 +146,17 @@ extension DWZStatusCell {
             make.top.equalTo(avatarImageView.snp_bottom).offset(11)
         }
         
+        pictureView.snp.makeConstraints { (make) in
+            make.top.equalTo(normalTextLabel.snp_bottom)
+            make.left.equalTo(contentView).offset(12)
+            make.width.equalTo(0)
+            make.height.equalTo(0)
+        }
+        
         statusToolBar.snp.makeConstraints { (make) in
             make.left.equalTo(contentView)
             make.right.equalTo(contentView)
-            make.top.equalTo(normalTextLabel.snp_bottom).offset(11)
+            make.top.equalTo(pictureView.snp_bottom).offset(11)
             make.height.equalTo(28)
             make.bottom.equalTo(contentView).offset(-5)
         }
