@@ -39,6 +39,8 @@ class DWZStatusCell: UITableViewCell {
     lazy var sourceLabel = UILabel()
     // 正文
     lazy var normalTextLabel = UILabel()
+    // 工具栏
+    lazy var statusToolBar = DWZStatusToolBar()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -63,6 +65,7 @@ extension DWZStatusCell {
         contentView.addSubview(timeLabel)
         contentView.addSubview(sourceLabel)
         contentView.addSubview(normalTextLabel)
+        contentView.addSubview(statusToolBar)
         
         grayView.backgroundColor = UIColor.cz_color(withHex: 0xf2f2f2)
         
@@ -95,8 +98,8 @@ extension DWZStatusCell {
         }
         
         verifiedTypeImageView.snp.makeConstraints { (make) in
-            make.centerX.equalTo(avatarImageView.snp_right)
-            make.centerY.equalTo(avatarImageView.snp_bottom)
+            make.centerX.equalTo(avatarImageView.snp_right).offset(-4)
+            make.centerY.equalTo(avatarImageView.snp_bottom).offset(-4)
             make.width.height.equalTo(14)
         }
         
@@ -128,7 +131,14 @@ extension DWZStatusCell {
             make.left.equalTo(avatarImageView)
             make.right.equalTo(contentView).offset(-11)
             make.top.equalTo(avatarImageView.snp_bottom).offset(11)
-            make.bottom.equalTo(contentView).offset(-20)
+        }
+        
+        statusToolBar.snp.makeConstraints { (make) in
+            make.left.equalTo(contentView)
+            make.right.equalTo(contentView)
+            make.top.equalTo(normalTextLabel.snp_bottom).offset(11)
+            make.height.equalTo(28)
+            make.bottom.equalTo(contentView)
         }
     }
 }
