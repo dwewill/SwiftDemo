@@ -14,6 +14,7 @@
 		5516B9B2225B2597001F83C8 /* DWZUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5516B9B1225B2597001F83C8 /* DWZUser.swift */; };
 		5516B9B4225B4650001F83C8 /* UIImageView+SDWebImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5516B9B3225B4650001F83C8 /* UIImageView+SDWebImage.swift */; };
 		5516BE8B2253500400570789 /* DWZVisitorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5516BE8A2253500400570789 /* DWZVisitorView.swift */; };
+		551733FF225CCA0500A6ED0C /* DWZStatusRetweetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551733FE225CCA0500A6ED0C /* DWZStatusRetweetView.swift */; };
 		5519C0B62251B4A90003B265 /* DWZTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5519C0B52251B4A90003B265 /* DWZTestViewController.swift */; };
 		5519C0B82251CEDF0003B265 /* UIBarButtonItem+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5519C0B72251CEDF0003B265 /* UIBarButtonItem+Extension.swift */; };
 		551EF8472259EFE400C9B9B4 /* DWZWelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551EF8462259EFE400C9B9B4 /* DWZWelcomeView.swift */; };
@@ -21,6 +22,9 @@
 		551FA91322559465007AA28F /* DWZCommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551FA91222559465007AA28F /* DWZCommon.swift */; };
 		551FA916225599B2007AA28F /* DWZOAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551FA915225599B2007AA28F /* DWZOAuthViewController.swift */; };
 		551FA9192255EF12007AA28F /* DWZUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551FA9182255EF12007AA28F /* DWZUserModel.swift */; };
+		552410CC227A9890006AA8EA /* DWZNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552410CB227A9890006AA8EA /* DWZNavigationBar.swift */; };
+		552410F5227B3BDF006AA8EA /* DWZSQLiteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552410F3227B3BDE006AA8EA /* DWZSQLiteManager.swift */; };
+		552410F6227B3BDF006AA8EA /* status.sql in Resources */ = {isa = PBXBuildFile; fileRef = 552410F4227B3BDE006AA8EA /* status.sql */; };
 		554514792250A89C00C0F113 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554514782250A89C00C0F113 /* AppDelegate.swift */; };
 		554514802250A89D00C0F113 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5545147F2250A89D00C0F113 /* Assets.xcassets */; };
 		554514A32250C04700C0F113 /* DWZMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554514A22250C04700C0F113 /* DWZMainViewController.swift */; };
@@ -62,6 +66,7 @@
 		5516B9B1225B2597001F83C8 /* DWZUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DWZUser.swift; sourceTree = "<group>"; };
 		5516B9B3225B4650001F83C8 /* UIImageView+SDWebImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+SDWebImage.swift"; sourceTree = "<group>"; };
 		5516BE8A2253500400570789 /* DWZVisitorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DWZVisitorView.swift; sourceTree = "<group>"; };
+		551733FE225CCA0500A6ED0C /* DWZStatusRetweetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DWZStatusRetweetView.swift; sourceTree = "<group>"; };
 		5519C0B52251B4A90003B265 /* DWZTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DWZTestViewController.swift; sourceTree = "<group>"; };
 		5519C0B72251CEDF0003B265 /* UIBarButtonItem+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Extension.swift"; sourceTree = "<group>"; };
 		551EF8462259EFE400C9B9B4 /* DWZWelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DWZWelcomeView.swift; sourceTree = "<group>"; };
@@ -69,6 +74,9 @@
 		551FA91222559465007AA28F /* DWZCommon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DWZCommon.swift; sourceTree = "<group>"; };
 		551FA915225599B2007AA28F /* DWZOAuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DWZOAuthViewController.swift; sourceTree = "<group>"; };
 		551FA9182255EF12007AA28F /* DWZUserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DWZUserModel.swift; sourceTree = "<group>"; };
+		552410CB227A9890006AA8EA /* DWZNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DWZNavigationBar.swift; sourceTree = "<group>"; };
+		552410F3227B3BDE006AA8EA /* DWZSQLiteManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DWZSQLiteManager.swift; sourceTree = "<group>"; };
+		552410F4227B3BDE006AA8EA /* status.sql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = status.sql; sourceTree = "<group>"; };
 		554514752250A89C00C0F113 /* swiftDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = swiftDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		554514782250A89C00C0F113 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5545147F2250A89D00C0F113 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -146,6 +154,7 @@
 				5516B9AD225AF8BD001F83C8 /* DWZStatusCell.swift */,
 				55E42034225C2B550068B16A /* DWZStatusToolBar.swift */,
 				55E42038225C829A0068B16A /* DWZPictureView.swift */,
+				551733FE225CCA0500A6ED0C /* DWZStatusRetweetView.swift */,
 			);
 			path = DWZStatus;
 			sourceTree = "<group>";
@@ -189,6 +198,15 @@
 				551FA9182255EF12007AA28F /* DWZUserModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		552410F2227B3BDE006AA8EA /* SQLite */ = {
+			isa = PBXGroup;
+			children = (
+				552410F3227B3BDE006AA8EA /* DWZSQLiteManager.swift */,
+				552410F4227B3BDE006AA8EA /* status.sql */,
+			);
+			path = SQLite;
 			sourceTree = "<group>";
 		};
 		5545146C2250A89C00C0F113 = {
@@ -244,6 +262,7 @@
 		5545149A2250BF3D00C0F113 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				552410F2227B3BDE006AA8EA /* SQLite */,
 				55C4FD8522545A7800691B25 /* NetWorkTool */,
 				554514D72251041C00C0F113 /* Extensions */,
 				554514B02250FF3400C0F113 /* Additions */,
@@ -318,6 +337,7 @@
 				554514A22250C04700C0F113 /* DWZMainViewController.swift */,
 				554514A42250C08500C0F113 /* DWZNavigationController.swift */,
 				554514A62250C0B000C0F113 /* DWZBaseViewController.swift */,
+				552410CB227A9890006AA8EA /* DWZNavigationBar.swift */,
 				55AF5B4222539D0900A0AD6F /* main.json */,
 			);
 			path = Main;
@@ -454,6 +474,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				552410F6227B3BDF006AA8EA /* status.sql in Resources */,
 				55AF5B4322539D0900A0AD6F /* main.json in Resources */,
 				554514802250A89D00C0F113 /* Assets.xcassets in Resources */,
 			);
@@ -537,6 +558,7 @@
 				551FA91322559465007AA28F /* DWZCommon.swift in Sources */,
 				554514D52250FF3500C0F113 /* NSArray+Log.m in Sources */,
 				554514CC2250FF3500C0F113 /* UIScreen+CZAddition.m in Sources */,
+				552410F5227B3BDF006AA8EA /* DWZSQLiteManager.swift in Sources */,
 				554514A72250C0B000C0F113 /* DWZBaseViewController.swift in Sources */,
 				554514A52250C08500C0F113 /* DWZNavigationController.swift in Sources */,
 				5516B9AA225AF7D4001F83C8 /* UIImage+Extensions.swift in Sources */,
@@ -548,10 +570,12 @@
 				554514D22250FF3500C0F113 /* UIViewController+CZAddition.m in Sources */,
 				554514AF2250C12F00C0F113 /* DWZProfileViewController.swift in Sources */,
 				55E42037225C722E0068B16A /* DWZStatusPicture.swift in Sources */,
+				552410CC227A9890006AA8EA /* DWZNavigationBar.swift in Sources */,
 				55C4FD8D2254958A00691B25 /* DWZStatusListViewModel.swift in Sources */,
 				554514A32250C04700C0F113 /* DWZMainViewController.swift in Sources */,
 				55E42035225C2B550068B16A /* DWZStatusToolBar.swift in Sources */,
 				554514CD2250FF3500C0F113 /* UILabel+CZAddition.m in Sources */,
+				551733FF225CCA0500A6ED0C /* DWZStatusRetweetView.swift in Sources */,
 				551EF8492259EFFD00C9B9B4 /* DWZNewFeatureView.swift in Sources */,
 				554514CF2250FF3500C0F113 /* NSString+CZPath.m in Sources */,
 				5516B9B2225B2597001F83C8 /* DWZUser.swift in Sources */,

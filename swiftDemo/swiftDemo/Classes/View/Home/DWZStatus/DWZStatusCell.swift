@@ -21,6 +21,19 @@ class DWZStatusCell: UITableViewCell {
             sourceLabel.text = "\(statusViewModel?.status.pic_urls?.count ?? 0)"
             normalTextLabel.text = statusViewModel?.status.text
             statusToolBar.statusViewModel = statusViewModel
+            retweetStatusView.status = statusViewModel?.status.retweeted_status
+            
+            if statusViewModel?.status.retweeted_status != nil {
+                retweetStatusView.retweetStatusText = statusViewModel?.retweetStatusText
+                retweetStatusView.snp.updateConstraints { (make) in
+                    make.height.equalTo(statusViewModel?.retweetViewHeight ?? 0)
+                }
+            }else {
+                retweetStatusView.retweetStatusText = ""
+                retweetStatusView.snp.updateConstraints { (make) in
+                    make.height.equalTo(0)
+                }
+            }
             guard let pictureViewSize = statusViewModel?.pictureViewSize else {
                 return
             }
@@ -51,6 +64,8 @@ class DWZStatusCell: UITableViewCell {
     lazy var normalTextLabel = UILabel()
     // 图片区
     lazy var pictureView = DWZPictureView()
+    // 转发微博
+    lazy var retweetStatusView = DWZStatusRetweetView()
     // 工具栏
     lazy var statusToolBar = DWZStatusToolBar()
     
@@ -78,6 +93,7 @@ extension DWZStatusCell {
         contentView.addSubview(sourceLabel)
         contentView.addSubview(normalTextLabel)
         contentView.addSubview(pictureView)
+        contentView.addSubview(retweetStatusView)
         contentView.addSubview(statusToolBar)
         
         grayView.backgroundColor = UIColor.cz_color(withHex: 0xf2f2f2)
@@ -153,10 +169,17 @@ extension DWZStatusCell {
             make.height.equalTo(0)
         }
         
+        retweetStatusView.snp.makeConstraints { (make) in
+            make.top.equalTo(pictureView.snp_bottom)
+            make.left.equalTo(contentView).offset(12)
+            make.width.equalTo(screenWidth)
+            make.height.equalTo(0)
+        }
+        
         statusToolBar.snp.makeConstraints { (make) in
             make.left.equalTo(contentView)
             make.right.equalTo(contentView)
-            make.top.equalTo(pictureView.snp_bottom).offset(12)
+            make.top.equalTo(retweetStatusView.snp_bottom).offset(12)
             make.height.equalTo(35)
             make.bottom.equalTo(contentView).offset(-5)
         }

@@ -27,7 +27,14 @@ class DWZStatusViewModel: CustomStringConvertible {
     // 点赞数文字
     var likeStr: String?
     
+    // 配图视图的大小
     var pictureViewSize: CGSize?
+    
+    // 转发微博的文字
+    var retweetStatusText: String?
+    
+    // 转发微博的高度
+    var retweetViewHeight: CGFloat?
     
     init(status: DWZStatus) {
         self.status = status
@@ -77,16 +84,32 @@ class DWZStatusViewModel: CustomStringConvertible {
         
         if status.pic_urls == nil || status.pic_urls?.count == 0 {
             pictureViewSize = CGSize.zero
-            return
+        }else {
+            let count = status.pic_urls!.count
+            var height:CGFloat = DWZStatusPictureOutterMargin
+            let row = (count-1)/3+1
+            let pictureHeight = (screenWidth - 2*DWZStatusPictureOutterMargin - 2*DWZStatusPictureInnerMargin)/3
+            height += CGFloat(row)*pictureHeight
+            height += CGFloat(row-1)*3
+            pictureViewSize = CGSize(width: screenWidth-DWZStatusPictureOutterMargin*2, height: height)
         }
         
-        let count = status.pic_urls!.count
-        var height:CGFloat = DWZStatusPictureOutterMargin
-        let row = (count-1)/3+1
-        let pictureHeight = (screenWidth - 2*DWZStatusPictureOutterMargin - 2*DWZStatusPictureInnerMargin)/3
-        height += CGFloat(row)*pictureHeight
-        height += CGFloat(row-1)*3
-        pictureViewSize = CGSize(width: screenWidth-DWZStatusPictureOutterMargin*2, height: height)
+        // 文字的限制范围
+        let viewSize = CGSize(width: screenWidth-2*DWZStatusPictureOutterMargin, height: CGFloat(MAXFLOAT))
+        if status.retweeted_status != nil {
+            let retweetText = "@:\(status.user?.screen_name ?? "")" +
+            "\(status.retweeted_status?.text ?? "")"
+            var textHeight = retweetText.boundingRect(with: viewSize, options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 15)], context: nil).height
+            let count = status.retweeted_status?.pic_urls?.count ?? 0
+            let row = (count-1)/3+1
+            let pictureHeight = (screenWidth - 2*DWZStatusPictureOutterMargin - 2*DWZStatusPictureInnerMargin)/3
+            textHeight += CGFloat(row)*pictureHeight
+            textHeight += CGFloat(row-1)*3
+            textHeight += 2*DWZStatusPictureOutterMargin
+            
+            retweetViewHeight = textHeight
+            retweetStatusText = retweetText
+        }
     }
     
     var description: String {

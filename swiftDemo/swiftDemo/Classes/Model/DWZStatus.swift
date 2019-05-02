@@ -29,6 +29,8 @@ class DWZStatus: NSObject {
     @objc var attitudes_count = 0
     // 微博配图模型数组
     @objc var pic_urls: [DWZStatusPicture]?
+    // 被转发的原创微博
+    @objc var retweeted_status: DWZStatus?
     
     override var description: String {
         return yy_modelDescription()
