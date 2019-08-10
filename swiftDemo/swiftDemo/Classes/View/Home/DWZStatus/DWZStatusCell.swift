@@ -172,7 +172,7 @@ extension DWZStatusCell {
         retweetStatusView.snp.makeConstraints { (make) in
             make.top.equalTo(pictureView.snp_bottom)
             make.left.equalTo(contentView).offset(12)
-            make.width.equalTo(screenWidth)
+            make.right.equalTo(contentView).offset(-12)
             make.height.equalTo(0)
         }
         

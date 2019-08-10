@@ -11,13 +11,19 @@ let screen = UIScreen.main
 let screenWidth = screen.bounds.width
 let screenHeight = screen.bounds.height
 let scale = screen.scale
+// 状态栏高度
+let statusBarHeight = UIApplication.shared.statusBarFrame.height
+// 导航区域高度
+let navigationBarHeight: CGFloat = 44
+// 导航栏高度
+let navigationHeight = statusBarHeight+navigationBarHeight
 // FIXME: - iPhone X/XS/XR/XSMAX 适配
 //@available(iOS 11.0, *)
 //let navHeight = (UIApplication.shared.delegate?.window ?? UIWindow(frame: screen.bounds))?.safeAreaInsets.top ?? 0 > CGFloat(20) ? 88 : 64
 
 
 class DWZBaseViewController: UIViewController {
-    lazy var navBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: screenWidth, height: 64))
+    lazy var navBar = DWZNavigationBar(frame: CGRect(x: 0, y: 0, width: screenWidth, height: 64))
     lazy var navBarItem = UINavigationItem()
     var tableView: UITableView?
     var refreshControl : UIRefreshControl?
