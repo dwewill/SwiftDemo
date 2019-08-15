@@ -113,6 +113,7 @@ extension DWZStatusCell {
         
         normalTextLabel.numberOfLines = 0
         normalTextLabel.textColor = .darkGray
+        normalTextLabel.lineBreakMode = .byCharWrapping
         normalTextLabel.font = UIFont.systemFont(ofSize: 15)
         
         grayView.snp.makeConstraints { (make) in
@@ -171,8 +172,8 @@ extension DWZStatusCell {
         
         retweetStatusView.snp.makeConstraints { (make) in
             make.top.equalTo(pictureView.snp_bottom)
-            make.left.equalTo(contentView).offset(12)
-            make.right.equalTo(contentView).offset(-12)
+            make.left.equalTo(contentView)
+            make.right.equalTo(contentView)
             make.height.equalTo(0)
         }
         

@@ -23,7 +23,7 @@ let navigationHeight = statusBarHeight+navigationBarHeight
 
 
 class DWZBaseViewController: UIViewController {
-    lazy var navBar = DWZNavigationBar(frame: CGRect(x: 0, y: 0, width: screenWidth, height: 64))
+    lazy var navBar = DWZNavigationBar(frame: CGRect(x: 0, y: 0, width: screenWidth, height: navigationHeight))
     lazy var navBarItem = UINavigationItem()
     var tableView: UITableView?
     var refreshControl : UIRefreshControl?

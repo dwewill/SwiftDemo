@@ -91,6 +91,7 @@ class DWZStatusViewModel: CustomStringConvertible {
             let pictureHeight = (screenWidth - 2*DWZStatusPictureOutterMargin - 2*DWZStatusPictureInnerMargin)/3
             height += CGFloat(row)*pictureHeight
             height += CGFloat(row-1)*3
+            
             pictureViewSize = CGSize(width: screenWidth-DWZStatusPictureOutterMargin*2, height: height)
         }
         
@@ -101,14 +102,22 @@ class DWZStatusViewModel: CustomStringConvertible {
             "\(status.retweeted_status?.text ?? "")"
             var textHeight = retweetText.boundingRect(with: viewSize, options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 15)], context: nil).height
             let count = status.retweeted_status?.pic_urls?.count ?? 0
-            let row = (count-1)/3+1
-            let pictureHeight = (screenWidth - 2*DWZStatusPictureOutterMargin - 2*DWZStatusPictureInnerMargin)/3
-            textHeight += CGFloat(row)*pictureHeight
-            textHeight += CGFloat(row-1)*3
+//            textHeight += DWZStatusPictureOutterMargin
+            if count > 0 {
+                let row = (count-1)/3+1
+                let pictureHeight = (screenWidth - 2*DWZStatusPictureOutterMargin - 2*DWZStatusPictureInnerMargin)/3
+                textHeight += CGFloat(row)*pictureHeight
+                textHeight += CGFloat(row-1)*3
+                
+                textHeight += 12
+            }
             textHeight += 2*DWZStatusPictureOutterMargin
             
             retweetViewHeight = textHeight
             retweetStatusText = retweetText
+        }else {
+            retweetViewHeight = 0
+            retweetStatusText = ""
         }
     }
     

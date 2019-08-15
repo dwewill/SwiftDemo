@@ -39,11 +39,13 @@ class DWZStatusRetweetView: UIView {
 
 extension DWZStatusRetweetView {
     fileprivate func setupUI() {
+        backgroundColor = .lightGray
         addSubview(originNormalLabel)
         addSubview(pictureView)
         
         originNormalLabel.numberOfLines = 0
         originNormalLabel.textColor = .darkGray
+        originNormalLabel.lineBreakMode = .byWordWrapping
         originNormalLabel.font = UIFont.systemFont(ofSize: 15)
         
         originNormalLabel.snp.makeConstraints { (make) in
@@ -52,7 +54,7 @@ extension DWZStatusRetweetView {
         }
         
         pictureView.snp.makeConstraints { (make) in
-            make.top.equalTo(originNormalLabel.snp_bottom).offset(12)
+            make.top.equalTo(originNormalLabel.snp_bottom)
             make.left.equalTo(self).offset(12)
             make.right.equalTo(self).offset(-12)
             make.bottom.equalTo(self)
