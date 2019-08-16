@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SDWebImage
 
 private let maxPullUpTryTimes = 3
 
@@ -47,9 +48,49 @@ class DWZStatusListViewModel {
                 self.pullUpErrorTime += 1
                 completiton(isSuccess, false)
             }else {
-                completiton(isSuccess, true)
+                self.cacheSigleImage(array, completiton: completiton)
+//                completiton(isSuccess, true)
             }
             
+        }
+    }
+    
+    
+    /// 缓存本次微博数据中的单张图片数据
+    ///
+    /// - Parameter list: 视图模型数组
+    func cacheSigleImage(_ list: [DWZStatusViewModel],completiton:@escaping (_ isSuccess: Bool, _ shouldRefresh: Bool)->()) {
+        
+        // 调度组
+        let group = DispatchGroup()
+        
+        //  记录数据的长度
+        var length = 0
+        
+        for statusViewModel in list {
+            
+            if statusViewModel.picURLs?.count != 1 {
+                continue
+            }
+            guard let pic = statusViewModel.picURLs?.first!.thumbnail_pic,
+                let url = URL(string: pic) else {
+                    continue
+                }
+            
+                group.enter()
+                SDWebImageManager.shared().loadImage(with: url, options: [], progress: nil) { (image, _, _, _, _, _) in
+                    if let image = image,
+                        let data = image.pngData() {
+                        length += data.count
+//                        statusViewModel.updateSigleImageSize(image: image)
+                    }
+                    print("缓存的图像 \(image)")
+                    group.leave()
+                }
+            }
+        group.notify(queue: DispatchQueue.main) {
+            print("图像缓存完成 大小\(length)")
+            completiton(true,true)
         }
     }
 }

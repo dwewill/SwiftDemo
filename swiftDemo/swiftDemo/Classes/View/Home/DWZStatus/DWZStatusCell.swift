@@ -41,6 +41,7 @@ class DWZStatusCell: UITableViewCell {
                 make.width.equalTo(pictureViewSize.width)
                 make.height.equalTo(pictureViewSize.height)
             }
+//            pictureView.viewModel = statusViewModel
             pictureView.pic_urls = statusViewModel?.status.pic_urls
         }
     }

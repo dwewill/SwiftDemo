@@ -9,7 +9,36 @@
 import UIKit
 
 class DWZPictureView: UIView {
+    
+    var viewModel: DWZStatusViewModel? {
+        didSet {
+            calculateViewSize()
+        }
+    }
 
+    //根据视图模型的配图视图大小，调整显示内容
+    func calculateViewSize() {
+        // 单图
+        if viewModel?.picURLs?.count == 1 {
+            // 设置单图的的size
+        }else {
+            // 回复第一张图的size
+        }
+        if let count = viewModel?.status.pic_urls?.count,
+            count > 0 {
+            self.snp.updateConstraints { (make) in
+                make.width.equalTo(viewModel?.pictureViewSize?.width ?? 0)
+                make.height.equalTo(viewModel?.pictureViewSize?.height ?? 0)
+            }
+        }else {
+            self.snp.updateConstraints { (make) in
+                make.width.equalTo( 0)
+                make.height.equalTo(0)
+            }
+        }
+        
+    }
+    
     var pic_urls: [DWZStatusPicture]? {
         didSet {
             for view in subviews {
