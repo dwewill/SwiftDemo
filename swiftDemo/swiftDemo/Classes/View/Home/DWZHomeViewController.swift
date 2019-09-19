@@ -43,7 +43,7 @@ extension DWZHomeViewController {
     override func setupTableView() {
         super.setupTableView()
         navBarItem.leftBarButtonItem = UIBarButtonItem(title: "好友", action: self, selector: #selector(showFriends))
-        tableView?.rowHeight = UITableView.automaticDimension
+//        tableView?.rowHeight = UITableView.automaticDimension
         tableView?.estimatedRowHeight = 220
         tableView?.register(DWZStatusCell.self, forCellReuseIdentifier: baseCellId)
         setupNavigationTitle()
@@ -77,8 +77,17 @@ extension DWZHomeViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: baseCellId, for: indexPath) as! DWZStatusCell
-//        cell.textLabel?.text = listViewModel.statusList[indexPath.row].text ?? "\(indexPath.row)"
+        // 离屏渲染 - 异步绘制(用性能消耗换取体验优化)
+        cell.layer.drawsAsynchronously = true
+        // 栅格化(将cell的内容绘制成一个图显示)
+        cell.layer.shouldRasterize = true
+        cell.layer.rasterizationScale = UIScreen.main.scale
+        
         cell.statusViewModel = listViewModel.statusList[indexPath.row]
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return listViewModel.statusList[indexPath.row].rowHeight
     }
 }

@@ -17,7 +17,6 @@ let statusBarHeight = UIApplication.shared.statusBarFrame.height
 let navigationBarHeight: CGFloat = 44
 // 导航栏高度
 let navigationHeight = statusBarHeight+navigationBarHeight
-// FIXME: - iPhone X/XS/XR/XSMAX 适配
 //@available(iOS 11.0, *)
 //let navHeight = (UIApplication.shared.delegate?.window ?? UIWindow(frame: screen.bounds))?.safeAreaInsets.top ?? 0 > CGFloat(20) ? 88 : 64
 
@@ -26,7 +25,7 @@ class DWZBaseViewController: UIViewController {
     lazy var navBar = DWZNavigationBar(frame: CGRect(x: 0, y: 0, width: screenWidth, height: navigationHeight))
     lazy var navBarItem = UINavigationItem()
     var tableView: UITableView?
-    var refreshControl : UIRefreshControl?
+    var refreshControl : DWZRefreshControl?
     // 上拉刷新标识
     var isPullUp = false
     // 用户登录标识
@@ -113,7 +112,7 @@ extension DWZBaseViewController {
         }
         tableView?.contentInset = UIEdgeInsets(top: navBar.bounds.height, left: 0, bottom: tabBarController?.tabBar.bounds.height ?? 0, right: 0)
         tableView?.scrollIndicatorInsets = tableView?.contentInset ?? UIEdgeInsets.zero
-        refreshControl = UIRefreshControl()
+        refreshControl = DWZRefreshControl()
         tableView?.addSubview(refreshControl!)
         refreshControl?.addTarget(self, action: #selector(loadData), for: .valueChanged)
     }

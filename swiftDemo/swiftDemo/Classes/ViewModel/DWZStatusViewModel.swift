@@ -40,6 +40,9 @@ class DWZStatusViewModel: CustomStringConvertible {
     // 转发微博的高度
     var retweetViewHeight: CGFloat?
     
+    // 微博行高
+    var rowHeight: CGFloat = 0
+    
     init(status: DWZStatus) {
         self.status = status
         
@@ -113,10 +116,38 @@ class DWZStatusViewModel: CustomStringConvertible {
             retweetViewHeight = 0
             retweetStatusText = ""
         }
+        
+        calculateRowHeight()
     }
     
     var description: String {
         return status.yy_modelDescription()
+    }
+    
+    func calculateRowHeight() {
+        let margin: CGFloat = 12
+        let iconHeight: CGFloat = 34
+        let toolBarHeight: CGFloat = 35
+        // 顶部高度
+        var height: CGFloat = 0
+        height = 2*margin + iconHeight + margin
+        // 计算正文高度
+        if let text = status.text {
+            let viewSize = CGSize(width: screenWidth-2*margin, height: CGFloat(MAXFLOAT))
+            height += text.boundingRect(with: viewSize, options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 15)], context: nil).height
+        }
+        // 转发微博高度
+        height += retweetViewHeight ?? 0
+        
+        // 配图高度
+        height += pictureViewSize?.height ?? 0
+        
+        height += margin
+        
+        // 底部工具栏
+        height += toolBarHeight
+        
+        rowHeight = height
     }
     
     func updateSigleImageSize(image: UIImage) {
