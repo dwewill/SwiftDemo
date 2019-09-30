@@ -34,7 +34,19 @@ class DWZMainViewController: UITabBarController {
     // 发布按钮的点击
     @objc fileprivate func composeButtonClick() {
         print("composeButtonClick")
-        present(DWZBaseViewController(), animated: true, completion: nil)
+//        present(DWZBaseViewController(), animated: true, completion: nil)
+        let composeMenuView = DWZComposeMenuView()
+        composeMenuView.show { [weak composeMenuView] (clsName) in
+            guard let clsName = clsName,
+            let cls = NSClassFromString(Bundle.main.namesspace+"."+clsName) as? UIViewController.Type else {
+                composeMenuView?.removeFromSuperview()
+                return
+            }
+            let vc = cls.init()
+            self.present(vc, animated: true, completion: {
+                composeMenuView?.removeFromSuperview()
+            })
+        }
     }
     
     deinit {

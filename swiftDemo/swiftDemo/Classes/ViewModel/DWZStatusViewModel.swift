@@ -118,6 +118,7 @@ class DWZStatusViewModel: CustomStringConvertible {
         }
         
         calculateRowHeight()
+        
     }
     
     var description: String {

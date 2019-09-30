@@ -20,7 +20,11 @@ class DWZStatus: NSObject {
     // 创建时间
     @objc var created_at: String?
     // 微博来源
-    @objc var source: String?
+    @objc var source: String? {
+        didSet {
+            source = source?.firstMatch()?.source
+        }
+    }
     // 转发数
     @objc var reposts_count = 0
     // 评论数

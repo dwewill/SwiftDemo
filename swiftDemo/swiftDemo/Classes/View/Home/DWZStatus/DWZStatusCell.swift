@@ -17,8 +17,8 @@ class DWZStatusCell: UITableViewCell {
             leverImageView.image = statusViewModel?.memberIcon
             nameLabel.text = statusViewModel?.status.user?.screen_name
             timeLabel.text = statusViewModel?.status.created_at
-//            sourceLabel.text = statusViewModel?.status.source
-            sourceLabel.text = "\(statusViewModel?.status.pic_urls?.count ?? 0)"
+            sourceLabel.text = statusViewModel?.status.source
+//            sourceLabel.text = statusViewModel?.status.source?.firstMatch()?.source ?? ""
             normalTextLabel.text = statusViewModel?.status.text
             statusToolBar.statusViewModel = statusViewModel
             retweetStatusView.status = statusViewModel?.status.retweeted_status

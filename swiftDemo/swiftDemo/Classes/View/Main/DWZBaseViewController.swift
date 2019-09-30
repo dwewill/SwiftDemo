@@ -17,6 +17,9 @@ let statusBarHeight = UIApplication.shared.statusBarFrame.height
 let navigationBarHeight: CGFloat = 44
 // 导航栏高度
 let navigationHeight = statusBarHeight+navigationBarHeight
+
+// 安全区域高度
+let safeAreaHeight: CGFloat = navigationHeight == 88.0 ? 34 : 0
 //@available(iOS 11.0, *)
 //let navHeight = (UIApplication.shared.delegate?.window ?? UIWindow(frame: screen.bounds))?.safeAreaInsets.top ?? 0 > CGFloat(20) ? 88 : 64
 

@@ -26,11 +26,14 @@ class DWZHomeViewController: DWZBaseViewController {
     }
     
     override func loadData() {
-        listViewModel.loadStatus(isPullUp: isPullUp) { (isSuccess, shouldRefresh) in
-            self.isPullUp = false
-            self.refreshControl?.endRefreshing()
-            if shouldRefresh {
-                self.tableView?.reloadData()
+        refreshControl?.beginRefreshing()
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()+2.0) {
+            self.listViewModel.loadStatus(isPullUp: self.isPullUp) { (isSuccess, shouldRefresh) in
+                self.isPullUp = false
+                self.refreshControl?.endRefreshing()
+                if shouldRefresh {
+                    self.tableView?.reloadData()
+                }
             }
         }
 

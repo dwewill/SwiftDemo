@@ -9,7 +9,7 @@
 import UIKit
 
 /// 刷新状态切换的临界值
-private let DWZRefreshOffset: CGFloat = 60
+private let DWZRefreshOffset: CGFloat = 126
 
 
 /// 刷新状态
@@ -29,7 +29,7 @@ class DWZRefreshControl: UIControl {
     private weak var scrollView: UIScrollView?
     
     /// RefreshView刷新视图
-    private lazy var refreshView: DWZRefreshView = DWZRefreshView()
+    private lazy var refreshView: DWZMTRefreshView = DWZMTRefreshView()
     
     /// 构造函数
     init() {
@@ -62,6 +62,10 @@ class DWZRefreshControl: UIControl {
             return
         }
         self.frame = CGRect(x: 0, y: -height, width: sv.bounds.width, height: height)
+        /// 在刷新过程中就不传递父视图的值
+        if refreshView.refreshState != .WillRefresh {
+            refreshView.parentViewHeight = height
+        }
         if sv.isDragging {
             if (height > DWZRefreshOffset && refreshView.refreshState == .Normal) {
                 refreshView.refreshState = .Pulling
@@ -99,6 +103,7 @@ class DWZRefreshControl: UIControl {
         var contentInset = sv.contentInset
         contentInset.top += DWZRefreshOffset
         sv.contentInset = contentInset
+        refreshView.parentViewHeight = DWZRefreshOffset
     }
     
     func endRefreshing() {
@@ -129,7 +134,7 @@ extension DWZRefreshControl {
         refreshView.translatesAutoresizingMaskIntoConstraints = false
         addConstraint(NSLayoutConstraint(item: refreshView, attribute: .centerX, relatedBy: .equal, toItem: self, attribute: .centerX, multiplier: 1.0, constant: 0))
         addConstraint(NSLayoutConstraint(item: refreshView, attribute: .bottom, relatedBy: .equal, toItem: self, attribute: .bottom, multiplier: 1.0, constant: 0))
-        addConstraint(NSLayoutConstraint(item: refreshView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 160))
-        addConstraint(NSLayoutConstraint(item: refreshView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 40))
+        addConstraint(NSLayoutConstraint(item: refreshView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: UIScreen.main.bounds.width))
+        addConstraint(NSLayoutConstraint(item: refreshView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 126))
     }
 }

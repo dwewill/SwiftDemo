@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		48E5D900F3EFB45114CB12DB /* Pods_swiftDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3416FE3FC54A44731DB1FF22 /* Pods_swiftDemo.framework */; };
+		5504F77E2338A98D003B87C4 /* DWZComposeMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5504F77D2338A98D003B87C4 /* DWZComposeMenuView.swift */; };
 		5516B9AA225AF7D4001F83C8 /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5516B9A9225AF7D3001F83C8 /* UIImage+Extensions.swift */; };
 		5516B9AE225AF8BD001F83C8 /* DWZStatusCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5516B9AD225AF8BD001F83C8 /* DWZStatusCell.swift */; };
 		5516B9B0225B1F98001F83C8 /* DWZStatusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5516B9AF225B1F98001F83C8 /* DWZStatusViewModel.swift */; };
@@ -17,6 +18,7 @@
 		551733FF225CCA0500A6ED0C /* DWZStatusRetweetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551733FE225CCA0500A6ED0C /* DWZStatusRetweetView.swift */; };
 		5519C0B62251B4A90003B265 /* DWZTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5519C0B52251B4A90003B265 /* DWZTestViewController.swift */; };
 		5519C0B82251CEDF0003B265 /* UIBarButtonItem+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5519C0B72251CEDF0003B265 /* UIBarButtonItem+Extension.swift */; };
+		551C87062340A015006325E7 /* String+Regular.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551C87052340A015006325E7 /* String+Regular.swift */; };
 		551EF8472259EFE400C9B9B4 /* DWZWelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551EF8462259EFE400C9B9B4 /* DWZWelcomeView.swift */; };
 		551EF8492259EFFD00C9B9B4 /* DWZNewFeatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551EF8482259EFFD00C9B9B4 /* DWZNewFeatureView.swift */; };
 		551FA91322559465007AA28F /* DWZCommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551FA91222559465007AA28F /* DWZCommon.swift */; };
@@ -47,9 +49,12 @@
 		554514D42250FF3500C0F113 /* NSAttributedString+CZAdditon.m in Sources */ = {isa = PBXBuildFile; fileRef = 554514C72250FF3500C0F113 /* NSAttributedString+CZAdditon.m */; };
 		554514D52250FF3500C0F113 /* NSArray+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 554514C82250FF3500C0F113 /* NSArray+Log.m */; };
 		554514D92251046400C0F113 /* Bundle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554514D82251046400C0F113 /* Bundle+Extension.swift */; };
+		554F90F02334D1DF007A6586 /* DWZMTRefreshView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554F90EF2334D1DE007A6586 /* DWZMTRefreshView.swift */; };
+		5560328C233E07D400477B37 /* DWZComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5560328B233E07D400477B37 /* DWZComposeViewController.swift */; };
 		556E79412333174B006F3C76 /* DWZRefreshView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556E79402333174B006F3C76 /* DWZRefreshView.swift */; };
 		5573CBB02258F9B100B1435C /* DWZTitleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5573CBAF2258F9B100B1435C /* DWZTitleButton.swift */; };
 		55AF5B4322539D0900A0AD6F /* main.json in Resources */ = {isa = PBXBuildFile; fileRef = 55AF5B4222539D0900A0AD6F /* main.json */; };
+		55C0CBD02339C28B00223ADE /* DWZComposeMenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C0CBCF2339C28B00223ADE /* DWZComposeMenuButton.swift */; };
 		55C4FD8722545B2A00691B25 /* DWZNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C4FD8622545B2A00691B25 /* DWZNetworkManager.swift */; };
 		55C4FD892254734500691B25 /* DWZNetworkManager+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C4FD882254734500691B25 /* DWZNetworkManager+Extension.swift */; };
 		55C4FD8B22548F1D00691B25 /* DWZStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C4FD8A22548F1D00691B25 /* DWZStatus.swift */; };
@@ -62,6 +67,7 @@
 
 /* Begin PBXFileReference section */
 		3416FE3FC54A44731DB1FF22 /* Pods_swiftDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_swiftDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5504F77D2338A98D003B87C4 /* DWZComposeMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DWZComposeMenuView.swift; sourceTree = "<group>"; };
 		5516B9A9225AF7D3001F83C8 /* UIImage+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
 		5516B9AD225AF8BD001F83C8 /* DWZStatusCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DWZStatusCell.swift; sourceTree = "<group>"; };
 		5516B9AF225B1F98001F83C8 /* DWZStatusViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DWZStatusViewModel.swift; sourceTree = "<group>"; };
@@ -71,6 +77,7 @@
 		551733FE225CCA0500A6ED0C /* DWZStatusRetweetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DWZStatusRetweetView.swift; sourceTree = "<group>"; };
 		5519C0B52251B4A90003B265 /* DWZTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DWZTestViewController.swift; sourceTree = "<group>"; };
 		5519C0B72251CEDF0003B265 /* UIBarButtonItem+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Extension.swift"; sourceTree = "<group>"; };
+		551C87052340A015006325E7 /* String+Regular.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Regular.swift"; sourceTree = "<group>"; };
 		551EF8462259EFE400C9B9B4 /* DWZWelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DWZWelcomeView.swift; sourceTree = "<group>"; };
 		551EF8482259EFFD00C9B9B4 /* DWZNewFeatureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DWZNewFeatureView.swift; sourceTree = "<group>"; };
 		551FA91222559465007AA28F /* DWZCommon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DWZCommon.swift; sourceTree = "<group>"; };
@@ -117,9 +124,12 @@
 		554514C92250FF3500C0F113 /* NSString+CZPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+CZPath.h"; sourceTree = "<group>"; };
 		554514D62250FFB200C0F113 /* SwiftDemo-bridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SwiftDemo-bridge.h"; sourceTree = "<group>"; };
 		554514D82251046400C0F113 /* Bundle+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extension.swift"; sourceTree = "<group>"; };
+		554F90EF2334D1DE007A6586 /* DWZMTRefreshView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DWZMTRefreshView.swift; sourceTree = "<group>"; };
+		5560328B233E07D400477B37 /* DWZComposeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DWZComposeViewController.swift; sourceTree = "<group>"; };
 		556E79402333174B006F3C76 /* DWZRefreshView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DWZRefreshView.swift; sourceTree = "<group>"; };
 		5573CBAF2258F9B100B1435C /* DWZTitleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DWZTitleButton.swift; sourceTree = "<group>"; };
 		55AF5B4222539D0900A0AD6F /* main.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = main.json; sourceTree = "<group>"; };
+		55C0CBCF2339C28B00223ADE /* DWZComposeMenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DWZComposeMenuButton.swift; sourceTree = "<group>"; };
 		55C4FD8622545B2A00691B25 /* DWZNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DWZNetworkManager.swift; sourceTree = "<group>"; };
 		55C4FD882254734500691B25 /* DWZNetworkManager+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DWZNetworkManager+Extension.swift"; sourceTree = "<group>"; };
 		55C4FD8A22548F1D00691B25 /* DWZStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DWZStatus.swift; sourceTree = "<group>"; };
@@ -150,6 +160,16 @@
 				3416FE3FC54A44731DB1FF22 /* Pods_swiftDemo.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5504F77C2338A6A2003B87C4 /* Compose */ = {
+			isa = PBXGroup;
+			children = (
+				5504F77D2338A98D003B87C4 /* DWZComposeMenuView.swift */,
+				55C0CBCF2339C28B00223ADE /* DWZComposeMenuButton.swift */,
+				5560328B233E07D400477B37 /* DWZComposeViewController.swift */,
+			);
+			path = Compose;
 			sourceTree = "<group>";
 		};
 		5516B9AC225AF899001F83C8 /* DWZStatus */ = {
@@ -335,6 +355,7 @@
 		554514A12250BF3D00C0F113 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				5504F77C2338A6A2003B87C4 /* Compose */,
 				551EF8452259EDCE00C9B9B4 /* NewFeature */,
 				551FA9142255997F007AA28F /* OAuth */,
 				5516BE8922534FD100570789 /* Visitor */,
@@ -383,6 +404,7 @@
 		554514D72251041C00C0F113 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				551C87052340A015006325E7 /* String+Regular.swift */,
 				5516B9A9225AF7D3001F83C8 /* UIImage+Extensions.swift */,
 				554514D82251046400C0F113 /* Bundle+Extension.swift */,
 				5519C0B72251CEDF0003B265 /* UIBarButtonItem+Extension.swift */,
@@ -414,6 +436,7 @@
 			children = (
 				55F4A7FB23069C9C00553CC5 /* DWZRefreshControl.swift */,
 				556E79402333174B006F3C76 /* DWZRefreshView.swift */,
+				554F90EF2334D1DE007A6586 /* DWZMTRefreshView.swift */,
 			);
 			path = DWZRefreshControl;
 			sourceTree = "<group>";
@@ -557,6 +580,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5519C0B82251CEDF0003B265 /* UIBarButtonItem+Extension.swift in Sources */,
+				55C0CBD02339C28B00223ADE /* DWZComposeMenuButton.swift in Sources */,
 				551FA9192255EF12007AA28F /* DWZUserModel.swift in Sources */,
 				5573CBB02258F9B100B1435C /* DWZTitleButton.swift in Sources */,
 				554514AD2250C11F00C0F113 /* DWZDiscoverViewController.swift in Sources */,
@@ -566,6 +590,7 @@
 				55E42039225C829A0068B16A /* DWZPictureView.swift in Sources */,
 				554514CE2250FF3500C0F113 /* NSString+CZBase64.m in Sources */,
 				55C4FD8722545B2A00691B25 /* DWZNetworkManager.swift in Sources */,
+				5560328C233E07D400477B37 /* DWZComposeViewController.swift in Sources */,
 				554514792250A89C00C0F113 /* AppDelegate.swift in Sources */,
 				554514D12250FF3500C0F113 /* NSObject+CZRuntime.m in Sources */,
 				554514D42250FF3500C0F113 /* NSAttributedString+CZAdditon.m in Sources */,
@@ -577,8 +602,10 @@
 				552410F5227B3BDF006AA8EA /* DWZSQLiteManager.swift in Sources */,
 				554514A72250C0B000C0F113 /* DWZBaseViewController.swift in Sources */,
 				554514A52250C08500C0F113 /* DWZNavigationController.swift in Sources */,
+				551C87062340A015006325E7 /* String+Regular.swift in Sources */,
 				5516B9AA225AF7D4001F83C8 /* UIImage+Extensions.swift in Sources */,
 				554514A92250C0F600C0F113 /* DWZHomeViewController.swift in Sources */,
+				5504F77E2338A98D003B87C4 /* DWZComposeMenuView.swift in Sources */,
 				5516B9AE225AF8BD001F83C8 /* DWZStatusCell.swift in Sources */,
 				554514D02250FF3500C0F113 /* UIButton+CZAddition.m in Sources */,
 				554514AB2250C10800C0F113 /* DWZMessageViewController.swift in Sources */,
@@ -589,6 +616,7 @@
 				552410CC227A9890006AA8EA /* DWZNavigationBar.swift in Sources */,
 				55C4FD8D2254958A00691B25 /* DWZStatusListViewModel.swift in Sources */,
 				554514A32250C04700C0F113 /* DWZMainViewController.swift in Sources */,
+				554F90F02334D1DF007A6586 /* DWZMTRefreshView.swift in Sources */,
 				55E42035225C2B550068B16A /* DWZStatusToolBar.swift in Sources */,
 				554514CD2250FF3500C0F113 /* UILabel+CZAddition.m in Sources */,
 				551733FF225CCA0500A6ED0C /* DWZStatusRetweetView.swift in Sources */,

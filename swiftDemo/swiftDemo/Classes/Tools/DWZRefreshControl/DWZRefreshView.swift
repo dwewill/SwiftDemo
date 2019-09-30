@@ -9,7 +9,7 @@
 import UIKit
 
 class DWZRefreshView: UIView {
-
+    
     /// 刷新视图的状态
     /*
      iOS 系统UIView的旋转动画
@@ -22,30 +22,33 @@ class DWZRefreshView: UIView {
         didSet {
             switch refreshState {
             case .Normal:
-                tipLabel.text = "继续下拉..."
-                tipIcon.isHidden = false
-                indicator.stopAnimating()
+                tipLabel?.text = "继续下拉..."
+                tipIcon?.isHidden = false
+                indicator?.stopAnimating()
                 UIView.animate(withDuration: 0.25) {
-                    self.tipIcon.transform = .identity
+                    self.tipIcon?.transform = .identity
                 }
             case .Pulling:
-                tipLabel.text = "放手刷新..."
+                tipLabel?.text = "放手刷新..."
                 UIView.animate(withDuration: 0.25) {
-                    self.tipIcon.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi-0.001))
+                    self.tipIcon?.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi-0.001))
                 }
             case .WillRefresh:
-                tipLabel.text = "正在刷新..."
-                tipIcon.isHidden = true
-                indicator.startAnimating()
+                tipLabel?.text = "正在刷新..."
+                tipIcon?.isHidden = true
+                indicator?.startAnimating()
             }
         }
     }
+    
+    /// 父视图的高度，用来计算缩放比例
+    var parentViewHeight: CGFloat = 0.0
     /// 刷新箭头图片
-    lazy var tipIcon = UIImageView(image: UIImage(named: "tableview_pull_refresh"))
+    var tipIcon: UIImageView?
     /// 刷新提示文字
-    lazy var tipLabel = UILabel(frame: CGRect.zero)
+    var tipLabel: UILabel?
     /// 菊花指示器
-    lazy var indicator = UIActivityIndicatorView(frame: CGRect.zero)
+    var indicator: UIActivityIndicatorView?
     
     init() {
         super.init(frame: CGRect.zero)
@@ -62,10 +65,18 @@ class DWZRefreshView: UIView {
 }
 
 extension DWZRefreshView {
-    func setupUI() {
-        indicator.hidesWhenStopped = true
-        indicator.color = .orange
+    @objc func setupUI() {
+        tipIcon = UIImageView(image: UIImage(named: "tableview_pull_refresh"))
+        tipLabel = UILabel(frame: CGRect.zero)
+        indicator = UIActivityIndicatorView(frame: CGRect.zero)
+        indicator?.hidesWhenStopped = true
+        indicator?.color = .orange
         
+        guard let tipIcon = tipIcon,
+            let tipLabel = tipLabel,
+            let indicator = indicator else  {
+                return
+        }
         addSubview(tipIcon)
         addSubview(tipLabel)
         addSubview(indicator)
