@@ -8,7 +8,12 @@
 
 import UIKit
 
+@objc protocol DWZStatusCellDelegate : NSObjectProtocol {
+    @objc optional func statusCellDidSelectedURLString(cell: DWZStatusCell, urlString: String)
+}
+
 class DWZStatusCell: UITableViewCell {
+    
     // 视图模型
     var statusViewModel: DWZStatusViewModel? {
         didSet {
@@ -19,17 +24,17 @@ class DWZStatusCell: UITableViewCell {
             timeLabel.text = statusViewModel?.status.created_at
             sourceLabel.text = statusViewModel?.status.source
 //            sourceLabel.text = statusViewModel?.status.source?.firstMatch()?.source ?? ""
-            normalTextLabel.text = statusViewModel?.status.text
+            normalTextLabel.attributedText = statusViewModel?.statusAttrText
             statusToolBar.statusViewModel = statusViewModel
             retweetStatusView.status = statusViewModel?.status.retweeted_status
             
             if statusViewModel?.status.retweeted_status != nil {
-                retweetStatusView.retweetStatusText = statusViewModel?.retweetStatusText
+                retweetStatusView.retweetStatusAttrText = statusViewModel?.retweetStatusAttrText
                 retweetStatusView.snp.updateConstraints { (make) in
                     make.height.equalTo(statusViewModel?.retweetViewHeight ?? 0)
                 }
             }else {
-                retweetStatusView.retweetStatusText = ""
+                retweetStatusView.retweetStatusAttrText = NSAttributedString(string: "")
                 retweetStatusView.snp.updateConstraints { (make) in
                     make.height.equalTo(0)
                 }
@@ -46,6 +51,7 @@ class DWZStatusCell: UITableViewCell {
         }
     }
 
+    weak var delegate: DWZStatusCellDelegate?
     
     // 顶部灰色部分
     lazy var grayView = UIView()
@@ -62,7 +68,7 @@ class DWZStatusCell: UITableViewCell {
     // 来源
     lazy var sourceLabel = UILabel()
     // 正文
-    lazy var normalTextLabel = UILabel()
+    lazy var normalTextLabel = FFLabel()
     // 图片区
     lazy var pictureView = DWZPictureView()
     // 转发微博
@@ -84,6 +90,10 @@ class DWZStatusCell: UITableViewCell {
 // MARK: - 页面搭建
 extension DWZStatusCell {
     private func setupUI() {
+        // 设置FFLabel代理
+        normalTextLabel.delegate = self
+        retweetStatusView.delegate = self
+        
         selectionStyle = .none
         contentView.addSubview(grayView)
         contentView.addSubview(avatarImageView)
@@ -185,5 +195,19 @@ extension DWZStatusCell {
             make.height.equalTo(35)
             make.bottom.equalTo(contentView).offset(-5)
         }
+    }
+}
+
+extension DWZStatusCell: FFLabelDelegate {
+    func labelDidSelectedLinkText(label: FFLabel, text: String) {
+        print(text)
+        delegate?.statusCellDidSelectedURLString?(cell: self, urlString: text)
+    }
+}
+
+extension DWZStatusCell: DWZStatusRetweetViewDelegate {
+    func statusRetweetViewDidSelectedURLString(view: DWZStatusRetweetView, urlString: String) {
+        print("aaaaaaaaaaaa\(urlString)aaaaaaaaaa")
+        delegate?.statusCellDidSelectedURLString?(cell: self, urlString: urlString)
     }
 }

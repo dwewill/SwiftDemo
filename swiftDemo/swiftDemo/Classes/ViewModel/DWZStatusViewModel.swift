@@ -31,7 +31,13 @@ class DWZStatusViewModel: CustomStringConvertible {
     var pictureViewSize: CGSize?
     
     // 转发微博的文字
-    var retweetStatusText: String?
+//    var retweetStatusText: String?
+    
+    // 微博正文的属性文本
+    var statusAttrText: NSAttributedString?
+    
+    // 转发微博的属性文本
+    var retweetStatusAttrText: NSAttributedString?
     
     var picURLs: [DWZStatusPicture]? {
         return status.retweeted_status?.pic_urls ?? status.pic_urls
@@ -94,12 +100,16 @@ class DWZStatusViewModel: CustomStringConvertible {
             pictureViewSize = CGSize(width: screenWidth-DWZStatusPictureOutterMargin*2, height: height)
         }
         
+        statusAttrText =  DWZEmoticonManager.shared.emoticonString(string: status.text ?? "", font: .systemFont(ofSize: 15))
+        retweetStatusAttrText = DWZEmoticonManager.shared.emoticonString(string: status.retweeted_status?.text ?? "", font: .systemFont(ofSize: 15))
+        
         // 文字的限制范围
         let viewSize = CGSize(width: screenWidth-2*DWZStatusPictureOutterMargin, height: CGFloat(MAXFLOAT))
         if status.retweeted_status != nil {
             let retweetText = "@:\(status.user?.screen_name ?? "")" +
             "\(status.retweeted_status?.text ?? "")"
-            var textHeight = retweetText.boundingRect(with: viewSize, options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 15)], context: nil).height
+//            var textHeight = retweetText.boundingRect(with: viewSize, options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 15)], context: nil).height
+            var textHeight = retweetStatusAttrText?.boundingRect(with: viewSize, options: .usesLineFragmentOrigin, context: nil).height ?? 0
             let count = status.retweeted_status?.pic_urls?.count ?? 0
             if count > 0 {
                 let row = (count-1)/3+1
@@ -111,10 +121,8 @@ class DWZStatusViewModel: CustomStringConvertible {
             textHeight += 2*DWZStatusPictureOutterMargin
             
             retweetViewHeight = textHeight
-            retweetStatusText = retweetText
         }else {
             retweetViewHeight = 0
-            retweetStatusText = ""
         }
         
         calculateRowHeight()
@@ -135,7 +143,8 @@ class DWZStatusViewModel: CustomStringConvertible {
         // 计算正文高度
         if let text = status.text {
             let viewSize = CGSize(width: screenWidth-2*margin, height: CGFloat(MAXFLOAT))
-            height += text.boundingRect(with: viewSize, options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 15)], context: nil).height
+//            height += text.boundingRect(with: viewSize, options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 15)], context: nil).height
+            height += DWZEmoticonManager.shared.emoticonString(string: text, font: .systemFont(ofSize: 15)).boundingRect(with: viewSize, options: .usesLineFragmentOrigin, context: nil).height
         }
         // 转发微博高度
         height += retweetViewHeight ?? 0

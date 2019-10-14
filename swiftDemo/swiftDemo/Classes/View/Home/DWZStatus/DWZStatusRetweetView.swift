@@ -8,6 +8,10 @@
 
 import UIKit
 
+@objc protocol DWZStatusRetweetViewDelegate : NSObjectProtocol {
+    @objc optional func statusRetweetViewDidSelectedURLString(view: DWZStatusRetweetView, urlString: String)
+}
+
 class DWZStatusRetweetView: UIView {
 
     var status: DWZStatus? {
@@ -16,13 +20,16 @@ class DWZStatusRetweetView: UIView {
         }
     }
     
-    var retweetStatusText: String? {
+    var retweetStatusAttrText: NSAttributedString? {
         didSet {
-            originNormalLabel.text = retweetStatusText
+            originNormalLabel.attributedText = retweetStatusAttrText
         }
     }
+    
+    weak var delegate: DWZStatusRetweetViewDelegate?
+    
     // 原创正文文字
-    lazy var originNormalLabel = UILabel()
+    lazy var originNormalLabel = FFLabel()
     // 图片区
     lazy var pictureView = DWZPictureView()
     
@@ -39,6 +46,9 @@ class DWZStatusRetweetView: UIView {
 
 extension DWZStatusRetweetView {
     fileprivate func setupUI() {
+        // 设置代理
+        originNormalLabel.delegate = self
+        
         backgroundColor = .lightGray
         addSubview(originNormalLabel)
         addSubview(pictureView)
@@ -59,5 +69,12 @@ extension DWZStatusRetweetView {
             make.right.equalTo(self).offset(-12)
             make.bottom.equalTo(self)
         }
+    }
+}
+
+extension DWZStatusRetweetView: FFLabelDelegate {
+    func labelDidSelectedLinkText(label: FFLabel, text: String) {
+        print(text)
+        delegate?.statusRetweetViewDidSelectedURLString?(view: self, urlString: text)
     }
 }

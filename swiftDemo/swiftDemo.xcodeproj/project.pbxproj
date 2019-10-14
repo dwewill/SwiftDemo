@@ -59,9 +59,16 @@
 		55C4FD892254734500691B25 /* DWZNetworkManager+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C4FD882254734500691B25 /* DWZNetworkManager+Extension.swift */; };
 		55C4FD8B22548F1D00691B25 /* DWZStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C4FD8A22548F1D00691B25 /* DWZStatus.swift */; };
 		55C4FD8D2254958A00691B25 /* DWZStatusListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C4FD8C2254958A00691B25 /* DWZStatusListViewModel.swift */; };
+		55D01236235487910031BD82 /* FFLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D01235235487910031BD82 /* FFLabel.swift */; };
+		55D012382354902E0031BD82 /* DWZWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D012372354902E0031BD82 /* DWZWebViewController.swift */; };
+		55D1140223517EDA00B7A84B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D1140123517EDA00B7A84B /* ViewController.swift */; };
 		55E42035225C2B550068B16A /* DWZStatusToolBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E42034225C2B550068B16A /* DWZStatusToolBar.swift */; };
 		55E42037225C722E0068B16A /* DWZStatusPicture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E42036225C722D0068B16A /* DWZStatusPicture.swift */; };
 		55E42039225C829A0068B16A /* DWZPictureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E42038225C829A0068B16A /* DWZPictureView.swift */; };
+		55EBB5B82341E7EE00C86624 /* HMEmoticon.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 55EBB5B72341E7EE00C86624 /* HMEmoticon.bundle */; };
+		55EBB5BE2341E88100C86624 /* DWZEmoticonManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EBB5BD2341E88100C86624 /* DWZEmoticonManager.swift */; };
+		55EBB5C02341F11300C86624 /* DWZEmoticon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EBB5BF2341F11300C86624 /* DWZEmoticon.swift */; };
+		55EBB5C22341F3CB00C86624 /* DWZEmoticonPackage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EBB5C12341F3CB00C86624 /* DWZEmoticonPackage.swift */; };
 		55F4A7FC23069C9C00553CC5 /* DWZRefreshControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F4A7FB23069C9C00553CC5 /* DWZRefreshControl.swift */; };
 /* End PBXBuildFile section */
 
@@ -134,9 +141,16 @@
 		55C4FD882254734500691B25 /* DWZNetworkManager+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DWZNetworkManager+Extension.swift"; sourceTree = "<group>"; };
 		55C4FD8A22548F1D00691B25 /* DWZStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DWZStatus.swift; sourceTree = "<group>"; };
 		55C4FD8C2254958A00691B25 /* DWZStatusListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DWZStatusListViewModel.swift; sourceTree = "<group>"; };
+		55D01235235487910031BD82 /* FFLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FFLabel.swift; sourceTree = "<group>"; };
+		55D012372354902E0031BD82 /* DWZWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DWZWebViewController.swift; sourceTree = "<group>"; };
+		55D1140123517EDA00B7A84B /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		55E42034225C2B550068B16A /* DWZStatusToolBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DWZStatusToolBar.swift; sourceTree = "<group>"; };
 		55E42036225C722D0068B16A /* DWZStatusPicture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DWZStatusPicture.swift; sourceTree = "<group>"; };
 		55E42038225C829A0068B16A /* DWZPictureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DWZPictureView.swift; sourceTree = "<group>"; };
+		55EBB5B72341E7EE00C86624 /* HMEmoticon.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = HMEmoticon.bundle; sourceTree = "<group>"; };
+		55EBB5BD2341E88100C86624 /* DWZEmoticonManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DWZEmoticonManager.swift; sourceTree = "<group>"; };
+		55EBB5BF2341F11300C86624 /* DWZEmoticon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DWZEmoticon.swift; sourceTree = "<group>"; };
+		55EBB5C12341F3CB00C86624 /* DWZEmoticonPackage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DWZEmoticonPackage.swift; sourceTree = "<group>"; };
 		55F4A7FB23069C9C00553CC5 /* DWZRefreshControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DWZRefreshControl.swift; sourceTree = "<group>"; };
 		B0625B70D693B7EC02A198B5 /* Pods-swiftDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swiftDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-swiftDemo/Pods-swiftDemo.release.xcconfig"; sourceTree = "<group>"; };
 		C7B2BFCC8D380D2BCF38F576 /* Pods-swiftDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swiftDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-swiftDemo/Pods-swiftDemo.debug.xcconfig"; sourceTree = "<group>"; };
@@ -256,6 +270,7 @@
 			children = (
 				554514982250BF3D00C0F113 /* Classes */,
 				554514782250A89C00C0F113 /* AppDelegate.swift */,
+				55D1140123517EDA00B7A84B /* ViewController.swift */,
 				554514D62250FFB200C0F113 /* SwiftDemo-bridge.h */,
 				5545147F2250A89D00C0F113 /* Assets.xcassets */,
 				554514842250A89D00C0F113 /* Info.plist */,
@@ -286,6 +301,8 @@
 		5545149A2250BF3D00C0F113 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				55D01234235487910031BD82 /* FFLabel */,
+				55EBB5B62341E78800C86624 /* Emoticon */,
 				55F4A7FA23069C7300553CC5 /* DWZRefreshControl */,
 				552410F2227B3BDE006AA8EA /* SQLite */,
 				55C4FD8522545A7800691B25 /* NetWorkTool */,
@@ -324,6 +341,7 @@
 				5516B9AC225AF899001F83C8 /* DWZStatus */,
 				5573CBAE2258F98E00B1435C /* TitleButton */,
 				554514A82250C0F600C0F113 /* DWZHomeViewController.swift */,
+				55D012372354902E0031BD82 /* DWZWebViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -431,6 +449,41 @@
 			path = NetWorkTool;
 			sourceTree = "<group>";
 		};
+		55D01234235487910031BD82 /* FFLabel */ = {
+			isa = PBXGroup;
+			children = (
+				55D01235235487910031BD82 /* FFLabel.swift */,
+			);
+			path = FFLabel;
+			sourceTree = "<group>";
+		};
+		55EBB5B62341E78800C86624 /* Emoticon */ = {
+			isa = PBXGroup;
+			children = (
+				55EBB5BC2341E84B00C86624 /* Model */,
+				55EBB5BB2341E84A00C86624 /* View */,
+				55EBB5B72341E7EE00C86624 /* HMEmoticon.bundle */,
+				55EBB5BD2341E88100C86624 /* DWZEmoticonManager.swift */,
+			);
+			path = Emoticon;
+			sourceTree = "<group>";
+		};
+		55EBB5BB2341E84A00C86624 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		55EBB5BC2341E84B00C86624 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				55EBB5BF2341F11300C86624 /* DWZEmoticon.swift */,
+				55EBB5C12341F3CB00C86624 /* DWZEmoticonPackage.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		55F4A7FA23069C7300553CC5 /* DWZRefreshControl */ = {
 			isa = PBXGroup;
 			children = (
@@ -511,6 +564,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55EBB5B82341E7EE00C86624 /* HMEmoticon.bundle in Resources */,
 				552410F6227B3BDF006AA8EA /* status.sql in Resources */,
 				55AF5B4322539D0900A0AD6F /* main.json in Resources */,
 				554514802250A89D00C0F113 /* Assets.xcassets in Resources */,
@@ -582,6 +636,7 @@
 				5519C0B82251CEDF0003B265 /* UIBarButtonItem+Extension.swift in Sources */,
 				55C0CBD02339C28B00223ADE /* DWZComposeMenuButton.swift in Sources */,
 				551FA9192255EF12007AA28F /* DWZUserModel.swift in Sources */,
+				55D012382354902E0031BD82 /* DWZWebViewController.swift in Sources */,
 				5573CBB02258F9B100B1435C /* DWZTitleButton.swift in Sources */,
 				554514AD2250C11F00C0F113 /* DWZDiscoverViewController.swift in Sources */,
 				554514D92251046400C0F113 /* Bundle+Extension.swift in Sources */,
@@ -594,11 +649,14 @@
 				554514792250A89C00C0F113 /* AppDelegate.swift in Sources */,
 				554514D12250FF3500C0F113 /* NSObject+CZRuntime.m in Sources */,
 				554514D42250FF3500C0F113 /* NSAttributedString+CZAdditon.m in Sources */,
+				55D01236235487910031BD82 /* FFLabel.swift in Sources */,
+				55EBB5C02341F11300C86624 /* DWZEmoticon.swift in Sources */,
 				5516BE8B2253500400570789 /* DWZVisitorView.swift in Sources */,
 				5519C0B62251B4A90003B265 /* DWZTestViewController.swift in Sources */,
 				551FA91322559465007AA28F /* DWZCommon.swift in Sources */,
 				554514D52250FF3500C0F113 /* NSArray+Log.m in Sources */,
 				554514CC2250FF3500C0F113 /* UIScreen+CZAddition.m in Sources */,
+				55EBB5BE2341E88100C86624 /* DWZEmoticonManager.swift in Sources */,
 				552410F5227B3BDF006AA8EA /* DWZSQLiteManager.swift in Sources */,
 				554514A72250C0B000C0F113 /* DWZBaseViewController.swift in Sources */,
 				554514A52250C08500C0F113 /* DWZNavigationController.swift in Sources */,
@@ -623,8 +681,10 @@
 				551EF8492259EFFD00C9B9B4 /* DWZNewFeatureView.swift in Sources */,
 				554514CF2250FF3500C0F113 /* NSString+CZPath.m in Sources */,
 				5516B9B2225B2597001F83C8 /* DWZUser.swift in Sources */,
+				55D1140223517EDA00B7A84B /* ViewController.swift in Sources */,
 				554514CA2250FF3500C0F113 /* UIColor+CZAddition.m in Sources */,
 				5516B9B4225B4650001F83C8 /* UIImageView+SDWebImage.swift in Sources */,
+				55EBB5C22341F3CB00C86624 /* DWZEmoticonPackage.swift in Sources */,
 				5516B9B0225B1F98001F83C8 /* DWZStatusViewModel.swift in Sources */,
 				55C4FD8B22548F1D00691B25 /* DWZStatus.swift in Sources */,
 				551EF8472259EFE400C9B9B4 /* DWZWelcomeView.swift in Sources */,

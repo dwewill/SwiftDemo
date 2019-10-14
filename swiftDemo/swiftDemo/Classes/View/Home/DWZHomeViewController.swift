@@ -86,11 +86,24 @@ extension DWZHomeViewController {
         cell.layer.shouldRasterize = true
         cell.layer.rasterizationScale = UIScreen.main.scale
         
+        // 设置cell代理
+        cell.delegate = self
+        
         cell.statusViewModel = listViewModel.statusList[indexPath.row]
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return listViewModel.statusList[indexPath.row].rowHeight
+    }
+}
+
+
+extension DWZHomeViewController: DWZStatusCellDelegate {
+    func statusCellDidSelectedURLString(cell: DWZStatusCell, urlString: String) {
+        print("---------\(urlString)--------")
+        let vc = DWZWebViewController()
+        vc.url = urlString
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
