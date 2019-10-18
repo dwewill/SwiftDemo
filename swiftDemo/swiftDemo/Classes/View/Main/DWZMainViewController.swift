@@ -43,7 +43,8 @@ class DWZMainViewController: UITabBarController {
                 return
             }
             let vc = cls.init()
-            self.present(vc, animated: true, completion: {
+            let nav = DWZNavigationController(rootViewController: vc)
+            self.present(nav, animated: true, completion: {
                 composeMenuView?.removeFromSuperview()
             })
         }

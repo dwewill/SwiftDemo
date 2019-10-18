@@ -44,7 +44,7 @@ class DWZNetworkManager: AFHTTPSessionManager {
             parameters = [String:String]()
         }
         parameters!["access_token"] = token
-        request(URLString: URLString, parameters: parameters!, completion: completion)
+        request(method: method, URLString: URLString, parameters: parameters!, completion: completion)
     }
     
     /// 封装AFN的 GET/POST 请求

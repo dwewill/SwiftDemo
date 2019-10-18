@@ -29,3 +29,14 @@ s
 class 继承了 NSObject 后，编译器就会默认给这个类中的所有函数都标记为 @objc ，支持 OC 调用。
 苹果在Swift 4 中苹果修改了自动添加 @objc 的逻辑： 一个继承 NSObject 的 swift 类不再默认给所有函数添加 @objc。
 只在实现 OC 接口和重写 OC 方法时才自动给函数添加 @objc 标识
+
+
+// 代理
+
+
+//MARK: -  图片裁剪
+let image = UIImage(named: "")
+let size = image?.size ?? CGSize.zero
+//相当于图片内的那个点的水平、竖直线将图片裁剪成4块，分别是裁剪之后的对应四个角，中间的内容是那个分界点的一个像素填充颜色
+let inset = UIEdgeInsets(top: size.height*0.5, left: size.width*0.5, bottom: size.height*0.5, right: size.width*0.5)
+image = image?.resizableImage(withCapInsets: inset)

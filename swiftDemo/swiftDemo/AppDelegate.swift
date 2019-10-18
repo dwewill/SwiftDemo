@@ -18,13 +18,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        setupAdditions()
         window = UIWindow()
         window?.backgroundColor = UIColor.white
         window?.rootViewController = DWZMainViewController()
         window?.makeKeyAndVisible()
         
+        setupAdditions()
         loadAppInfo()
+        loadLocalData()
         return true
     }
 
@@ -88,6 +89,13 @@ extension AppDelegate {
                 return
             }
             result ? print("写入成功") : print("写入失败")
+        }
+    }
+    
+    /// 异步加载表情包数据
+    private func loadLocalData() {
+        DispatchQueue.main.async {
+            let _ = DWZEmoticonManager.shared
         }
     }
 }

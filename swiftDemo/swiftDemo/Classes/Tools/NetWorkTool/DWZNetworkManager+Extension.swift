@@ -8,6 +8,36 @@
 
 import Foundation
 
+
+// MARK: - 发布微博
+extension DWZNetworkManager {
+    func postStatus(text: String?, image: UIImage?, completion:@escaping (( _ list:[String:Any]?, _ isSuccess: Bool)->())) {
+        /// 有图片的微博和无图的微博接口处理
+        let urlString: String
+        if image == nil {
+            urlString = "https://api.weibo.com/2/statuses/update.json"
+        }else {
+            urlString = "https://upload.api.weibo.com/2/statuses/upload.json"
+        }
+        let statusText = text ?? ""
+        /// 参数字典
+        let params = ["status": statusText]
+        
+//        /// 如果图片不为空，要传name 和 data字段
+//        let name: String?
+//        let data: Data?
+//        if image != nil {
+//            name = "pic"
+//            data = image!.pngData()
+//        }
+        
+        accessTokenRequest(method: .POST, URLString: urlString, parameters: params) { (json, isSuccess) in
+            let result = json as? [String: Any]
+            completion(result,isSuccess)
+        }
+    }
+}
+
 extension DWZNetworkManager {
     
     /// 微博列表数据请求
@@ -25,6 +55,10 @@ extension DWZNetworkManager {
         }
     }
     
+    
+    /// 未读消息数量
+    ///
+    /// - Parameter completion: 请求回调
     func unreadCount(completion:@escaping (_ count:Int)->()) {
         guard let uid = DWZUser.uid else {
             print("没有获取到uid")

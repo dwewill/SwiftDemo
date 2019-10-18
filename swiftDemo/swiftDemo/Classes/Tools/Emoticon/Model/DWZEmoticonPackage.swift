@@ -11,6 +11,24 @@ import UIKit
 
 /// 表情分类模型，存储的是同类型表情模型集合
 class DWZEmoticonPackage: NSObject {
+    /// 表情包页数
+    var numberOfPages: Int  {
+        return (emoticons.count - 1)/20+1
+    }
+    
+    /// 计算出每页显示的数据
+    func emotionsOfPage(page: Int) ->([DWZEmoticon]) {
+        var emos = [DWZEmoticon]()
+        for i in 0..<20 {
+            if page*20+i >= emoticons.count {
+                break
+            }
+            let emo = emoticons[page*20+i]
+            emos.append(emo)
+        }
+        return emos
+    }
+    
     /// 表情包分组名称
     @objc var groupName: String?
     

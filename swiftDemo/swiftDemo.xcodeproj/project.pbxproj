@@ -54,11 +54,16 @@
 		556E79412333174B006F3C76 /* DWZRefreshView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556E79402333174B006F3C76 /* DWZRefreshView.swift */; };
 		5573CBB02258F9B100B1435C /* DWZTitleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5573CBAF2258F9B100B1435C /* DWZTitleButton.swift */; };
 		55AF5B4322539D0900A0AD6F /* main.json in Resources */ = {isa = PBXBuildFile; fileRef = 55AF5B4222539D0900A0AD6F /* main.json */; };
+		55BDFB0F23572BE600471CAF /* DWZComposeInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BDFB0E23572BE600471CAF /* DWZComposeInputView.swift */; };
+		55BDFB1123572C0600471CAF /* DWZComposeInputToolBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BDFB1023572C0600471CAF /* DWZComposeInputToolBar.swift */; };
+		55BDFB13235733E200471CAF /* DWZCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BDFB12235733E200471CAF /* DWZCollectionViewLayout.swift */; };
+		55BDFB1523573F1F00471CAF /* DWZKeyboardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BDFB1423573F1F00471CAF /* DWZKeyboardCollectionViewCell.swift */; };
 		55C0CBD02339C28B00223ADE /* DWZComposeMenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C0CBCF2339C28B00223ADE /* DWZComposeMenuButton.swift */; };
 		55C4FD8722545B2A00691B25 /* DWZNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C4FD8622545B2A00691B25 /* DWZNetworkManager.swift */; };
 		55C4FD892254734500691B25 /* DWZNetworkManager+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C4FD882254734500691B25 /* DWZNetworkManager+Extension.swift */; };
 		55C4FD8B22548F1D00691B25 /* DWZStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C4FD8A22548F1D00691B25 /* DWZStatus.swift */; };
 		55C4FD8D2254958A00691B25 /* DWZStatusListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C4FD8C2254958A00691B25 /* DWZStatusListViewModel.swift */; };
+		55C5B511235892D100644339 /* DWZEmoticonAttahment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C5B510235892D100644339 /* DWZEmoticonAttahment.swift */; };
 		55D01236235487910031BD82 /* FFLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D01235235487910031BD82 /* FFLabel.swift */; };
 		55D012382354902E0031BD82 /* DWZWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D012372354902E0031BD82 /* DWZWebViewController.swift */; };
 		55D1140223517EDA00B7A84B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D1140123517EDA00B7A84B /* ViewController.swift */; };
@@ -136,11 +141,16 @@
 		556E79402333174B006F3C76 /* DWZRefreshView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DWZRefreshView.swift; sourceTree = "<group>"; };
 		5573CBAF2258F9B100B1435C /* DWZTitleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DWZTitleButton.swift; sourceTree = "<group>"; };
 		55AF5B4222539D0900A0AD6F /* main.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = main.json; sourceTree = "<group>"; };
+		55BDFB0E23572BE600471CAF /* DWZComposeInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DWZComposeInputView.swift; sourceTree = "<group>"; };
+		55BDFB1023572C0600471CAF /* DWZComposeInputToolBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DWZComposeInputToolBar.swift; sourceTree = "<group>"; };
+		55BDFB12235733E200471CAF /* DWZCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DWZCollectionViewLayout.swift; sourceTree = "<group>"; };
+		55BDFB1423573F1F00471CAF /* DWZKeyboardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DWZKeyboardCollectionViewCell.swift; sourceTree = "<group>"; };
 		55C0CBCF2339C28B00223ADE /* DWZComposeMenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DWZComposeMenuButton.swift; sourceTree = "<group>"; };
 		55C4FD8622545B2A00691B25 /* DWZNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DWZNetworkManager.swift; sourceTree = "<group>"; };
 		55C4FD882254734500691B25 /* DWZNetworkManager+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DWZNetworkManager+Extension.swift"; sourceTree = "<group>"; };
 		55C4FD8A22548F1D00691B25 /* DWZStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DWZStatus.swift; sourceTree = "<group>"; };
 		55C4FD8C2254958A00691B25 /* DWZStatusListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DWZStatusListViewModel.swift; sourceTree = "<group>"; };
+		55C5B510235892D100644339 /* DWZEmoticonAttahment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DWZEmoticonAttahment.swift; sourceTree = "<group>"; };
 		55D01235235487910031BD82 /* FFLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FFLabel.swift; sourceTree = "<group>"; };
 		55D012372354902E0031BD82 /* DWZWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DWZWebViewController.swift; sourceTree = "<group>"; };
 		55D1140123517EDA00B7A84B /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -182,6 +192,10 @@
 				5504F77D2338A98D003B87C4 /* DWZComposeMenuView.swift */,
 				55C0CBCF2339C28B00223ADE /* DWZComposeMenuButton.swift */,
 				5560328B233E07D400477B37 /* DWZComposeViewController.swift */,
+				55BDFB0E23572BE600471CAF /* DWZComposeInputView.swift */,
+				55BDFB1023572C0600471CAF /* DWZComposeInputToolBar.swift */,
+				55BDFB12235733E200471CAF /* DWZCollectionViewLayout.swift */,
+				55BDFB1423573F1F00471CAF /* DWZKeyboardCollectionViewCell.swift */,
 			);
 			path = Compose;
 			sourceTree = "<group>";
@@ -480,6 +494,7 @@
 			children = (
 				55EBB5BF2341F11300C86624 /* DWZEmoticon.swift */,
 				55EBB5C12341F3CB00C86624 /* DWZEmoticonPackage.swift */,
+				55C5B510235892D100644339 /* DWZEmoticonAttahment.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -658,15 +673,18 @@
 				554514CC2250FF3500C0F113 /* UIScreen+CZAddition.m in Sources */,
 				55EBB5BE2341E88100C86624 /* DWZEmoticonManager.swift in Sources */,
 				552410F5227B3BDF006AA8EA /* DWZSQLiteManager.swift in Sources */,
+				55C5B511235892D100644339 /* DWZEmoticonAttahment.swift in Sources */,
 				554514A72250C0B000C0F113 /* DWZBaseViewController.swift in Sources */,
 				554514A52250C08500C0F113 /* DWZNavigationController.swift in Sources */,
 				551C87062340A015006325E7 /* String+Regular.swift in Sources */,
 				5516B9AA225AF7D4001F83C8 /* UIImage+Extensions.swift in Sources */,
+				55BDFB1123572C0600471CAF /* DWZComposeInputToolBar.swift in Sources */,
 				554514A92250C0F600C0F113 /* DWZHomeViewController.swift in Sources */,
 				5504F77E2338A98D003B87C4 /* DWZComposeMenuView.swift in Sources */,
 				5516B9AE225AF8BD001F83C8 /* DWZStatusCell.swift in Sources */,
 				554514D02250FF3500C0F113 /* UIButton+CZAddition.m in Sources */,
 				554514AB2250C10800C0F113 /* DWZMessageViewController.swift in Sources */,
+				55BDFB1523573F1F00471CAF /* DWZKeyboardCollectionViewCell.swift in Sources */,
 				554514D32250FF3500C0F113 /* NSString+CZHash.m in Sources */,
 				554514D22250FF3500C0F113 /* UIViewController+CZAddition.m in Sources */,
 				554514AF2250C12F00C0F113 /* DWZProfileViewController.swift in Sources */,
@@ -682,12 +700,14 @@
 				554514CF2250FF3500C0F113 /* NSString+CZPath.m in Sources */,
 				5516B9B2225B2597001F83C8 /* DWZUser.swift in Sources */,
 				55D1140223517EDA00B7A84B /* ViewController.swift in Sources */,
+				55BDFB13235733E200471CAF /* DWZCollectionViewLayout.swift in Sources */,
 				554514CA2250FF3500C0F113 /* UIColor+CZAddition.m in Sources */,
 				5516B9B4225B4650001F83C8 /* UIImageView+SDWebImage.swift in Sources */,
 				55EBB5C22341F3CB00C86624 /* DWZEmoticonPackage.swift in Sources */,
 				5516B9B0225B1F98001F83C8 /* DWZStatusViewModel.swift in Sources */,
 				55C4FD8B22548F1D00691B25 /* DWZStatus.swift in Sources */,
 				551EF8472259EFE400C9B9B4 /* DWZWelcomeView.swift in Sources */,
+				55BDFB0F23572BE600471CAF /* DWZComposeInputView.swift in Sources */,
 				55C4FD892254734500691B25 /* DWZNetworkManager+Extension.swift in Sources */,
 				551FA916225599B2007AA28F /* DWZOAuthViewController.swift in Sources */,
 				554514CB2250FF3500C0F113 /* UIView+CZAddition.m in Sources */,

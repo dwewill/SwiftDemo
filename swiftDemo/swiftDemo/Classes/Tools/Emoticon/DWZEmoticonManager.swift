@@ -16,6 +16,9 @@ class DWZEmoticonManager {
     /// 懒加载表情包数据
     lazy var packages = [DWZEmoticonPackage]()
     
+    /// 表情数据bundle
+    lazy var bundle:Bundle = Bundle(path: Bundle.main.path(forResource: "HMEmoticon.bundle", ofType: nil)!)!
+    
     /// 加private 防止自动创建对象
     private init() {
         loadPackage()
@@ -47,7 +50,6 @@ extension DWZEmoticonManager {
             let em = DWZEmoticonManager.shared.matchStringWithEmotion(string: sub)
             let att = em?.imageText(font: font) ?? NSAttributedString(string: "")
             attributed.replaceCharacters(in: r, with: att)
-            print(attributed)
         }
         /// 设置富文本字体属性，使得计算文字的宽高的时候使用这些属性，不然会出现宽高不对的问题
         attributed.addAttributes([NSAttributedString.Key.font: font], range: NSRange(location: 0, length: attributed.length))
@@ -90,6 +92,5 @@ extension DWZEmoticonManager {
         }
         packages += models
 
-        print(packages)
     }
 }

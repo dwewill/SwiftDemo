@@ -19,8 +19,24 @@ class DWZEmoticon: NSObject {
     /// 表情类型类型，默认是false，emoji是true
     @objc var type: Bool = false
     
+    /// emoji
+    @objc var emoji: String?
+    
     /// emoji的s16进制编码
-    @objc var code: String?
+    @objc var code: String? {
+        didSet {
+            guard let code = code else {
+                return
+            }
+            let scanner = Scanner(string: code)
+            var result: UInt32 = 0
+            scanner.scanHexInt32(&result)
+            guard let unicodeScalar = UnicodeScalar(result) else {
+                return
+            }
+            emoji = String(Character(unicodeScalar))
+        }
+    }
     
     @objc var directory: String? {
         didSet {
@@ -45,12 +61,15 @@ class DWZEmoticon: NSObject {
         guard let image = image else {
             return NSAttributedString(string: "")
         }
-        let attachment = NSTextAttachment()
+        let attachment = DWZEmoticonAttahment()
+        attachment.chs = chs
         attachment.image = image
         let height = font.lineHeight
         /// 调整图片位置
         attachment.bounds = CGRect(x: 0, y: -4, width: height, height: height)
-        return NSAttributedString(attachment: attachment)
+        let attributed = NSMutableAttributedString(attachment: attachment)
+        attributed.addAttributes([NSAttributedString.Key.font: font], range: NSRange(location: 0, length: attributed.length))
+        return attributed
     }
     
     /// 图片对象(也可以用计算属性,注释内容)
