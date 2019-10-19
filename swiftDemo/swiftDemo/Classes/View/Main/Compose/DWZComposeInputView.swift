@@ -28,6 +28,16 @@ class DWZComposeInputView: UIView {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    override func removeFromSuperview() {
+//        if #available(iOS 9.0, *) {
+//            keyBoardView.endInteractiveMovement()
+//        } else {
+//            // Fallback on earlier versions
+//            //            keyBoardView.
+//        }
+        super.removeFromSuperview()
+    }
 }
 
 extension DWZComposeInputView {
@@ -35,10 +45,15 @@ extension DWZComposeInputView {
         toolBarView.delegate = self
         addSubview(toolBarView)
         addSubview(keyBoardView)
+        if #available(iOS 10.0, *) {
+            keyBoardView.isPrefetchingEnabled = false
+        } else {
+            // Fallback on earlier versions
+        }
         keyBoardView.backgroundColor = .white
         keyBoardView.showsVerticalScrollIndicator = false
         keyBoardView.bounces = false
-        keyBoardView.isPagingEnabled = true
+//        keyBoardView.isPagingEnabled = true
         keyBoardView.register(DWZKeyboardCollectionViewCell.self, forCellWithReuseIdentifier: keyboardCellID)
         keyBoardView.dataSource = self
         keyBoardView.snp.makeConstraints { (make) in
@@ -47,7 +62,7 @@ extension DWZComposeInputView {
         }
         toolBarView.snp.makeConstraints { (make) in
             make.left.right.equalTo(self)
-            make.bottom.equalTo(self).offset(-10);
+            make.bottom.equalTo(self);
             make.height.equalTo(40)
         }
     }

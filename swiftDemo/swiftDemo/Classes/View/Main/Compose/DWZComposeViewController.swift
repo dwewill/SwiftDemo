@@ -135,6 +135,11 @@ extension DWZComposeViewController {
         
         /// 设置键盘视图，系统键盘弹出的时候inputView为nil
         textView.inputView = textView.inputView == nil ? composeInputView : nil
+//        // UIView
+//        let v = UIView()
+//        v.frame = CGRect(x: 0, y: 0, width: screenWidth, height: keyboardHeight)
+//        v.backgroundColor = .cyan
+//        textView.inputView = textView.inputView == nil ? v : nil
         /// 设置键盘视图要更新inputView
         textView.reloadInputViews()
     }

@@ -30,7 +30,10 @@ class DWZStatusListViewModel {
         
         let since_id = isPullUp ? 0 : statusList.first?.status.id ?? 0
         let max_id = !isPullUp ? 0 : statusList.last?.status.id ?? 0
-        DWZNetworkManager.shared.statusList(since_id: since_id, max_id: max_id) { (list, isSuccess) in
+        DWZStatusListDAL().loadStatus(since_id: since_id, max_id: max_id) { (list, isSuccess) in
+            
+//        }
+//        DWZNetworkManager.shared.statusList(since_id: since_id, max_id: max_id) { (list, isSuccess) in
             // 利用YYModel 字典转模型
             var array = [DWZStatusViewModel]()
             for dic in list ?? [] {

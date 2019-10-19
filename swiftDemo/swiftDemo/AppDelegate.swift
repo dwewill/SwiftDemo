@@ -94,7 +94,10 @@ extension AppDelegate {
     
     /// 异步加载表情包数据
     private func loadLocalData() {
-        DispatchQueue.main.async {
+//        DispatchQueue.main.async {
+//            let _ = DWZEmoticonManager.shared
+//        }
+        DispatchQueue.global().async {
             let _ = DWZEmoticonManager.shared
         }
     }
