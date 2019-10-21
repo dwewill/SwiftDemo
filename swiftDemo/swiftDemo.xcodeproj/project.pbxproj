@@ -53,6 +53,7 @@
 		5560328C233E07D400477B37 /* DWZComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5560328B233E07D400477B37 /* DWZComposeViewController.swift */; };
 		556E79412333174B006F3C76 /* DWZRefreshView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556E79402333174B006F3C76 /* DWZRefreshView.swift */; };
 		5573CBB02258F9B100B1435C /* DWZTitleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5573CBAF2258F9B100B1435C /* DWZTitleButton.swift */; };
+		55793C00235E0520006F300E /* DWZEmoticonTipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55793BFF235E0520006F300E /* DWZEmoticonTipView.swift */; };
 		55AF30C5235A0733004550FA /* DWZStatusListDAL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AF30C4235A0733004550FA /* DWZStatusListDAL.swift */; };
 		55AF30C7235A22C3004550FA /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AF30C6235A22C3004550FA /* Date+Extension.swift */; };
 		55AF5B4322539D0900A0AD6F /* main.json in Resources */ = {isa = PBXBuildFile; fileRef = 55AF5B4222539D0900A0AD6F /* main.json */; };
@@ -142,6 +143,7 @@
 		5560328B233E07D400477B37 /* DWZComposeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DWZComposeViewController.swift; sourceTree = "<group>"; };
 		556E79402333174B006F3C76 /* DWZRefreshView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DWZRefreshView.swift; sourceTree = "<group>"; };
 		5573CBAF2258F9B100B1435C /* DWZTitleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DWZTitleButton.swift; sourceTree = "<group>"; };
+		55793BFF235E0520006F300E /* DWZEmoticonTipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DWZEmoticonTipView.swift; sourceTree = "<group>"; };
 		55AF30C4235A0733004550FA /* DWZStatusListDAL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DWZStatusListDAL.swift; sourceTree = "<group>"; };
 		55AF30C6235A22C3004550FA /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		55AF5B4222539D0900A0AD6F /* main.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = main.json; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 				55BDFB1023572C0600471CAF /* DWZComposeInputToolBar.swift */,
 				55BDFB12235733E200471CAF /* DWZCollectionViewLayout.swift */,
 				55BDFB1423573F1F00471CAF /* DWZKeyboardCollectionViewCell.swift */,
+				55793BFF235E0520006F300E /* DWZEmoticonTipView.swift */,
 			);
 			path = Compose;
 			sourceTree = "<group>";
@@ -664,6 +667,7 @@
 				556E79412333174B006F3C76 /* DWZRefreshView.swift in Sources */,
 				55F4A7FC23069C9C00553CC5 /* DWZRefreshControl.swift in Sources */,
 				55E42039225C829A0068B16A /* DWZPictureView.swift in Sources */,
+				55793C00235E0520006F300E /* DWZEmoticonTipView.swift in Sources */,
 				554514CE2250FF3500C0F113 /* NSString+CZBase64.m in Sources */,
 				55C4FD8722545B2A00691B25 /* DWZNetworkManager.swift in Sources */,
 				5560328C233E07D400477B37 /* DWZComposeViewController.swift in Sources */,

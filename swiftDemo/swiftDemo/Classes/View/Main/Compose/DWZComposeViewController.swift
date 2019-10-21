@@ -26,6 +26,11 @@ class DWZComposeViewController: UIViewController {
     }()
     
     lazy var composeInputView: DWZComposeInputView = {
+//        let composeView = UIScrollView()
+//        composeView.frame = CGRect(x: 0, y: 0, width: screenWidth, height: keyboardHeight)
+//        composeView.backgroundColor = UIColor.cyan
+//        composeView.contentSize = CGSize(width: screenWidth*20, height: keyboardHeight)
+//        return composeView
         let composeView = DWZComposeInputView()
         composeView.frame = CGRect(x: 0, y: 0, width: screenWidth, height: keyboardHeight)
         composeView.emojiClickCallback = { [weak self] (emo:DWZEmoticon?) -> () in
@@ -128,10 +133,6 @@ extension DWZComposeViewController {
     
     /// 切换键盘视图的关键代码
     @objc private func emoticonKeyboard() {
-//        composeInputView.frame = CGRect(x: 0, y: 0, width: screenWidth, height: keyboardHeight)
-//        composeInputView.emojiClickCallback = { [weak self] (emo:DWZEmoticon?) -> () in
-//            self?.insertEmoji(emoji: emo)
-//        }
         
         /// 设置键盘视图，系统键盘弹出的时候inputView为nil
         textView.inputView = textView.inputView == nil ? composeInputView : nil

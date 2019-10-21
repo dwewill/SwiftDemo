@@ -53,7 +53,7 @@ extension DWZComposeInputView {
         keyBoardView.backgroundColor = .white
         keyBoardView.showsVerticalScrollIndicator = false
         keyBoardView.bounces = false
-//        keyBoardView.isPagingEnabled = true
+        keyBoardView.isPagingEnabled = true
         keyBoardView.register(DWZKeyboardCollectionViewCell.self, forCellWithReuseIdentifier: keyboardCellID)
         keyBoardView.dataSource = self
         keyBoardView.snp.makeConstraints { (make) in
