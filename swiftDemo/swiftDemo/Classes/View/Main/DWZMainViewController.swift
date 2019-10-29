@@ -44,6 +44,9 @@ class DWZMainViewController: UITabBarController {
             }
             let vc = cls.init()
             let nav = DWZNavigationController(rootViewController: vc)
+            
+            /// 让导航控制器强行更新约束，自动布局和动画一起会有奇怪的效果，在动画之前先更新约束，就不会有混合的效果
+            nav.view.layoutIfNeeded()
             self.present(nav, animated: true, completion: {
                 composeMenuView?.removeFromSuperview()
             })

@@ -10,12 +10,23 @@ import UIKit
 
 /// DWZComposeInputToolBar代理
 @objc protocol DWZComposeInputToolBarDelegate: NSObjectProtocol {
-    @objc optional func emojiKeyboardToolBarClick(index: Int)
+    @objc optional func emojiKeyboardToolBarClick(composeInputToolBar: DWZComposeInputToolBar, index: Int)
 }
 
 class DWZComposeInputToolBar: UIView {
-
+    
+    /// 代理
     weak var delegate: DWZComposeInputToolBarDelegate?
+    
+    /// 当前选择索引
+    var currentSelectdIndex: Int = 0 {
+        didSet {
+            for btn in subviews as? [UIButton] ?? [] {
+                btn.isSelected = false
+            }
+            (subviews[currentSelectdIndex] as? UIButton)?.isSelected = true
+        }
+    }
     
     init() {
         super.init(frame: CGRect.zero)
@@ -35,7 +46,7 @@ extension DWZComposeInputToolBar {
     /// - Parameter sender: 点击的按钮
     @objc func buttonClick(sender: UIButton) {
 //        print(sender.tag)
-        delegate?.emojiKeyboardToolBarClick?(index: sender.tag)
+        delegate?.emojiKeyboardToolBarClick?(composeInputToolBar: self, index: sender.tag)
     }
 }
 
@@ -49,7 +60,8 @@ extension DWZComposeInputToolBar {
         for (i,group) in DWZEmoticonManager.shared.packages.enumerated() {
             let btn = UIButton()
             btn.setTitle(group.groupName, for: .normal)
-            btn.setTitleColor(.orange, for: .normal)
+            btn.setTitleColor(.gray, for: .normal)
+            btn.setTitleColor(.orange, for: .selected)
             btn.tag = i
             btn.addTarget(self, action: #selector(buttonClick(sender:)), for: .touchUpInside)
 //            var image = UIImage(named: "")
@@ -58,6 +70,9 @@ extension DWZComposeInputToolBar {
 //            image = image?.resizableImage(withCapInsets: inset)
             btn.frame = CGRect(x: widthMargin+CGFloat(i)*(btnWidth+widthMargin), y: 5, width: btnWidth, height: btnHeight)
             addSubview(btn)
+            if i == 0 {
+                btn.isSelected = true
+            }
         }
     }
 }

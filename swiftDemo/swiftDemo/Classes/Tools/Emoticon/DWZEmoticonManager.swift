@@ -28,8 +28,6 @@ class DWZEmoticonManager {
 
 // MARK: - 字符串匹配等操作
 extension DWZEmoticonManager {
-    
-    
     /// 目标字符串中的emoticon匹配并且替换
     ///
     /// - Parameters:
@@ -92,5 +90,29 @@ extension DWZEmoticonManager {
         }
         packages += models
 
+    }
+}
+
+// MARK: - 插入表情排序
+extension DWZEmoticonManager {
+    
+    /// 插入emoji表情并排序
+    ///
+    /// - Parameter emoji: emoji
+    func insetEmojiInCurrent(emoji: DWZEmoticon) {
+        /// 表情次数加1
+        emoji.count += 1
+        /// 判断是否出现在最近表情数组中
+        if !packages[0].emoticons.contains(emoji) {
+            packages[0].emoticons.append(emoji)
+        }
+        /// 按照出现次数进行排序
+        packages[0].emoticons.sort {  $0.count > $1.count }
+        
+        /// 移除超过20个之后的emoji
+        if packages[0].emoticons.count > 20 {
+            
+            packages[0].emoticons.removeSubrange(20..<packages[0].emoticons.count)
+        }
     }
 }

@@ -19,6 +19,9 @@ class DWZEmoticon: NSObject {
     /// 表情类型类型，默认是false，emoji是true
     @objc var type: Bool = false
     
+    /// 表情计数
+    @objc var count: Int = 0
+    
     /// emoji
     @objc var emoji: String?
     
