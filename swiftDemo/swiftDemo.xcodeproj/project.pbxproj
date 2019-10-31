@@ -27,6 +27,11 @@
 		552410CC227A9890006AA8EA /* DWZNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552410CB227A9890006AA8EA /* DWZNavigationBar.swift */; };
 		552410F5227B3BDF006AA8EA /* DWZSQLiteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552410F3227B3BDE006AA8EA /* DWZSQLiteManager.swift */; };
 		552410F6227B3BDF006AA8EA /* status.sql in Resources */ = {isa = PBXBuildFile; fileRef = 552410F4227B3BDE006AA8EA /* status.sql */; };
+		55376F7B236AF21A00204428 /* HMPhotoBrowserController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55376F71236AF21A00204428 /* HMPhotoBrowserController.m */; };
+		55376F7C236AF21A00204428 /* HMPhotoViewerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55376F72236AF21A00204428 /* HMPhotoViewerController.m */; };
+		55376F7D236AF21A00204428 /* HMPhotoBrowserPhotos.m in Sources */ = {isa = PBXBuildFile; fileRef = 55376F73236AF21A00204428 /* HMPhotoBrowserPhotos.m */; };
+		55376F7E236AF21A00204428 /* HMPhotoProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 55376F74236AF21A00204428 /* HMPhotoProgressView.m */; };
+		55376F7F236AF21A00204428 /* HMPhotoBrowserAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 55376F79236AF21A00204428 /* HMPhotoBrowserAnimator.m */; };
 		554514792250A89C00C0F113 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554514782250A89C00C0F113 /* AppDelegate.swift */; };
 		554514802250A89D00C0F113 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5545147F2250A89D00C0F113 /* Assets.xcassets */; };
 		554514A32250C04700C0F113 /* DWZMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554514A22250C04700C0F113 /* DWZMainViewController.swift */; };
@@ -101,6 +106,16 @@
 		552410CB227A9890006AA8EA /* DWZNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DWZNavigationBar.swift; sourceTree = "<group>"; };
 		552410F3227B3BDE006AA8EA /* DWZSQLiteManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DWZSQLiteManager.swift; sourceTree = "<group>"; };
 		552410F4227B3BDE006AA8EA /* status.sql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = status.sql; sourceTree = "<group>"; };
+		55376F71236AF21A00204428 /* HMPhotoBrowserController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMPhotoBrowserController.m; sourceTree = "<group>"; };
+		55376F72236AF21A00204428 /* HMPhotoViewerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMPhotoViewerController.m; sourceTree = "<group>"; };
+		55376F73236AF21A00204428 /* HMPhotoBrowserPhotos.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMPhotoBrowserPhotos.m; sourceTree = "<group>"; };
+		55376F74236AF21A00204428 /* HMPhotoProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMPhotoProgressView.m; sourceTree = "<group>"; };
+		55376F75236AF21A00204428 /* HMPhotoBrowserAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMPhotoBrowserAnimator.h; sourceTree = "<group>"; };
+		55376F76236AF21A00204428 /* HMPhotoBrowserController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMPhotoBrowserController.h; sourceTree = "<group>"; };
+		55376F77236AF21A00204428 /* HMPhotoViewerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMPhotoViewerController.h; sourceTree = "<group>"; };
+		55376F78236AF21A00204428 /* HMPhotoBrowserPhotos.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMPhotoBrowserPhotos.h; sourceTree = "<group>"; };
+		55376F79236AF21A00204428 /* HMPhotoBrowserAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMPhotoBrowserAnimator.m; sourceTree = "<group>"; };
+		55376F7A236AF21A00204428 /* HMPhotoProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMPhotoProgressView.h; sourceTree = "<group>"; };
 		554514752250A89C00C0F113 /* swiftDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = swiftDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		554514782250A89C00C0F113 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5545147F2250A89D00C0F113 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -269,6 +284,23 @@
 			path = SQLite;
 			sourceTree = "<group>";
 		};
+		55376F70236AF21A00204428 /* PhotoBrowser */ = {
+			isa = PBXGroup;
+			children = (
+				55376F71236AF21A00204428 /* HMPhotoBrowserController.m */,
+				55376F72236AF21A00204428 /* HMPhotoViewerController.m */,
+				55376F73236AF21A00204428 /* HMPhotoBrowserPhotos.m */,
+				55376F74236AF21A00204428 /* HMPhotoProgressView.m */,
+				55376F75236AF21A00204428 /* HMPhotoBrowserAnimator.h */,
+				55376F76236AF21A00204428 /* HMPhotoBrowserController.h */,
+				55376F77236AF21A00204428 /* HMPhotoViewerController.h */,
+				55376F78236AF21A00204428 /* HMPhotoBrowserPhotos.h */,
+				55376F79236AF21A00204428 /* HMPhotoBrowserAnimator.m */,
+				55376F7A236AF21A00204428 /* HMPhotoProgressView.h */,
+			);
+			path = PhotoBrowser;
+			sourceTree = "<group>";
+		};
 		5545146C2250A89C00C0F113 = {
 			isa = PBXGroup;
 			children = (
@@ -323,6 +355,7 @@
 		5545149A2250BF3D00C0F113 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				55376F70236AF21A00204428 /* PhotoBrowser */,
 				55D01234235487910031BD82 /* FFLabel */,
 				55EBB5B62341E78800C86624 /* Emoticon */,
 				55F4A7FA23069C7300553CC5 /* DWZRefreshControl */,
@@ -659,6 +692,7 @@
 			files = (
 				5519C0B82251CEDF0003B265 /* UIBarButtonItem+Extension.swift in Sources */,
 				55C0CBD02339C28B00223ADE /* DWZComposeMenuButton.swift in Sources */,
+				55376F7D236AF21A00204428 /* HMPhotoBrowserPhotos.m in Sources */,
 				551FA9192255EF12007AA28F /* DWZUserModel.swift in Sources */,
 				55D012382354902E0031BD82 /* DWZWebViewController.swift in Sources */,
 				5573CBB02258F9B100B1435C /* DWZTitleButton.swift in Sources */,
@@ -685,10 +719,12 @@
 				55AF30C5235A0733004550FA /* DWZStatusListDAL.swift in Sources */,
 				55EBB5BE2341E88100C86624 /* DWZEmoticonManager.swift in Sources */,
 				552410F5227B3BDF006AA8EA /* DWZSQLiteManager.swift in Sources */,
+				55376F7E236AF21A00204428 /* HMPhotoProgressView.m in Sources */,
 				55C5B511235892D100644339 /* DWZEmoticonAttahment.swift in Sources */,
 				554514A72250C0B000C0F113 /* DWZBaseViewController.swift in Sources */,
 				554514A52250C08500C0F113 /* DWZNavigationController.swift in Sources */,
 				551C87062340A015006325E7 /* String+Regular.swift in Sources */,
+				55376F7F236AF21A00204428 /* HMPhotoBrowserAnimator.m in Sources */,
 				5516B9AA225AF7D4001F83C8 /* UIImage+Extensions.swift in Sources */,
 				55BDFB1123572C0600471CAF /* DWZComposeInputToolBar.swift in Sources */,
 				554514A92250C0F600C0F113 /* DWZHomeViewController.swift in Sources */,
@@ -706,9 +742,11 @@
 				554514A32250C04700C0F113 /* DWZMainViewController.swift in Sources */,
 				554F90F02334D1DF007A6586 /* DWZMTRefreshView.swift in Sources */,
 				55E42035225C2B550068B16A /* DWZStatusToolBar.swift in Sources */,
+				55376F7B236AF21A00204428 /* HMPhotoBrowserController.m in Sources */,
 				554514CD2250FF3500C0F113 /* UILabel+CZAddition.m in Sources */,
 				551733FF225CCA0500A6ED0C /* DWZStatusRetweetView.swift in Sources */,
 				551EF8492259EFFD00C9B9B4 /* DWZNewFeatureView.swift in Sources */,
+				55376F7C236AF21A00204428 /* HMPhotoViewerController.m in Sources */,
 				554514CF2250FF3500C0F113 /* NSString+CZPath.m in Sources */,
 				5516B9B2225B2597001F83C8 /* DWZUser.swift in Sources */,
 				55D1140223517EDA00B7A84B /* ViewController.swift in Sources */,

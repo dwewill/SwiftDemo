@@ -8,3 +8,4 @@
 
 // 桥接文件，专门引入OC头文件
 #import "CZAdditions.h"
+#import "HMPhotoBrowserController.h"
