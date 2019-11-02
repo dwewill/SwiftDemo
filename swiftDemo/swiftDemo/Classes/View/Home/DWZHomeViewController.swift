@@ -15,6 +15,24 @@ class DWZHomeViewController: DWZBaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(statusImageViewClick), name: NSNotification.Name(DWZStatusImageViewClickNotification), object: nil)
+    }
+    
+    
+    /// 收到微博图片点击通知调用的方法
+    @objc func statusImageViewClick(notification: Notification) {
+        guard let dic = notification.object as? [String: Any],
+            let index = dic["selectIndex"],
+            let urls = dic["urls"] as? [String],
+            let imageViews = dic["imageViews"] as? [UIImageView] else {
+                return
+        }
+        let vc = HMPhotoBrowserController.photoBrowser(withSelectedIndex: index as! Int, urls: urls, parentImageViews: imageViews)
+        present(vc, animated: true, completion: nil)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
     
     @objc fileprivate func showFriends() {

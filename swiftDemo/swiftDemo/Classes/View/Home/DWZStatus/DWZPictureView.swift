@@ -39,6 +39,37 @@ class DWZPictureView: UIView {
         
     }
     
+    
+    /// 点击图片触发的方法
+    ///
+    /// - Parameter tap: 触发事件
+    @objc func imageViewClick(tap: UITapGestureRecognizer) {
+        guard let imageView = tap.view,
+            let urls = (pic_urls as NSArray?)?.value(forKeyPath: "thumbnail_pic") as? [String] else {
+            return
+        }
+        
+        // 判断四张图的索引大于1的情况
+        var selectIndex = imageView.tag
+        if urls.count == 4 && selectIndex > 1 {
+            selectIndex -= 1
+        }
+        
+        var imageViews: [UIImageView] = [UIImageView]()
+        
+        for iv in subviews as? [UIImageView] ?? [] {
+            if !iv.isHidden {
+                imageViews.append(iv)
+            }
+        }
+        
+        let dic: [String: Any] = ["selectIndex": selectIndex,
+                   "urls":urls,
+                   "imageViews":imageViews]
+        // 发送通知
+        NotificationCenter.default.post(name: NSNotification.Name(DWZStatusImageViewClickNotification), object: dic)
+    }
+    
     var pic_urls: [DWZStatusPicture]? {
         didSet {
             for view in subviews {
@@ -75,7 +106,13 @@ extension DWZPictureView {
         let pictureHeight = (screenWidth - 2*12 - 2*3)/3
         for i in 0..<9 {
             let imageView = UIImageView(frame: CGRect(x: CGFloat(Int(i%3))*(pictureHeight+DWZStatusPictureInnerMargin), y: CGFloat(Int(i/3))*(pictureHeight+DWZStatusPictureInnerMargin)+DWZStatusPictureOutterMargin, width: pictureHeight, height: pictureHeight))
+            imageView.tag = i
             addSubview(imageView)
+            
+            imageView.isUserInteractionEnabled = true
+            /// 增加手势
+            let tap = UITapGestureRecognizer(target: self, action: #selector(imageViewClick(tap:)))
+            imageView.addGestureRecognizer(tap)
         }
     }
 }

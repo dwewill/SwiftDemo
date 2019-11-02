@@ -21,6 +21,9 @@ let DWZUserShouldRegisterNotification = "DWZUserShouldRegisterNotification"
 // 用户登录成功通知
 let DWZUserLoginSuccessNotification = "DWZUserLoginSuccessNotification"
 
+// 用户点击微博图片通知
+let DWZStatusImageViewClickNotification = "DWZStatusImageViewClickNotification"
+
 // 配图视图的外部间距
 let DWZStatusPictureOutterMargin:CGFloat = 12
 
